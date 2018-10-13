@@ -32,13 +32,13 @@
             //注意不要忘记右方括号后面的逗号
             ["Chtholly Nota Seniorious",2.0],
             ["Willem Kmetsch",2.0],
-            ["Gilgamesh",0.9],
-            ["Haibara",0.6],
-            ["Kurisu",0.7],
-            ["Izumi Sagiri",0.6],
-            ["Hikigaya Hachiman",0.85],
-            ["Uiharu Kazari",2.0],//test!
-            ["Shokuh",2.0],//test!
+            //["Gilgamesh",0.9],
+            //["Haibara",0.6],
+            //["Kurisu",0.7],
+            //["Izumi Sagiri",0.6],
+            //["Hikigaya Hachiman",0.85],
+            //["Uiharu Kazari",2.0],//test!
+            //["Shokuh",2.0],//test!
         ],
 		//然后是需要给数字的比赛 
 		//根据世萌比赛规则，给的数字越小越支持该角色
