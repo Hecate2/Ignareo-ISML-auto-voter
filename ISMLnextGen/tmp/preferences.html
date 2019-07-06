@@ -1,0 +1,690 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>搜索设置</title>
+        <script type='text/javascript'>
+            (function () {var style;if (window.location.protocol==='https:') {style='<style>body{margin:8px 0 0 20px;padding:0;color:#000;background-color:#fff}form{margin:0}a{color:#261CDC}td{font-size:12px;line-height:18px}#top{margin-bottom:5px;}#ft{line-height:20px;background:#E6E6E6; width:98%;text-align:center;color:#77c;font:12px arial}#gxsz{margin:5px 0 0 15px;table-layout:fixed}#gxsz th{font-size:9pt;text-align:left}#t1{padding:2px 0 0 0;table-layout:fixed; margin: 15px 0 0 15px; }#lg{float:left;margin:0 0 15px 0}#tl{height:20px;margin:0 0 0 151px;position:relative;top:22px;font-size:12px;padding:3px 0 0 7px}#gxszHead{width:100%; line-height:24px;font-size:12px; height:24px; clear:both; }#gxszHead strong,#gjssHead strong{font-size:14px; margin:0 10px 0 0}#gxszButton{margin:15px 0 30px 465px;}</style>'} else {style='<style>body{margin:8px 0 0 20px;padding:0;color:#000;background-color:#fff}form{margin:0}a{color:#261CDC}td{font-size:12px;line-height:18px}#top{margin-bottom:5px;}#ft{line-height:20px;background:#E6E6E6; width:98%;text-align:center;color:#77c;font:12px arial}#gxsz{margin:5px 0 0 15px;table-layout:fixed}#gxsz th{font-size:9pt;text-align:left}#t1{padding:2px 0 0 0;table-layout:fixed; margin: 15px 0 0 15px; }#lg{float:left;margin:0 0 15px 0}#tl{height:20px;margin:0 0 0 151px;position:relative;top:22px;font-size:12px;padding:3px 0 0 7px}#gxszHead{width:100%; line-height:24px;font-size:12px; height:24px; clear:both; }#gxszHead strong,#gjssHead strong{font-size:14px; margin:0 10px 0 0}#gxszButton{margin:15px 0 30px 465px;}</style>'}document.write(style)})();
+        </script>
+    </head>
+    
+    <body>
+        <div id="lg"><a href="//www.baidu.com/"><img src="//www.baidu.com/img/logo-yy.gif" border="0" width="137" height="46"></a>
+        </div>
+        <div id="tl"><span style="float:right;margin:1px 24px"><a href="//help.baidu.com/question">帮助中心</a> | <a href="//www.baidu.com">返回首页</a></span>
+        </div>
+        <div id="gxszHead">
+            <div style="margin: 0 24px 0 0; background:#e5ebf9;padding:0 0 0 15px;"><strong>搜索设置</strong>请先确认您的浏览器启用了 cookie，否则无法使用搜索设置</div>
+        </div>
+        <form name="f2">
+            <table width="98%" border="0" cellpadding="2" cellspacing="0" id="gxsz">
+                <tr id="sugConf">
+                    <th width="140">搜索框提示</th>
+                    <td width="300">是否希望在搜索时显示搜索框提示</td>
+                    <td>
+                        <input type="radio" checked name="s1" id="s1_1">
+                        <label for="s1_1">显示</label>
+                        <input type="radio" name="s1" id="s1_2">
+                        <label for="s1_2">不显示</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th width="140">搜索语言范围</th>
+                    <td width="300">设定您所要搜索的网页内容的语言</td>
+                    <td>
+                        <input type="radio" name="SL" id="SL_0" value="0" checked>
+                        <label for="SL_0">全部语言</label>
+                        <input type="radio" name="SL" id="SL_1" value="1">
+                        <label for="SL_1">仅简体中文</label>
+                        <input type="radio" name="SL" id="SL_2" value="2">
+                        <label for="SL_2">仅繁体中文</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>搜索结果显示条数</th>
+                    <td>设定您希望搜索结果显示的条数</td>
+                    <td>
+                        <select name="NR" id="nr">
+                            <option value=10 selected>每页显示10条</option>
+                            <option value=20>每页显示20条</option>
+                            <option value=50>每页显示50条</option>
+                        </select>百度的原始设定10条最有效且快速</td>
+                </tr>
+                <tr>
+                    <th>输入法</th>
+                    <td>设定在百度搜索页面的输入法</td>
+                    <td>
+                        <select name="ime" id="ime">
+                            <option value="1">手写</option>
+                            <option value="2">拼音</option>
+                            <option value="0" selected>关闭</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>实时预测功能</th>
+                    <td>是否希望在您输入时实时展现搜索结果</td>
+                    <td>
+                        <select name="issw1" id="issw1">
+                            <option value="0" selected>开启</option>
+                            <option value="2">关闭</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr id="sugStoreConf">
+                    <th>搜索历史记录<span style="position:relative;top:-19px;left:2px;display:inline-block;"><img src="//www.baidu.com/gaoji/img/new.png" border="0" style="position:absolute;"></th>
+
+    <td>是否希望在搜索时显示您的搜索历史</td>
+
+    <td><input type="radio" checked name="sh" id="sh_1"> <label for="sh_1">显示</label> <input type="radio" name="sh" id="sh_2"> <label for="sh_2">不显示</label></td>
+
+</tr>
+
+</table>
+
+<input type="hidden" name="SU">
+
+<div id="gxszButton"><input type="button" id="save" value="保存设置"><input type="button" id="restore" value="恢复默认"></div>
+
+</form>
+
+<div id="ft">&copy;2018 Baidu</div>
+
+</body>
+
+<script>
+
+    if(location.protocol=='https:'){
+
+        document.write('<script type="text/javascript" src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_f2fb5194.js"></'+'script>');
+
+    }else{
+
+        document.write('<script type="text/javascript" src="http://s1.bdstatic.com/r/www/cache/static/jquery/jquery-1.10.2.min_f2fb5194.js"></'+'script>');
+
+    }
+
+</script>
+
+<script> 
+
+(function(){
+
+    var Cookie = { 
+
+        set: function(name, value, domain, path, expires,not_escape){
+
+            document.cookie = name + "=" + (not_escape?value:escape(value)) +
+
+            ((expires) ? "; expires=" + expires.toGMTString() : "") +
+
+            ((path) ? "; path=" + path : "; path=/") +
+
+            ((domain) ? "; domain=" + domain : "");
+
+        },  
+
+        // 取cookie
+
+        get: function(name,_default){
+
+            var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+
+            if (arr != null) {
+
+                return unescape(arr[2]);
+
+            }   
+
+            return _default;
+
+        },  
+
+        // 清除cookie
+
+        clear: function(name, path, domain){
+
+            if (this.get(name)) {
+
+                document.cookie = name + "=" +
+
+                ((path) ? "; path=" + path : "; path=/") +
+
+                ((domain) ? "; domain=" + domain : "") +
+
+                ";expires=Fri, 02-Jan-1970 00:00:00 GMT";
+
+            }   
+
+        }   
+
+    };
+
+
+
+    var defaultOptions={
+
+        sugSet:1,
+
+        sugStoreSet:1,
+
+        isSwitch:1,
+
+        imeSwitch:0,
+
+        resultNum:10,
+
+        resultLang:0
+
+    },
+
+    options={},
+
+    tmpName;
+
+    //var expire = new Date();expire.setTime(expire.getTime()+86400000);
+
+    var expire30y = new Date();expire30y.setTime(expire30y.getTime()+30*365*86400000);
+
+    //document.cookie = "ORIGIN=" + issw1 + ";expires="+d2.toGMTString();
+
+    //Cookie.set("ORIGIN",issw1,document.domain,'/',d2);
+
+    var personalData;
+
+    function init(data){
+
+        personalData=data;
+
+        if(personalData){
+
+            //暂时兼容，之后全部改成后者，wangpeng20
+
+            if(typeof personalData=='string'){
+
+                personalData= eval('('+personalData+')');
+
+            }
+
+            if(!personalData){
+
+                return;
+
+            }
+
+            for(tmpName in personalData){
+
+                if(defaultOptions.hasOwnProperty(tmpName) && personalData.hasOwnProperty(tmpName)){
+
+                    if(personalData[tmpName].ErrMsg=="SUCCESS"){
+
+                        options[tmpName]=personalData[tmpName].value;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        //options=$.extend(defaultOptions,options);
+
+        
+
+        writeCookie();
+
+        //get option from cookie
+
+
+
+        if(!("sugSet" in options)){
+
+            options.sugSet=(Cookie.get("sug",3)!=3?0:1);
+
+        }
+
+        if(!("sugStoreSet" in options)){
+
+            options.sugStoreSet=Cookie.get("sugstore",1);
+
+        }
+
+
+
+        var BAIDUID=Cookie.get("BAIDUID");
+
+        if(!("resultNum" in options)){
+
+            /NR=(\d+)/.test(BAIDUID);
+
+            options.resultNum=RegExp.$1?parseInt(RegExp.$1):10;
+
+        }
+
+        if(!("resultLang" in options)){
+
+            /SL=(\d+)/.test(BAIDUID);
+
+            options.resultLang=RegExp.$1?parseInt(RegExp.$1):0;
+
+        }
+
+        
+
+        if(!("isSwitch" in options)){
+
+            options.isSwitch=(Cookie.get("ORIGIN",0)==2?0:1);
+
+        }
+
+        if(!("imeSwitch" in options)){
+
+            options.imeSwitch=Cookie.get("bdime",0);
+
+        }
+
+    }
+
+    
+
+    try{
+
+        $.ajax({
+
+            dataType:"json",
+
+            success:function(personalData){
+
+                init(personalData);
+
+                init_form();
+
+            },
+
+            url:'//www.baidu.com/ups/data/gettips/?product=ps&tips='+encodeURIComponent('["sugSet","sugStoreSet","isSwitch","imeSwitch","resultNum","resultLang"]')
+
+        });
+
+    }catch(e){}
+
+    
+
+    
+
+
+
+    function save(callback){
+
+        var optionsStr=[];
+
+        for(tmpName in options){
+
+            if(options.hasOwnProperty(tmpName)){
+
+                optionsStr.push('"'+tmpName+'":"'+options[tmpName]+'"');
+
+            }
+
+        }
+
+        var str = '{'+optionsStr.join(",")+'}';
+
+        if(personalData){
+
+            $.ajax({
+
+                url:'//www.baidu.com/ups/submit/addtips/?product=ps&tips='+encodeURIComponent(str)+"&_r="+new Date().getTime(),
+
+                success:function(){
+
+                    writeCookie();
+
+                    if(typeof callback=='function'){
+
+                        callback();
+
+                    }
+
+                }
+
+            });
+
+        }else{
+
+            writeCookie();
+
+            if(typeof callback=='function'){
+
+                setTimeout(callback,0);
+
+            }
+
+        }
+
+    }
+
+    function set(optionName,value){
+
+        options[optionName]=value;
+
+    }
+
+    function get(optionName){
+
+        return options[optionName];
+
+    }
+
+    function writeCookie(){
+
+
+
+
+
+        /*domain not same ,ugly, history problem, wangpeng20*/
+
+        if(options.hasOwnProperty("sugSet")){
+
+            var value=options.sugSet=="0"?"0":"3";
+
+            clearCookie("sug");
+
+            Cookie.set("sug",value,document.domain,'/',expire30y);
+
+        }
+
+        if(options.hasOwnProperty("sugStoreSet")){
+
+            var value=options.sugStoreSet==0?"0":"1";
+
+            clearCookie("sugstore");
+
+            Cookie.set("sugstore",value,document.domain,'/',expire30y);
+
+        }
+
+        var BAIDUID=Cookie.get("BAIDUID"),NR,FG,SL;
+
+        if(/FG=(\d+)/.test(BAIDUID)){
+
+            FG=RegExp.$1;
+
+        }
+
+        if(/SL=(\d+)/.test(BAIDUID)){
+
+            SL=RegExp.$1;
+
+        }
+
+        if(/NR=(\d+)/.test(BAIDUID)){
+
+            NR=RegExp.$1;
+
+        }
+
+        if(options.hasOwnProperty("resultNum")){
+
+            NR=options.resultNum;
+
+        }
+
+        if(options.hasOwnProperty("resultLang")){
+
+            SL=options.resultLang;
+
+        }
+
+        Cookie.set("BAIDUID",BAIDUID.replace(/:.*$/,"")+
+
+                (typeof SL!='undefined'?":SL="+SL:"")+
+
+                (typeof NR!='undefined'?":NR="+NR:"")+
+
+                (typeof FG!='undefined'?":FG="+FG:"")
+
+                ,".baidu.com",'/',expire30y,true);
+
+        if(options.hasOwnProperty("isSwitch")){
+
+            var value=options.isSwitch==0?"2":"0";
+
+            clearCookie("ORIGIN");
+
+            Cookie.set("ORIGIN",value,document.domain,'/',expire30y);
+
+        }
+
+        if(options.hasOwnProperty("imeSwitch")){
+
+            var value=options.imeSwitch;
+
+            clearCookie("bdime");
+
+            Cookie.set("bdime",value,document.domain,'/',expire30y);
+
+        }
+
+    }
+
+    function clearCookie(name){
+
+        Cookie.clear(name,"/");
+
+        Cookie.clear(name,"/",document.domain);
+
+        Cookie.clear(name,"/","."+document.domain);
+
+        Cookie.clear(name,"/",".baidu.com");
+
+    }
+
+    function reset(callback){
+
+        options=defaultOptions;
+
+        save(callback);
+
+    }
+
+    function init_form(){
+
+
+
+        try{
+
+            var C2, f2 = document.f2, username, BDUSS;
+
+            
+
+            f2.SL[parseInt(UPS.get("resultLang"))].checked = true;
+
+
+
+            var json = {10:0, 20:1, 50:2};
+
+            f2.NR[json[parseInt(UPS.get("resultNum"))]].selected = true;
+
+            
+
+            f2.s1[UPS.get('sugSet')=="0"?1:0].checked="checked";
+
+            f2.sh[UPS.get('sugStoreSet')=="0"?1:0].checked="checked";
+
+            var imeSwitch=UPS.get('imeSwitch');
+
+            //pinyin ime maybe "21111"
+
+            imeSwitch=parseInt(imeSwitch.substr(0,1));
+
+
+
+            if(imeSwitch>0){
+
+                f2.ime[imeSwitch-1].selected=true;
+
+            }
+
+            f2.issw1[UPS.get('isSwitch')=="0"?1:0].selected=true;
+
+        }catch(e){}
+
+        $('#restore').on('click',function(){
+
+            log({lt : 7});
+
+            UPS.reset(function(){
+
+                alert("已经恢复默认设置");
+
+                redirect();
+
+            });
+
+            return false;
+
+        });
+
+        $('#save').on('click',function(){
+
+            UPS.set("sugSet",f2.s1[1].checked?0:1);
+
+            UPS.set("resultNum",f2.NR.value);
+
+            UPS.set("resultLang",gv(f2.SL));
+
+            UPS.set("isSwitch",f2.issw1.value==2?0:1);
+
+            UPS.set("imeSwitch",f2.ime.value);
+
+            UPS.set("sugStoreSet",(f2.sh[1].checked ? 0 : 1));
+
+            UPS.save(function(){
+
+                alert("已经记录下您的使用偏好");
+
+                redirect();
+
+            });
+
+            
+
+            log({lt : 6});
+
+            tmpLog();  // {update at: 2013-11-06}
+
+            return false;
+
+        });
+
+        function gv(o){
+
+            for(var i=0,n=o.length;i<n;i++){
+
+                if(o[i].checked){
+
+                    return o[i].value;break;
+
+                }
+
+            }
+
+        }
+
+        function redirect(){
+
+            if(!document.referrer){
+
+                location.href = '//www.baidu.com';
+
+            }else{
+
+                location.href=document.referrer;
+
+            }
+
+        }
+
+
+
+        function log(o){
+
+            /*
+
+            var data = ["pj=www","page=preferences","t=" + (+new Date())],
+
+        nsclickDomain = bds&&bds.util&&bds.util.domain ? bds.util.domain.get("http://nsclick.baidu.com") : "http://nsclick.baidu.com";
+
+            for(var key in o){
+
+                if(o.hasOwnProperty(key)){
+
+                    data.push(key + "=" + o[key]);
+
+                }
+
+            }
+
+            if(window.navigator.userAgent.indexOf("iPad") !== -1){ data.push("rsv_mobile=1"); }
+
+            var img = window['IMG' + (+new Date())] = new Image();
+
+            img.src = nsclickDomain + "/v.gif?pid=201&" + data.join("&");
+
+            */
+
+            return true;
+
+        }
+
+
+
+        // update at: 2013-11-06
+
+        function tmpLog() {
+
+            /*
+
+            var val = getById("nr").value,
+
+                img = window['IMG' + (+new Date())] = new Image();
+
+                
+
+            img.src = "http://fst.baidu.com/s.gif?type=nr&setrn=" + val;
+
+            */
+
+            return true;
+
+        }
+
+
+
+    };
+
+
+
+
+
+
+
+    window.UPS={
+
+        reset:reset,
+
+        get:get,
+
+        set:set,
+
+        save:save
+
+    };
+
+})();
+
+</script>
+
+</html>
