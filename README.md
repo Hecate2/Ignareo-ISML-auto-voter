@@ -1,4 +1,6 @@
 # ISML_auto_voter
+Python 3.6 √
+Python 3.7 ✘
 驱逐舰伊格那雷奥，用于世萌高速自动投票  
 Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/voting  
   
@@ -13,7 +15,7 @@ The structure of IGN can be applied for any saimoe voting and even more in princ
 However, **BE CAREFUL in case your operations may result in a CC attack!**  
   
 I have already developed an auto voter in the year 2018, using scrapy. Destroyer IGN, as a state-of-art, is re-designed for the future. 
-As a result, IGN has never encounted any real battle in ISML till now (July 6th, 2019).  
+As a result, IGN has never encountered any real battle in ISML till now (July 6th, 2019).  
 However, I do hope IGN no longer have to make contact with the wild saimoe opponents anymore.  
   
 ## How to use:  
