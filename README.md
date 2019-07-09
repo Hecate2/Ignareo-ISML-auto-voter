@@ -41,9 +41,9 @@ To deploy multiple processes of servers, change **portList** in Ammunition.py, I
 
 # **Acknowledgement**
 First of all, please allow me to extend my sincerest gratitude to  
-Chtholly Nota Seniorious  
+<font color=#0099ff>Chtholly Nota Seniorious</font>  
 and  
-Shino Asada,  
+<font color=DodgerBlue>Shino Asada</font>,  
 who always charge my will to conquer all the difficulties.  
   
 Thanks to my supporting group, which invested huge funds to give birth to the previous generations of auto voter programs.
