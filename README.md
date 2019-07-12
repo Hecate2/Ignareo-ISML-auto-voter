@@ -5,11 +5,16 @@ Python 3.7 ✘
 驱逐舰伊格那雷奥，用于世萌高速自动投票  
 Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/voting  
   
-**无论世萌，B萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**
+**无论世萌，B萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
   
+July 12nd, 2019: **It's quite intelligible that some of you do not believe the enormous scale of auto voting, or you may suspect the performance of my program. That's why I realease:**  
+**我知道有的人不相信萌战刷票有多恐怖，或者不相信我的程序投票的速度，所以又发射了这枚小核弹供吃瓜群众参考：**  
+https://github.com/Hecate2/ISML_auto_voter/releases/download/20190125/20190125x32187.PSWD.Rem00.7z  
+for your reference. As far as I know, the total number of votes in 24 hours should be at least hundreds of thousands, or millions. The maximum number is quite limited by the hardware of ISML, instead of voting programs.  
+  
 ## Brief introduction:  
-Screaming high concurrency! Light weight Convolutional Neural Network against captcha with 0.06 seconds per image on CPU! 
+Screaming high concurrency! Light weight Convolutional Neural Network! Against captcha within 0.06 seconds per image on CPU! 
 Easy for distributed deployment!  
   
 The structure of IGN can be applied for any saimoe voting and even more in principle. Using IGN for other purposes is also welcomed.  
