@@ -8,6 +8,9 @@ Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/
 **无论世萌，B萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
   
+July 19th, 2019: Welcome to the novel at /DestroyerIGN/CINT the Space Fleet Hecate2  
+欢迎阅读DestroyerIGN附赠的小说！  
+  
 July 12nd, 2019: **It's quite intelligible that some of you do not believe the enormous scale of auto voting, or you may suspect the performance of my program. That's why I realease:**  
 **我知道有的人不相信萌战刷票有多恐怖，或者不相信我的程序投票的速度，所以又发射了这枚小核弹供吃瓜群众参考：**  
 https://github.com/Hecate2/ISML_auto_voter/releases/download/20190125/20190125x32187.PSWD.Rem00.7z  
