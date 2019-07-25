@@ -1,6 +1,6 @@
-# ISML_auto_voter
-Python 3.6 √  
-Python 3.7 ✘  
+﻿# ISML_auto_voter
+Python 3.6 √  Python 3.7 ✘  
+https://github.com/Hecate2/ISML_auto_voter  
   
 驱逐舰伊格那雷奥，用于世萌高速自动投票  
 Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/voting  
