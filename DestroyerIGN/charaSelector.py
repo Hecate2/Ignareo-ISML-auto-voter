@@ -10,6 +10,7 @@ def selector(html,voting_token,vcode):
     select=[#设置二选一投票。写在前面的优先被满足
         ["Chtholly",2.0],#角色，投这个角色的概率(大于等于1就是必投)
         ["Willem",2.0],
+        ["Nephren",2.0],
         
         #["Kanna",0.15],
         #["Hikigaya",0.21],
@@ -43,7 +44,10 @@ def selector(html,voting_token,vcode):
     rank=[#设置给数字的投票
         #rank记录的是一条一条规则。程序会先随机发数字，然后尝试满足每条规则。
         #写在前面的规则绝对优先被满足。为此可以任意牺牲后面的规则
-        [1,"Willem","Togashi","Todoroki"],
+        ["Chtholly",1,0.4,3],
+        ["Nephren",1,0.4,3],
+        ["Willem",1,0.5,2],
+        #[1,"Willem","Togashi","Todoroki"],
         #[n,角色名，角色名，更多角色名……]
         #保证这个列表中前n个角色的数字严格比后面剩余所有角色的数字更好
         #而前n个角色内部，比较有可能是放在前面的比放在后面的好，但精确概率难以计算
@@ -58,9 +62,9 @@ def selector(html,voting_token,vcode):
     ]
     
     #selectDensity=random.random()*random.random()/3.0+0.7  #二选一的选择密度
-    selectDensity=0.75
+    selectDensity=0.8243
     #selectRate=random.random()*random.random()/5.0+4.0/5.0 #给一个新数字的概率
-    selectRate=0.87
+    selectRate=0.764
     
     #parser = AdvancedHTMLParser.AdvancedHTMLParser(filename="ISML 2018 Ruby Necklace.htm", encoding='utf-8')
     parser = AdvancedHTMLParser.AdvancedHTMLParser()
