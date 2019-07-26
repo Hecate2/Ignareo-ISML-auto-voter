@@ -49,8 +49,8 @@ async def localsession_get(url="https://2019.internationalsaimoe.com"):
 
 #f=open('./tmp.txt','a',encoding='utf-8')
 
+id=1
 class MainHandler(tornado.web.RequestHandler):
-    id=1
     def get(self):
         gc.collect()
         task=localsession_get()
@@ -75,7 +75,7 @@ class MainHandler(tornado.web.RequestHandler):
             #voter=Voter(None,worker_loop,localsession,id=self.id)
             #不使用代理，仅用于测试！
             voter.Launch()
-            self.id+=1
+            id+=1
 
 ##def start_loop(loop):
 ##    #  运行事件循环， loop以参数的形式传递进来运行

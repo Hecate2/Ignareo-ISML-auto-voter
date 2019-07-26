@@ -1,5 +1,6 @@
 #coding:utf-8
-# 如果aiohttp连接超时，则会raise，但只是raise，不带错误信息
+#使用localsession获取验证码。
+#以这个模式启动Ignaleo时要确保localsession能在防火墙下访问世萌！
 
 import random
 #打码服务器列表:
@@ -314,7 +315,7 @@ class Voter:
         while 1:#while tries<重试上限:
         #目前验证码重试次数不设上限！
             tries+=1
-            raw_img=await self._get(
+            raw_img=await self._localget(
                 'https://2019.internationalsaimoe.com/captcha/%s/%s' % (self.voting_token, int(time.time() * 1000)),
                 timeout=captchaTimeoutConfig)
             img=Image.open(BytesIO(raw_img))
