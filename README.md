@@ -8,9 +8,6 @@ Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/
 **无论世萌，B萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
   
-July 25th, 2019: http://s.p.qq.com/pub/jump?d=AADzaEOi  
-qq部落萌，爱丽丝（刀剑神域）vs灰原哀（名侦探柯南）的RMB刷票大战火热进行中！运营黑幕！人性沦丧！欢迎大佬们开源各种高速刷票程序  
-  
 July 19th, 2019: Welcome to the novel at /DestroyerIGN/CINT the Space Fleet Hecate2  
 欢迎阅读DestroyerIGN附赠的小说！  
   
