@@ -154,7 +154,7 @@ class Voter:
         self.localsession=localsession
         self.id=id #用于标记这次投票是第几次
         #if proxy:
-        self.fingerprint=md5((proxy+'Hecate2'+str(time.time())).encode()).hexdigest()
+        self.fingerprint=md5((proxy+'Hecate2').encode()).hexdigest()
         #else:#仅用于测试！
         #    self.fingerprint=md5(('Hecate2'+str(time.time())).encode()).hexdigest()
         #    self.voting_token=sha256(('Hecate2'+str(time.time())).encode()).hexdigest()
@@ -186,7 +186,8 @@ class Voter:
 
                         if retries_count >= retries:
                             message='已连续错误%d次,放弃治疗'%(retries)
-                            print(self.id,self.proxy,message)
+                            #print(self.id,self.proxy,message)
+                            print(message)
                             #verbose and log.exception(message)
                             #verbose and print(message)
                             #raise RetryExhaustedError(
@@ -201,7 +202,8 @@ class Voter:
                             #          .format(err, func, retries_count, retries)
                             message= '出现错误:{}. 正在重试{}/{}'\
                                      .format(err, retries_count, retries)
-                            print(self.id,self.proxy,message)
+                            #print(self.id,self.proxy,message)
+                            print(message)
                             #verbose and log.warning(message)
                             #verbose and print(message)
                             await asyncio.sleep(cooldown)
@@ -213,7 +215,7 @@ class Voter:
     @retry(aiohttp.ClientError,asyncio.TimeoutError)
     async def _get(self, url, timeout=timeoutConfig):
         #自动判断get到的是文字还是图片,返回utf-8编码的文字或bytes类型图片
-        async with self.session.get(url,proxy=self.proxy,ssl=False,timeout=timeout) as response:
+        async with self.session.get(url,proxy=self.proxy,timeout=timeout) as response:
             #return await response.text()
             body=await response.read()
             #print(response.content_type)    #'text/html' 'image/png'
@@ -245,7 +247,7 @@ class Voter:
     async def _localget(self, url, timeout=captchaTimeoutConfig):
         #用本机ip去get！
         #自动判断get到的是文字还是图片,返回utf-8编码的文字或bytes类型图片
-        async with self.localsession.get(url,ssl=False,timeout=timeout) as response:
+        async with self.localsession.get(url,timeout=timeout) as response:
             #return await response.text()
             body=await response.read()
             #print(response.content_type)    #'text/html' 'image/png'
@@ -272,7 +274,7 @@ class Voter:
 
     @retry(aiohttp.ClientError,asyncio.TimeoutError)
     async def _post(self,url,data,timeout=timeoutConfig):
-        async with self.session.post(url,data=data,proxy=self.proxy,ssl=False,timeout=timeout) as response:
+        async with self.session.post(url,data=data,proxy=self.proxy,timeout=timeout) as response:
             text=await response.text()
             if (response.status<400):
                 return text
@@ -284,7 +286,7 @@ class Voter:
     #只能用于验证码post!只允许返回text!对于二进制内容会出错！
     @retry(aiohttp.ClientError,asyncio.TimeoutError)
     async def _localpost(self,url,data,timeout=timeoutConfig):
-        async with self.localsession.post(url,data=data,ssl=False,timeout=timeout) as response:
+        async with self.localsession.post(url,data=data,timeout=timeout,ssl=False) as response:
             text=await response.text()
             if (response.status<400 and text!='!'):
                 return text
@@ -299,6 +301,7 @@ class Voter:
             self.html=text
             self.voting_token=voting_token.group(1)
             self.startTime=time.time()
+            print(self.id,self.proxy,'进入ISML成功')
         else:
             print(self.id,self.proxy,'找不到voting_token')
             raise NoVotingToken
@@ -306,6 +309,7 @@ class Voter:
     #发指纹和打码可以并发执行
     async def PostFingerprint(self):#确保self.fingerprint在class初始化时已经生成！
         await self._post("https://2019.internationalsaimoe.com/security",data={'secure':self.fingerprint})
+        print(self.id,self.proxy,'发指纹成功')
         return('%d %s 发指纹成功'%(self.id,self.proxy))
 
     async def AIDeCaptcha(self):
@@ -338,8 +342,11 @@ class Voter:
         postdata=selector(self.html,self.voting_token,self.captcha)
         sleepTime=90-(time.time()-self.startTime)#消耗的时间减去90秒
         if(sleepTime>0):#还没到90秒
+            print(self.id,self.proxy,'开始等待%d秒'%(sleepTime))
             await asyncio.sleep(sleepTime)#坐等到90秒
+        print(self.id,self.proxy,'开始Submit')
         result=await self._post("https://2019.internationalsaimoe.com/voting/submit",data=postdata)
+        return result
 
     async def SaveHTML(self):#存票根
         text=await self._get('https://2019.internationalsaimoe.com/voting')
@@ -347,10 +354,12 @@ class Voter:
             f=open('./HTML/%s.html'%(self.captcha),'w',encoding=('utf-8'))
             f.write(text)
             f.close()
+            #print(self.id,self.proxy,'存票根成功')
             return('%d %s 存票根成功'%(self.id,self.proxy))
         except Exception:
             return('%d %s 由于硬盘原因，存票根失败，可能硬盘过载!!!!!'%(self.id,self.proxy))
 
+    #@retry(aiohttp.ClientError,asyncio.TimeoutError,retries=2)
     async def Vote(self):#跑完整个投票流程！建议由Launch函数启动
         try:
             await self.EnterISML()
@@ -358,18 +367,22 @@ class Voter:
             return('%d %s %s'%(self.id,self.proxy,'找不到voting_token'))
         except RetryExhausted:
             return('%d %s %s'%(self.id,self.proxy,'连续重试次数超限'))
+        except (aiohttp.ClientError,asyncio.TimeoutError):
+            return('%d %s %s'%(self.id,self.proxy,'代理可能失效，放弃治疗'))
         try:
-            #下面开始发指纹并且暂时不管它。识别验证码与发指纹并发执行
-            task=self.PostFingerprint()
-            future=asyncio.ensure_future(task,loop=self.loop)
-            #下面开始识别验证码任务。
+##            #下面开始发指纹并且暂时不管它。识别验证码与发指纹并发执行
+##            task=self.PostFingerprint()
+##            future=asyncio.ensure_future(task,loop=self.loop)
+##            #下面开始识别验证码任务。
+##            await self.AIDeCaptcha()
+##            #下面等发指纹任务完成（通常早就完成了）
+##            await future
+            await self.PostFingerprint()
             await self.AIDeCaptcha()
-            #下面等发指纹任务完成（通常早就完成了）
-            await future
             #下面坐等到90秒然后submit
             result=await self.Submit()
-            #下面应对验证码错误
-            while('Invalid' in result):#验证码错误
+            #下面应对验证码错误（重试1次）
+            if('Invalid' in result):#验证码错误
                 await self.AIDeCaptcha()
                 await self.Submit()
             #下面存票根
@@ -381,13 +394,15 @@ class Voter:
                 future=asyncio.ensure_future(task,loop=self.loop)
                 future.add_done_callback(functools.partial(printer))
                 return('%d %s %s'%(self.id,self.proxy,result))
-            if('expired' in result): #session expired
+            if('refresh' in result): #session expired等各种原因
                 print('%d %s %s %s'%(self.id,self.proxy,result,'开始重试整个投票流程'))
                 await self.Vote() #再来一次！
             #if('An entry' in result): #这个ip被抢先投票
             return('%d %s %s'%(self.id,self.proxy,result)) #结束投票
         except RetryExhausted:
             return('%d %s %s'%(self.id,self.proxy,'连续重试次数超限'))
+        except (aiohttp.ClientError,asyncio.TimeoutError):
+            return('%d %s %s'%(self.id,self.proxy,'代理可能失效，放弃治疗'))
 
     def Launch(self):
         vote=self.Vote()

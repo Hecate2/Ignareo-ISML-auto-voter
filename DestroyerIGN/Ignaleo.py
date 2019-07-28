@@ -49,8 +49,9 @@ async def localsession_get(url="https://2019.internationalsaimoe.com"):
 
 #f=open('./tmp.txt','a',encoding='utf-8')
 
-id=1
 class MainHandler(tornado.web.RequestHandler):
+    id=1
+    
     def get(self):
         gc.collect()
         task=localsession_get()
@@ -70,12 +71,13 @@ class MainHandler(tornado.web.RequestHandler):
         proxies=self.request.body.decode(encoding='utf-8').split('\r\n')
         self.write('收到POST')
         #print('收到POST\n',proxies)
+        print('Ignaleo: 收到POST')
         for proxy in proxies:
-            voter=Voter(proxy,worker_loop,localsession,id=self.id)
+            voter=Voter('http://'+proxy,worker_loop,localsession,id=self.id)
             #voter=Voter(None,worker_loop,localsession,id=self.id)
             #不使用代理，仅用于测试！
             voter.Launch()
-            id+=1
+            self.id+=1
 
 ##def start_loop(loop):
 ##    #  运行事件循环， loop以参数的形式传递进来运行
