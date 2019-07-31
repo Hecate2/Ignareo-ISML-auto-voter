@@ -8,10 +8,10 @@ Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/
 **无论世萌，B萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
   
+July 31th, 2019: 不会用圣剑的人不要瞎用！  
+  
 July 29th, 2019: >asyncio.ensure_future(self._post('httpc://chtholly.68',data=r'冰柠檬茶'.encode('三分糖')))  
-  
 July 28th, 2019: Nice to see no massive spamming votes yesterady.  
-  
 July 27th, 2019: **Best wishes for those who obey the rules!**  
   
 July 19th, 2019: Welcome to the novel at /DestroyerIGN/CINT the Space Fleet Hecate2  
