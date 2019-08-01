@@ -9,6 +9,8 @@ Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/
 **Voters of all lands, UNITE!**  
   
 July 31th, 2019: 不会用圣剑的人不要瞎用！  
+Thank you very much for fighting against all the bad civilizations in all kinds of saimoes!  
+See the **Tips** at the end of this *README* to camouflage yourself better and cast more effective votes!  
   
 July 29th, 2019: >asyncio.ensure_future(self._post('httpc://chtholly.68',data=r'冰柠檬茶'.encode('三分糖')))  
 July 28th, 2019: Nice to see no massive spamming votes yesterady.  
@@ -18,7 +20,7 @@ July 19th, 2019: Welcome to the novel at /DestroyerIGN/CINT the Space Fleet Heca
 欢迎阅读DestroyerIGN附赠的小说！  
   
 July 12nd, 2019: **It's quite intelligible that some of you do not believe the enormous scale of auto voting, or you may suspect the performance of my program. That's why I realease:**  
-**我知道有的人不相信萌战刷票有多恐怖，或者不相信我的程序投票的速度，所以又发射了这枚小核弹供吃瓜群众参考：**  
+**我知道有的人不相信萌战刷票有多恐怖，或者不相信我的程序投票的速度，所以又发射了这个供吃瓜群众参考：**  
 https://github.com/Hecate2/ISML_auto_voter/releases/download/20190125/20190125x32187.PSWD.Rem00.7z  
 for your reference. As far as I know, the total number of votes in 24 hours should be at least hundreds of thousands, or millions. The maximum number is quite limited by the hardware of ISML, instead of voting programs.  
   
@@ -53,7 +55,7 @@ To deploy multiple processes of servers, change **portList** in Ammunition.py, I
 ## Accessories: 
 **ISMLnextGen**, which contains some prototypes and basic code blocks, is the lab for my development of IGN.  
 
-# **Acknowledgement**
+# Acknowledgement
 First of all, please allow me to extend my sincerest gratitude to  
 <font color=#0099ff>Chtholly Nota Seniorious</font>  
 and  
@@ -68,3 +70,15 @@ which gives me the opportunity and an arena to practice on web spiders and other
 Perhaps saimoes in the future should give up deciding who is the most moe, and focus more on training programmers.  
 
 Thanks to some of my opponents in saimoe, who developed brilliant programs to inspire and spur on me.  
+  
+# Tips! Important for the most wealthy voters!
+0. Spamming **TOO MANY** votes is usually meaningless, except for burning your own $dollars, making difficulties for ISML operaters, and delaying the following matches.  
+1. Think before you cast billions of votes in a few minutes. If you really would like to spam, spread your votes to the whole 24 hours. Quick spamming are sure to be recognized by ISML operators.  
+2. Think twice if you want to challenge any character. You should disguise yourself very well, and you know you may get revenged.  
+3. ~~Think three times if you want to vote billions against characters favored by the operators of ISML.~~ Even if you don't leave any proof of spamming against a favored character, the justical operators have the right to ignore your votes!  
+4. Think four times if you want to challenge some super-rich supporting groups. The cost for employing programmers is just a piece of cake for them, since they have hundreds of thousands of budget for all kinds of saimoes! Well, that is not at all a large sum of money if everyone burns cash with IGN, but you should always assume that they have 1 mol (6.02×10^23) of money.   
+5. Think five times before you launch IGN, because IGN drains everyone's life and wealth. You are a human instead of a Leprechaun!  
+6. IGN is designed to create a nuclear balance and deprive the monopoly of some evil supporting groups. I don't mind your bombing them with IGN, but please **VOTE BY HAND**, and **DON'T spam irresponsibly with IGN** if you really intend to support me! Nobody gains real happiness through a nuclear war! If you really have to spam against the evil, think about all the factors carefully.  
+7. Vote **(by hand!)** for Chtholly Nota Seniorious if you really love her!  
+  
+Again: Thank you very much for fighting against all the bad civilizations in all kinds of saimoes!  
