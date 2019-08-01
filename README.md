@@ -81,4 +81,6 @@ Thanks to some of my opponents in saimoe, who developed brilliant programs to in
 6. IGN is designed to create a nuclear balance and deprive the monopoly of some evil supporting groups. I don't mind your bombing them with IGN, but please **VOTE BY HAND**, and **DON'T spam irresponsibly with IGN** if you really intend to support me! Nobody gains real happiness through a nuclear war! If you really have to spam against the evil, think about all the factors carefully.  
 7. Vote **(by hand!)** for Chtholly Nota Seniorious if you really love her!  
   
+Remember that: Nobody is with almighty justice. Nobody sees the end of war until death.  
+  
 Again: Thank you very much for fighting against all the bad civilizations in all kinds of saimoes!  
