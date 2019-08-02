@@ -9,6 +9,7 @@ Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/
 **Voters of all lands, UNITE!**  
  
 Aug. 2nd, 2019: Amused to hear the Ministry of Foreign Affairs of Syria has casted a vote! XD  
+1000k votes gogogo!  
   
 July 31th, 2019: 不会用圣剑的人不要瞎用！  
 Thank you very much for fighting against all the bad civilizations in all kinds of saimoes!  
