@@ -7,6 +7,8 @@ Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/
   
 **无论世萌，B萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
+ 
+Aug. 2nd, 2019: Amused to hear the Ministry of Foreign Affairs of Syria has casted a vote! XD  
   
 July 31th, 2019: 不会用圣剑的人不要瞎用！  
 Thank you very much for fighting against all the bad civilizations in all kinds of saimoes!  
