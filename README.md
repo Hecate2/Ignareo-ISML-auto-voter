@@ -8,6 +8,8 @@ Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/
 **无论世萌，B萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
   
+Aug. 7th, 2019: I'll not immediately update IGN for the necklace round.  
+  
 Aug. 5th, 2019: Hope a peaceful Necklace round (though that's almost impossible)  
   
 Aug. 4th, 2019: Still I thank all that contributed for Ch, Ne and Wi.  
@@ -78,6 +80,8 @@ which gives me the opportunity and an arena to practice on web spiders and other
 Perhaps saimoes in the future should give up deciding who is the most moe, and focus more on training programmers.  
 
 Thanks to some of my opponents in saimoe, who developed brilliant programs to inspire and spur on me.  
+  
+本程序很多方面为了便于部署、计算，降低硬件门槛，而牺牲了极限性能。谨代表珂朵莉和威廉练剑所发挥的最低水平！  
   
 # Tips! Important for the most wealthy voters!
 0. Spamming **TOO MANY** votes is usually meaningless, except for burning your own $dollars, making difficulties for ISML operaters, and delaying the following matches.  
