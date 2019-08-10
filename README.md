@@ -8,8 +8,9 @@ Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/
 **无论世萌，B萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
   
+Aug. 10th, 2019: ISML is being DDOS attacked at noontime. Hatred is burning.  
+
 Aug. 7th, 2019: I'll not immediately update IGN for the necklace round.  
-  
 Aug. 5th, 2019: Hope a peaceful Necklace round (though that's almost impossible)  
   
 Aug. 4th, 2019: Still I thank all that contributed for Ch, Ne and Wi.  
