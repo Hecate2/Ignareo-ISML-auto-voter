@@ -5,7 +5,7 @@ https://github.com/Hecate2/ISML_auto_voter
 驱逐舰伊格那雷奥，用于世萌高速自动投票  
 Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/voting  
   
-**无论世萌，B萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
+**无论世萌，B萌，部落萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
   
 Aug. 16th, 2019: I heard someone spammed billions(I don't know the exact quantity) in Topaz 1!  
