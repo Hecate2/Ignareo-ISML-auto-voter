@@ -11,6 +11,7 @@ Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/
 Aug. 16th, 2019: I heard someone spammed billions(I don't know the exact quantity) in Topaz 1!  
 ISML operators shall understand that cloudflare does not provide any protection against IGN, though my aiocfscrape hasn't been updated for the latest IUAM firewall.  
 And, stop spamming billions! You'll find it meaningless sonner or later.  
+Achtung! IGN can burn 180,000 proxies in an hour(50 proxies per second), at ease!
   
 Aug. 10th, 2019: ISML is being DDOS attacked at noontime. Hatred is burning.  
 
@@ -68,7 +69,7 @@ To control the network IO process of voting, or use IGN for other purposes, writ
 To deploy multiple processes of servers, change **portList** in Ammunition.py, Ignaleo.py and captchaServer.py.  
   
 ## Accessories: 
-**ISMLnextGen**, which contains some prototypes and basic code blocks, is the lab for my development of IGN.  
+**ISMLnextGen**, which contains some prototypes and basic code blocks, is the lab for the development of IGN.  
 
 # Acknowledgement
 First of all, please allow me to extend my sincerest gratitude to  
