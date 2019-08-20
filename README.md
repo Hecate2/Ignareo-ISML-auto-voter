@@ -8,6 +8,8 @@ Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/
 **无论世萌，B萌，部落萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
   
+Aug. 20th, 2019: I'm planning to spam a few thousands for Shino Asada.  
+  
 Aug. 16th, 2019: I heard someone spammed billions(I don't know the exact quantity) in Topaz 1!  
 ISML operators shall understand that cloudflare does not provide any protection against IGN, though my aiocfscrape hasn't been updated for the latest IUAM firewall.  
 And, stop spamming billions! You'll find it meaningless sonner or later.  
