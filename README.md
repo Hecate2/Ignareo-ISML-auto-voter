@@ -56,6 +56,8 @@ I have already developed an auto voter in the year 2018, using scrapy. Destroyer
 As a result, IGN has never encountered any real battle in ISML till now (July 6th, 2019).  
 However, I do hope IGN no longer have to make contact with the wild saimoe opponents anymore.  
   
+**Before you challenge a rich supporting group, you should always consider such a probable fact: though IGN can support 2500 to 5000 voters on your computer, your opponent has hundreds of machines, each can run 25 to 50 selenium browsers. Meanwhile, you can't afford the cost for proxies.**  
+  
 ## How to use:  
 In DestroyerIGN, start **captchaServer.py**, and then **Ignaleo.py**. 
 Finally, provide Destroyer Ignaleo with ammunition (proxy ips) by starting **Ammunition.py**.  
