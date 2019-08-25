@@ -94,6 +94,8 @@ Perhaps saimoes in the future should give up deciding who is the most moe, and f
 
 Thanks to some of my opponents in saimoe, who developed brilliant programs to inspire and spur on me.  
   
+Thanks to all the ***Chthollists*** who love Chtholly and SukaSuka.  
+  
 本程序很多方面为了便于部署、计算，降低硬件门槛，而牺牲了极限性能。谨代表珂朵莉和威廉练剑所发挥的最低水平！  
   
 # Tips! Important for the most wealthy voters!
