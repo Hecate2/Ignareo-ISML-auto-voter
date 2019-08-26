@@ -107,6 +107,7 @@ Thanks to all the ***Chthollists*** who love Chtholly and SukaSuka.
 5. Think five times before you launch IGN, because IGN drains everyone's life and wealth. You are a human instead of a Leprechaun!  
 6. IGN is designed to create a nuclear balance and deprive the monopoly of some evil supporting groups. I don't mind your bombing them with IGN, but please **VOTE BY HAND**, and **DON'T spam irresponsibly with IGN** if you really intend to support me! Nobody gains real happiness through a nuclear war! If you really have to spam against the evil, think about all the factors carefully.  
 7. Vote **(by hand!)** for Chtholly Nota Seniorious if you really love her!  
+8. 有钱请捐给世萌，不要捐给代理ip供应商或者大厨
   
 Remember that: Nobody is with almighty justice. Nobody sees the end of war until death.  
   
