@@ -55,8 +55,7 @@ The structure of IGN can be applied for any saimoe voting and even more in princ
 However, **BE CAREFUL in case your operations may result in a CC attack!**  
   
 I have already developed an auto voter in the year 2018, using scrapy. Destroyer IGN, as a state-of-art, is re-designed for the future. 
-As a result, IGN has never encountered any real battle in ISML till now (July 6th, 2019).  
-However, I do hope IGN no longer have to make contact with the wild saimoe opponents anymore.  
+As a result, IGN has never encountered any real battle in ISML till now (July 6th, 2019).   
   
 **Before you challenge a rich supporting group, you should always consider such a probable fact: though IGN can support 2500 to 5000 voters on your computer, your opponent has hundreds of machines, each can run 25 to 50 selenium browsers. Meanwhile, you can't afford the cost for proxies.**  
   
@@ -76,6 +75,7 @@ The captcha server receives POST from the main IO, and recognizes the letters an
 To change which characters to vote for, modify **charaSelector.py**.  
 To control the network IO process of voting, or use IGN for other purposes, write your own codes in **Voter.py**.  
 To deploy multiple processes of servers, change **portList** in Ammunition.py, Ignaleo.py and captchaServer.py.  
+To encounter Cloudflare IUAM firewall (Checking your browser before…), try to extract the JavaScript carefully, using **aiocfscrape.py**. The original version offered by https://github.com/pavlodvornikov/aiocfscrape have been disabled since Cloudflare changes the firewall very often. You may refer to all the resources from Github to bypass the firewall.   
   
 ## Accessories: 
 **ISMLnextGen**, which contains some prototypes and basic code blocks, is the lab for the development of IGN.  
@@ -109,7 +109,7 @@ Thanks to all the ***Chthollists*** who love Chtholly and SukaSuka.
 5. Think five times before you launch IGN, because IGN drains everyone's life and wealth. You are a human instead of a Leprechaun!  
 6. IGN is designed to create a nuclear balance and deprive the monopoly of some evil supporting groups. I don't mind your bombing them with IGN, but please **VOTE BY HAND**, and **DON'T spam irresponsibly with IGN** if you really intend to support me! Nobody gains real happiness through a nuclear war! If you really have to spam against the evil, think about all the factors carefully.  
 7. Vote **(by hand!)** for Chtholly Nota Seniorious if you really love her!  
-8. 有钱请捐给世萌，不要捐给代理ip供应商或者大厨
+8. 有钱请捐给世萌，不要捐给代理ip供应商或者大厨。Donate your billions of dollars to ISML instead of proxy suppliers! Never buy a spamming service from rich supporting groups!  
   
 Remember that: Nobody is with almighty justice. Nobody sees the end of war until death.  
   
