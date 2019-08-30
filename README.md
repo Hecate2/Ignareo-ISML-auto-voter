@@ -7,7 +7,8 @@ Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/
   
 **无论世萌，B萌，部落萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
-
+  
+Aug. 30th, 2019: Maglorは不幸だ~  
 Aug. 29th, 2019: Please stop DDOS!  
 Aug. 28th, 2019: Whiskey Tango Foxtrot?!  
   
