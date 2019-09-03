@@ -8,7 +8,9 @@ Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/
 **无论世萌，B萌，部落萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
   
-Sept. 1st, 2019: Thank Chtholly and ISML operators! isml.moe/voting is responding quite briskly today!  
+Sep. 3rd, 2019: 曾经我打萌战是为了活着，但萌战使我更加虚无。
+  
+Sep. 1st, 2019: Thank Chtholly and ISML operators! isml.moe/voting is responding quite briskly today!  
 Aug. 30th, 2019: I've improved IGN. The new file name is IgnaleoG.py. Currently I'm not in the mood of publishing the enhanced Carillon or using any type for spamming.  
 By the way, Maglorは不幸だ~  
   
