@@ -42,7 +42,7 @@ The captcha server receives POST from the main IO, and recognizes the letters an
 To change which characters to vote for, modify **charaSelector.py**.  
 To control the network IO process of voting, or use IGN for other purposes, write your own codes in **Voter.py**.  
 To deploy multiple processes of servers, change **portList** in Ammunition.py, Ignaleo.py and captchaServer.py.  
-To encounter Cloudflare IUAM firewall (Checking your browser before…), try to extract the JavaScript carefully, using **aiocfscrape.py**. The original version offered by https://github.com/pavlodvornikov/aiocfscrape have been disabled since Cloudflare changes the firewall very often. You may refer to all the resources from Github to bypass the firewall.   
+To tackle Cloudflare IUAM firewall (Checking your browser before…), try to extract the JavaScript carefully, using **aiocfscrape.py**. The original version offered by https://github.com/pavlodvornikov/aiocfscrape have been disabled since Cloudflare changes the firewall very often. You may refer to all the resources from Github to bypass the firewall.   
   
 ## Accessories: 
 **ISMLnextGen**, which contains some prototypes and basic code blocks, is the lab for the development of IGN.  
