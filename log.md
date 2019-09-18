@@ -38,9 +38,6 @@ July 29th, 2019: >asyncio.ensure_future(self._post('httpc://chtholly.68',data=r'
 July 28th, 2019: Nice to see no massive spamming votes yesterady.  
 July 27th, 2019: **Best wishes for those who obey the rules!**  
   
-July 19th, 2019: Welcome to the novel at /DestroyerIGN/CINT the Space Fleet Hecate2  
-欢迎阅读DestroyerIGN附赠的小说！  
-  
 July 12nd, 2019: **It's quite intelligible that some of you do not believe the enormous scale of auto voting, or you may suspect the performance of my program. That's why I realease:**  
 **我知道有的人不相信萌战刷票有多恐怖，或者不相信我的程序投票的速度，所以又发射了这个供吃瓜群众参考：**  
 https://github.com/Hecate2/ISML_auto_voter/releases/download/20190125/20190125x32187.PSWD.Rem00.7z  
