@@ -9,6 +9,8 @@ Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/
 **Voters of all lands, UNITE!**  
   
 Sep. 19th, 2019: Please do not start thousands of selenium browsers in a few seconds. They exhausts the output bandwidth of ISML.  
+Today I spammed no more than 130 votes after Misaka Mikoto asked me for a manual vote but I encountered 3 session expires in a row.  
+Please switch to latest technologies to save the hardware resources of ISML, which does good to everyone. I believe IGN causes no expired session even at 200 votes per minute. 
   
 Sep. 13th, 2019: >asyncio.ensure_future(self._post('httpc://chtholly.68',data=r'祝妖精仓库中秋快乐！'.encode('月饼')))  
 July 19th, 2019: Welcome to the novel (under GPL-3.0 license) at /DestroyerIGN/CINT the Space Fleet Hecate2  
