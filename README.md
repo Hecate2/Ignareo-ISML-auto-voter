@@ -9,6 +9,7 @@ Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/
 **Voters of all lands, UNITE!**  
   
 Sep. 25th, 2019: ISML, ありがとう。  
+**Contact me to apply for IgnaleoG.py. It can bypass Cloudflare IUAM fireawall, and utilize your proxies at a much higher efficiency.** Certainly I am not to offer it for free to the opponents of Chtholly.  
 
 Sep. 19th, 2019: Please do not start thousands of selenium browsers in a few seconds. They exhaust the output bandwidth of ISML.  
 Today I spammed no more than 130 votes after Misaka Mikoto asked me for a manual vote but I encountered 3 session expires in a row.  
