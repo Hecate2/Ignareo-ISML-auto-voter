@@ -9,7 +9,7 @@ Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/
 **Voters of all lands, UNITE!**  
   
 Sep. 25th, 2019: ISML, ありがとう。  
-**Contact me to apply for IgnaleoG.py. It can bypass Cloudflare IUAM fireawall, and utilize your proxies at a much higher efficiency.** Certainly I am not to offer it for free to the opponents of Chtholly.  
+**Contact me to apply for IgnaleoG.py. It can bypass Cloudflare IUAM fireawall, and utilize your proxies at a much higher efficiency.** Certainly I am not to offer it for free to the evil opponents of Chtholly.  
 
 Sep. 19th, 2019: Please do not start thousands of selenium browsers in a few seconds. They exhaust the output bandwidth of ISML.  
 Today I spammed no more than 130 votes after Misaka Mikoto asked me for a manual vote but I encountered 3 session expires in a row.  
@@ -73,6 +73,15 @@ Thanks to some of my opponents in saimoe, who developed brilliant programs to in
 Thanks to all the ***Chthollists*** who love Chtholly and SukaSuka.  
   
 本程序很多方面为了便于部署、计算，降低硬件门槛，而牺牲了极限性能。谨代表珂朵莉和威廉练剑所发挥的最低水平！  
+  
+# Tips! What if ISML responds very slowly?  
+First, please allow me to ascribe the reason dogmatically to spammers using pristine selenium wildly.  
+By running a miniature version of stress test involving a mixture of selenium, multi-thread spamming programs and IGN, I would like to give the following suggenstion:
+> **STOP USING IGN** when ISML is really slow. If you persist reloading IGN with ammunition very quickly, it can be extremely difficult for everyone (both humans and programs) to submit vote. I mwan **Neither bots nor humans can submit**! And ISML would receive very little votes for hours, until someone quit.  
+**But why?**  
+Well, selenium and multi-thread web spiders has a ***limited*** number of "**workers**" (the word may refer to either processes or threads), but the number of workers of IGN is ***almost unlimited***.  
+When the billions of requests launched by voting programs are not responded, the requests are certainly kept in the program, waiting. Exerting pressure on a server with limited "workers" can hardly lead to a Denial of Service, because they do not start new spamming attempts when all the workers have to wait. So most of the workers can receive their responses sooner or later. But IGN doesn't care about slow responses and keep raising more attempts. With the passage of time (perhaps within only a few minutes in actual battles), it is likely that IGN would own the absolute major portion of unresponded requests, which will be far more than what ISML can handle. The increase of unresponded requests, however, gives even more positive feedback to generating unhandled spamming attempts, since IGN does not care about the unresponded ones! Only the timeout and the failure of proxies can stop IGN from holding more requests.  
+> And do not assume yourself as the undisputed winner when you take up all the hardware resources of ISML with your ancient spamming programs. You can't exclude IGN at all, but you rile everyone.  
   
 # Tips! Important for the most wealthy voters!
 0. Spamming **TOO MANY** votes is usually meaningless, except for burning your own $dollars, making difficulties for ISML operaters, and delaying the following matches.  
