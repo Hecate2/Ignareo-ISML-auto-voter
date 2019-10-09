@@ -76,8 +76,9 @@ Thanks to all the ***Chthollists*** who love Chtholly and SukaSuka.
   
 # Tips! What if ISML responds very slowly?  
 First, please allow me to ascribe the reason dogmatically to spammers using pristine selenium wildly.  
-By running a miniature version of stress test involving a mixture of selenium, multi-thread spamming programs and IGN, I would like to give the following suggenstion:
-> **STOP USING IGN** when ISML is really slow. If you persist reloading IGN with ammunition very quickly, it can be extremely difficult for everyone (both humans and programs) to submit vote. I mwan **Neither bots nor humans can submit**! And ISML would receive very little votes for hours, until someone quit.  
+By running a miniature version of stress test involving a mixture of selenium, multi-thread spamming programs and IGN, I would like to give the following suggestion:
+> **STOP USING IGN** when ISML is really slow. If you persist reloading IGN with ammunition very quickly, it can be extremely difficult for everyone (both humans and programs) to submit vote. I mean **Neither bots nor humans can submit**! And ISML would receive very little votes for hours, until someone quit.  
+  
 **But why?**  
 Well, selenium and multi-thread web spiders has a ***limited*** number of "**workers**" (the word may refer to either processes or threads), but the number of workers of IGN is ***almost unlimited***.  
 When the billions of requests launched by voting programs are not responded, the requests are certainly kept in the program, waiting. Exerting pressure on a server with limited "workers" can hardly lead to a Denial of Service, because they do not start new spamming attempts when all the workers have to wait. So most of the workers can receive their responses sooner or later. But IGN doesn't care about slow responses and keep raising more attempts. With the passage of time (perhaps within only a few minutes in actual battles), it is likely that IGN would own the absolute major portion of unresponded requests, which will be far more than what ISML can handle. The increase of unresponded requests, however, gives even more positive feedback to generating unhandled spamming attempts, since IGN does not care about the unresponded ones! Only the timeout and the failure of proxies can stop IGN from holding more requests.  
