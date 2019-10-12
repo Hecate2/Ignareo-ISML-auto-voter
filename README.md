@@ -36,7 +36,7 @@ As a result, IGN has never encountered any real battle in ISML till now (July 6t
 **Before you challenge a rich supporting group, you should always consider such a probable fact: though IGN can support 2500 to 5000 voters on your computer, your opponent has hundreds of machines, each can run 25 to 50 selenium browsers. Meanwhile, you can't afford the cost for proxies.**  
   
 ## How to use:  
-In DestroyerIGN, start **captchaServer.py**, and then **Ignaleo.py**. 
+In DestroyerIGN, start **captchaServer.py**, and then **IgnaleoA.py**. 
 Finally, provide Destroyer Ignaleo with ammunition (proxy ips) by starting **Ammunition.py**.  
 **IGN does not open fire until you run Ammunition.py at last!**  
   
@@ -50,7 +50,7 @@ The captcha server receives POST from the main IO, and recognizes the letters an
   
 To change which characters to vote for, modify **charaSelector.py**.  
 To control the network IO process of voting, or use IGN for other purposes, write your own codes in **Voter.py**.  
-To deploy multiple processes of servers, change **portList** in Ammunition.py, Ignaleo.py and captchaServer.py.  
+To deploy multiple processes of servers, change **portList** in Ammunition.py, IgnaleoA.py and captchaServer.py.  
 To tackle Cloudflare IUAM firewall (Checking your browser before…), try to extract the JavaScript carefully, using **aiocfscrape.py**. The original version offered by https://github.com/pavlodvornikov/aiocfscrape have been disabled since Cloudflare changes the firewall very often. You may refer to all the resources from Github to bypass the firewall.   
   
 ## Accessories: 
