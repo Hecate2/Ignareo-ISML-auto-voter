@@ -12,6 +12,7 @@ Oct. 12th, 2019: *Ignaleo.py* will be **renamed** as ***IgnaleoA.py***. **The na
   
 Sep. 25th, 2019: ISML, ありがとう。  
 **Contact me to apply for IgnaleoG.py. It can bypass Cloudflare IUAM fireawall, and utilize your proxies at a much higher efficiency.** Certainly I am not to offer it for free to the evil opponents of Chtholly.  
+Civil use of IgnaleoG are welcomed! Just don't attack Chtholly in all kinds of saimoe events.  
 
 Sep. 19th, 2019: Please do not start thousands of selenium browsers in a few seconds. They exhaust the output bandwidth of ISML.  
 Today I spammed no more than 130 votes after Misaka Mikoto asked me for a manual vote but I encountered 3 session expires in a row.  
@@ -39,6 +40,8 @@ As a result, IGN has never encountered any real battle in ISML till now (July 6t
 In DestroyerIGN, start **captchaServer.py**, and then **IgnaleoA.py**. 
 Finally, provide Destroyer Ignaleo with ammunition (proxy ips) by starting **Ammunition.py**.  
 **IGN does not open fire until you run Ammunition.py at last!**  
+For civil use of Ignaleo, contact me to apply for **IgnaleoG**. IgnaleoA is not fully reliable when thousands of connections have to be handled in a single process, especially on Windows.  
+(I can't publish IgnaleoG at present because G probably leaves no way for ISML to make a living.)  
   
 ## The structure:  
 IGN is fabricated with 3 cascades:  
