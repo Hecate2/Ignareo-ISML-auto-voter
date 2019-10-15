@@ -61,7 +61,7 @@ To tackle Cloudflare IUAM firewall (Checking your browser before…), try to ext
 
 # Acknowledgement
 First of all, please allow me to extend my sincerest gratitude to  
-<font color=#0099ff>Chtholly Nota Seniorious</font>  
+<font color=#0099ff>Chtholly Nota Seniorious</font>, Tiat Siba Ignaleo, Ithea Myse Valgulious, Nephren Ruq Insania, 
 and  
 <font color=DodgerBlue>Shino Asada</font>,  
 who always charge my will to conquer all the difficulties.  
