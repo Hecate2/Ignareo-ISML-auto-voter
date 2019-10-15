@@ -8,63 +8,26 @@ import AdvancedHTMLParser
 
 def selector(html,voting_token,vcode):
     select=[#设置二选一投票。写在前面的优先被满足
-        ["Chtholly",2.0],#角色，投这个角色的概率(大于等于1就是必投)
+        #同时用于多人选多人的arena
+        ["Chtholly",2.0],#角色，投这个角色的概率(大于等于1就是必投)；设置整数-1表示放空这个角色所在的组，完全不投。放空也是有优先级的！
         ["Willem",2.0],
         ["Nephren",2.0],
-        
-        #["Kanna",0.15],
-        #["Hikigaya",0.21],
-
-        #["Tōru",0.06],
-        #["Illyasviel",0.02],
-        #["Gilgamesh",0.03],
-        #["Sakurajima",0.1],
-        #["Emilia",0.05],
-        #["Makise",0.06],#助手的对手是纱雾
-        #["Izumi Sagiri",0.06],
-        #["Alice",0.08],
-        #["Prohibitorum",0.05],#茵蒂克丝
-        
-        #["Minamoto Sakura",0.254],#源樱，佐贺偶像是传奇
-        #["Zero Two",0.524],
-        #["Takasu Ryūji",0.05],
-        #["Tachibana",0.041],#立花泷                       
-        #["Izawa",0.1],#井泽静江                         
-        #["Misaka",2.0],                                                 
-        #["Pikachu",0.5],                                   
-        #["Alice Zuberg",0.05],
-        #["Minamoto Momo",0.162],#源桃，月影特工，反击樱岛麻衣
-        #["Futaba Rio",0.035],
-        #["Yoroizuka Mizore",0.044],#铠冢霙
-        #["Megumin",0.05],
-        #["Rikka",2.0],
-        #["Kanna",0.8],
-        #["Rinne",0.5],
     ]
     rank=[#设置给数字的投票
+        #同时用于给分数的比赛
         #rank记录的是一条一条规则。程序会先随机发数字，然后尝试满足每条规则。
         #写在前面的规则绝对优先被满足。为此可以任意牺牲后面的规则
-        ["Chtholly",1,0.4,3],
-        ["Nephren",1,0.4,3],
-        ["Willem",1,0.5,2],
-        #[1,"Willem","Togashi","Todoroki"],
-        #[n,角色名，角色名，更多角色名……]
-        #保证这个列表中前n个角色的数字严格比后面剩余所有角色的数字更好
-        #而前n个角色内部，比较有可能是放在前面的比放在后面的好，但精确概率难以计算
-        #[1,"Makise","Shiro","Kanna"], 
-        #["Willem",1,0.7,7],
-        #["Kurisu",1,0.15,7],
-        #["Illya",4,0.066967,10],
-        #["Willem",1,0.5,2],
-        #["Gilgamesh",5,0.5,6],#角色名，愿意给的最好数字，概率，愿意给的最差数字
-        #["Willem",1,0.5,3],
-        #["Kurisu",1,0.5,3],
+        ["Chtholly",1,0.6,3],#角色名，愿意给的最好数字，概率，愿意给的最差数字
+        ["Nephren",1,0.6,3],
+        ["Willem",1,0.6,8],
     ]
     
-    #selectDensity=random.random()*random.random()/3.0+0.7  #二选一的选择密度
-    selectDensity=0.8243
-    #selectRate=random.random()*random.random()/5.0+4.0/5.0 #给一个新数字的概率
-    selectRate=0.764
+    selectDensity=random.random()*0.7+0.28  #二选一的选择密度，同时用于多人选多人的比赛（不含外卡赛）
+    #selectDensity=0.561
+    selectRate=random.random()*0.2+0.624 #给一个新数字的概率，同时用于给分数的比赛
+    #selectRate=0.764
+    wildcardDensity=random.random()*0.2+0.652 #多人选多人的外卡赛选择密度(越低越有利于要选的角色)
+    #每次都随机生成一个值可以有效扩大总体的方差
     
     #parser = AdvancedHTMLParser.AdvancedHTMLParser(filename="ISML 2018 Ruby Necklace.htm", encoding='utf-8')
     parser = AdvancedHTMLParser.AdvancedHTMLParser()
@@ -73,7 +36,7 @@ def selector(html,voting_token,vcode):
     #Tag=AdvancedHTMLParser.AdvancedTag()
     
     data={
-        'voting_token': voting_token,'captcha_token': '','timelimit': '90',
+        'voting_token': voting_token,'captcha_token': '','timelimit': '190',
     }
     
     arena=parser.getElementsByClassName("standard_voting_arena")
@@ -81,105 +44,182 @@ def selector(html,voting_token,vcode):
     #for arena in arenas:
     while(i<len(arena)):
         arenaToken=re.search(r"[0-9]\d*",arena[i].innerHTML).group()
-        count=int(re.findall(r'[0-9]\d*',arena[i].outerHTML)[5])
+        count=int(re.findall(r'[0-9]\d*',arena[i].outerHTML)[5]) #max[**] value=1,取出value的值
         #print(count)
         if(count==1):#二选一arena
-            data['min['+arenaToken+']']='1'
-            data['arena_num['+arenaToken+']']=arenaToken
-            data['max['+arenaToken+']']='1'
-            data['arena_token['+arenaToken+']']=arenaToken
+            data['min[%s]'%(arenaToken)]='1'
+            data['arena_num[%s]'%(arenaToken)]=arenaToken
+            data['max[%s]'%(arenaToken)]='1'
+            data['arena_token[%s]'%(arenaToken)]=arenaToken
 
             allowed=0
             j=0
             while(j<len(select)):
-                if(arena[i].children[5].textContent.find(select[j][0])>-1 and random.random()<select[j][1]):
-                    #按字典中的概率投票
-                    data['contestant['+arenaToken+'][0]']='0'
-                    data['contestant_vote['+arenaToken+'][0]']='1'
-                    data['contestant['+arenaToken+'][1]']='0'
-                    data['contestant_vote['+arenaToken+'][1]']='0'
-                    allowed=5
-                    break
+                if(arena[i].children[5].textContent.find(select[j][0])>-1):
+                    if(random.random()<select[j][1]):
+                        #按字典中的概率投票
+                        data['contestant[%s][0]'%(arenaToken)]='0'
+                        data['contestant_vote[%s][0]'%(arenaToken)]='1'
+                        data['contestant[%s][1]'%(arenaToken)]='0'
+                        data['contestant_vote[%s][1]'%(arenaToken)]='0'
+                        allowed=5
+                        break
+                    if(select[j][1]==-1):
+                        #放空这一组
+                        data['contestant[%s][0]'%(arenaToken)]='0'
+                        data['contestant_vote[%s][0]'%(arenaToken)]='0'
+                        data['contestant[%s][1]'%(arenaToken)]='0'
+                        data['contestant_vote[%s][1]'%(arenaToken)]='0'
+                        allowed=5
+                        break
                 j+=1
             j-=1
             while(j>=0):
-                if(arena[i].children[6].textContent.find(select[j][0])>-1 and random.random()<select[j][1]):
-                    #按字典中的概率投票
-                    data['contestant['+arenaToken+'][0]']='0'
-                    data['contestant_vote['+arenaToken+'][0]']='0'
-                    data['contestant['+arenaToken+'][1]']='0'
-                    data['contestant_vote['+arenaToken+'][1]']='1'
-                    allowed=6
-                    break
+                if(arena[i].children[6].textContent.find(select[j][0])>-1):
+                    if(random.random()<select[j][1]):
+                        #按字典中的概率投票
+                        data['contestant[%s][0]'%(arenaToken)]='0'
+                        data['contestant_vote[%s][0]'%(arenaToken)]='0'
+                        data['contestant[%s][1]'%(arenaToken)]='0'
+                        data['contestant_vote[%s][1]'%(arenaToken)]='1'
+                        allowed=6
+                        break
+                    if(select[j][1]==-1):
+                        #放空这一组
+                        data['contestant[%s][0]'%(arenaToken)]='0'
+                        data['contestant_vote[%s][0]'%(arenaToken)]='0'
+                        data['contestant[%s][1]'%(arenaToken)]='0'
+                        data['contestant_vote[%s][1]'%(arenaToken)]='0'
+                        allowed=6
+                        break
                 j-=1
             if(allowed!=5 and allowed!=6):
                 #随机投这个arena
                 rand=random.random()
                 if(rand<selectDensity/2.0):
-                    data['contestant['+arenaToken+'][0]']='0'
-                    data['contestant_vote['+arenaToken+'][0]']='1'
-                    data['contestant['+arenaToken+'][1]']='0'
-                    data['contestant_vote['+arenaToken+'][1]']='0'
+                    data['contestant[%s][0]'%(arenaToken)]='0'
+                    data['contestant_vote[%s][0]'%(arenaToken)]='1'
+                    data['contestant[%s][1]'%(arenaToken)]='0'
+                    data['contestant_vote[%s][1]'%(arenaToken)]='0'
                 elif(rand<selectDensity):
-                    data['contestant['+arenaToken+'][0]']='0'
-                    data['contestant_vote['+arenaToken+'][0]']='0'
-                    data['contestant['+arenaToken+'][1]']='0'
-                    data['contestant_vote['+arenaToken+'][1]']='1'
+                    data['contestant[%s][0]'%(arenaToken)]='0'
+                    data['contestant_vote[%s][0]'%(arenaToken)]='0'
+                    data['contestant[%s][1]'%(arenaToken)]='0'
+                    data['contestant_vote[%s][1]'%(arenaToken)]='1'
                 else:
-                    data['contestant['+arenaToken+'][0]']='0'
-                    data['contestant_vote['+arenaToken+'][0]']='0'
-                    data['contestant['+arenaToken+'][1]']='0'
-                    data['contestant_vote['+arenaToken+'][1]']='0'
-        elif(count==12):#单个角色给0到10分的赛制
-            data['min['+arenaToken+']']='1'
-            data['arena_num['+arenaToken+']']=arenaToken
-            data['max['+arenaToken+']']='12'
-            data['arena_token['+arenaToken+']']=arenaToken            
+                    data['contestant[%s][0]'%(arenaToken)]='0'
+                    data['contestant_vote[%s][0]'%(arenaToken)]='0'
+                    data['contestant[%s][1]'%(arenaToken)]='0'
+                    data['contestant_vote[%s][1]'%(arenaToken)]='0'
+        
+        #elif (count == 18):  # 18人选任意人数(2019 Aquamarine Necklace Wildcard)
+        #elif (count == 16):  # 16人选任意人数(2019 Topaz Necklace Wildcard)
+        elif (count == 14):  # 14人选任意人数(2019 Amethyst Necklace Wildcard)
+            data['min[%s]'%(arenaToken)] = '1'
+            data['arena_num[%s]'%(arenaToken)] = arenaToken
+            data['max[%s]'%(arenaToken)] = '18'
+            data['arena_token[%s]'%(arenaToken)] = arenaToken
 
             j=0
-            while(j<count):#遍历arena
-                allowed=1#允许给随机数字
-                k=len(rank)-1
-                while(k>=0):
-                    if('str' in str(type(rank[k][0])) and arena[i].children[j+5].textContent.find(rank[k][0])>-1):
-                        value=rank[k][1]
-                        while(random.random()>rank[k][2] and value<=rank[k][3] and value<=8):
-                            value+=1
-                        value+=0.1*random.randint(1,9)
-                        if (random.random()<0.3):
-                            value=ceil(value)
-                        value=round(value,2)
-                        data['contestant['+arenaToken+']['+str(j)+']']='0'
-                        data['contestant_vote['+arenaToken+']['+str(j)+']']=str(value)
-                        #print(str(value))
-                        allowed=0#不许给随机数字
+            while j<count:#遍历arena
+                allowed=1#允许随机投arena中这个角色
+                k=0
+                while k<len(select):#遍历select
+                    if(arena[i].children[j + 5].textContent.find(select[k][0])>-1 and random.random()<select[k][1]):
+                        #如果arena中这个角色在select中，且按概率要投给这个角色
+                        data['contestant[%s][%s]' % (arenaToken,j)] = str(j)
+                        data['contestant_vote[%s][%s]' % (arenaToken,j)] = '1'
+                        allowed=0#不允许随机投arena中这个角色
+                        break
+                    k+=1
+                if(allowed==1):#select中没找到这个角色，允许随机投arena中这个角色
+                    if(random.random()<wildcardDensity):#按wildcardDensity概率投
+                        data['contestant[%s][%s]' % (arenaToken,j)] = str(j)
+                        data['contestant_vote[%s][%s]' % (arenaToken,j)] = '1'
+                    else:#按wildcardDensity概率不投
+                        data['contestant[%s][%s]' % (arenaToken,j)] = str(j)
+                        data['contestant_vote[%s][%s]' % (arenaToken,j)] = '0'
+                j+=1
+
+##        elif (count == 24):  # 24人选任意人数(2019 Aquamarine Necklace Winter/Topaz Necklace Spring)
+##            data['min[%s]'%(arenaToken)] = '1'
+##            data['arena_num[%s]'%(arenaToken)] = arenaToken
+##            data['max[%s]'%(arenaToken)] = '18'
+##            data['arena_token[%s]'%(arenaToken)] = arenaToken
+##
+##            j=0
+##            while j<count:#遍历arena
+##                allowed=1#允许随机投arena中这个角色
+##                k=0
+##                while k<len(select):#遍历select
+##                    if(arena[i].children[j + 5].textContent.find(select[k][0])>-1 and random.random()<select[k][1]):
+##                        #如果arena中这个角色在select中，且按概率要投给这个角色
+##                        data['contestant[%s][%s]' % (arenaToken,j)] = str(j)
+##                        data['contestant_vote[%s][%s]' % (arenaToken,j)] = '1'
+##                        allowed=0#不允许随机投arena中这个角色
+##                        break
+##                    k+=1
+##                if(allowed==1):#select中没找到这个角色，允许随机投arena中这个角色
+##                    if(random.random()<selectDensity):#按二选一密度投
+##                        data['contestant[%s][%s]' % (arenaToken,j)] = str(j)
+##                        data['contestant_vote[%s][%s]' % (arenaToken,j)] = '1'
+##                    else:#按wildcardDensity概率不投
+##                        data['contestant[%s][%s]' % (arenaToken,j)] = str(j)
+##                        data['contestant_vote[%s][%s]' % (arenaToken,j)] = '0'
+##                j+=1
+
+        #elif (count == 12):  # 单个角色给0到10分的赛制(2018 Diamond Necklace Wildcard)
+        elif (count == 8 and "voting_slider_contestant" in arena[i].innerHTML):#2019 Topaz Necklace Divine Circlet
+            data['min[%s]'%(arenaToken)] = '1'
+            data['arena_num[%s]'%(arenaToken)] = arenaToken
+            data['max[%s]'%(arenaToken)] = '8'#'12'
+            data['arena_token[%s]'%(arenaToken)] = arenaToken
+
+            j = 0
+            while (j < count):  # 遍历arena
+                allowed = 1  # 允许给随机数字
+                k = len(rank) - 1
+                while (k >= 0):
+                    if ('str' in str(type(rank[k][0])) and arena[i].children[j + 5].textContent.find(
+                            rank[k][0]) > -1):
+                        value = rank[k][1]
+                        while (random.random() > rank[k][2] and value <= rank[k][3] and value <= 8):
+                            value += 1
+                        value += 0.1 * random.randint(1, 9)
+                        if (random.random() < 0.3):
+                            value = ceil(value)
+                        value = round(value, 2)
+                        data['contestant[' + arenaToken + '][' + str(j) + ']'] = '0'
+                        data['contestant_vote[' + arenaToken + '][' + str(j) + ']'] = str(value)
+                        # print(str(value))
+                        allowed = 0  # 不许给随机数字
                         rank.pop(k)
                         break
                     else:
-                        k-=1
-                if(allowed==1):
-                    if(random.random()>selectRate):
-                        value=0
+                        k -= 1
+                if (allowed == 1):
+                    if (random.random() > selectRate):
+                        value = 0
                     else:
-                        value=random.randint(0,5)+random.randint(0,4)+0.1*random.randint(1,9)
-                        if (random.random()<0.1):
-                            value=round(value)
-                        value=round(value,2)
-                    #print(value)
-                    data['contestant['+arenaToken+']['+str(j)+']']='0'
-                    data['contestant_vote['+arenaToken+']['+str(j)+']']=str(value)
-                j+=1
+                        value = random.randint(0, 5) + random.randint(0, 4) + 0.1 * random.randint(1, 9)
+                        if (random.random() < 0.1):
+                            value = round(value)
+                        value = round(value, 2)
+                    # print(value)
+                    data['contestant[' + arenaToken + '][' + str(j) + ']'] = '0'
+                    data['contestant_vote[' + arenaToken + '][' + str(j) + ']'] = str(value)
+                j += 1
         else:#给数字arena
-            data['min['+arenaToken+']']=str(count)
-            data['arena_num['+arenaToken+']']=arenaToken
-            data['max['+arenaToken+']']=str(count)
-            data['arena_token['+arenaToken+']']=arenaToken
+            data['min[%s]'%(arenaToken)]=str(count)
+            data['arena_num[%s]'%(arenaToken)]=arenaToken
+            data['max[%s]'%(arenaToken)]=str(count)
+            data['arena_token[%s]'%(arenaToken)]=arenaToken
 
             #valueTable=[n for n in range(1,count+1)]   #还有哪些数字没给
             #0(Abstain)是可以无限给的，所以不放在valueTable
             charaTable=[arena[i].children[n].textContent for n in range(5,count+5)]
-            charaIndexTable=[n for n in range(0,count)] #哪些下标的角色还没给数字
-            charaValueTable=[0 for n in range(0,count)] #每个角色当前被给的数字
+            charaIndexTable=[n for n in range(count)] #哪些下标的角色还没给数字
+            charaValueTable=[0]*count #每个角色当前被给的数字
             #count-=1    #现在count是角色个数-1
             #不执行上一句。count等于角色个数
             
@@ -300,15 +340,15 @@ def selector(html,voting_token,vcode):
     rand=random.random()
     if(rand<0.65):
         data['gender']='male'
-    elif(rand<0.95):
+    elif(rand<0.96):
         data['gender']='female'
     else:
         data['gender']='abstain'
     
     rand=random.random()
-    if(rand<0.62):
+    if(rand<0.60):
         data['age']='adult'
-    elif(rand<0.975):
+    elif(rand<0.925):
         data['age']='minor'
     else:
         data['age']='abstain'    
@@ -317,17 +357,19 @@ def selector(html,voting_token,vcode):
     
     #dataStr=str(data)
     #dataStr=dataStr.replace('\': \'','=').replace('\', \'','&').replace('[','%5B').replace(']','%5D')
-    
+
     #with open('dataStr.cpp','w') as t:
     #    t.write(dataStr)
-    
+
     #print(dataStr)
     #Content_length=len(dataStr)-4
     return data
     
 if __name__ == '__main__':
     #html=open(r"ISML 2018 Ruby Necklace.htm",'r',encoding="utf-8").read()
-    html=open(r"ISML季后赛2.htm",'r',encoding="utf-8").read()
+    #html=open(r"ISML季后赛2.htm",'r',encoding="utf-8").read()
+    #html = open(r"ISML 2018 Diamond Necklace.htm", 'r', encoding="utf-8").read()
+    html = open(r"ISML 2019 Aquamarine Necklace.htm", 'r', encoding="utf-8").read()
     data=selector(html,'testVotingToken','testCaptcha')
     #print('Willem: '+data['contestant_vote[10][3]'])
     #print('Astolfo: '+data['contestant_vote[10][1]'])
@@ -335,4 +377,7 @@ if __name__ == '__main__':
     #print('Gilgamesh: '+data['contestant_vote[10][4]'])
     #print('Makise: '+data['contestant_vote[3][4]'])
     #print('Rinne: '+data['contestant_vote[13][1]'])
-    print('Chtholly：'+data['contestant_vote[20][1]'])
+    #print('Chtholly：'+data['contestant_vote[20][1]'])
+    print('Willem：' + data['contestant_vote[2][6]'])
+    print('Conan:',data['contestant_vote[0][0]'])
+    #print(data)
