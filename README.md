@@ -8,6 +8,8 @@ Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/
 **无论世萌，B萌，部落萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
   
+Oct. 21st, 2019: `libuv`最高！  
+  
 Oct. 12th, 2019: *Ignaleo.py* will be **renamed** as ***IgnaleoA.py***. **The name *Ignaleo* now refers to the whole series of programs.**  
   
 Sep. 25th, 2019: ISML, ありがとう。  
