@@ -8,6 +8,10 @@ Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/
 **无论世萌，B萌，部落萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
   
+Oct. 23rd, 2019: To those who sell or rent out my captcha servers carelessly: **PLEASE READ THE LICENSE!**  
+A supporting group of a mighty character(not Chtholly) has improved the accuracy of the captcha system, at a heavy cost of CPU time. This might be academically a nice job, but not always the best for actual battles. In my opinion, reducing the cost of I/O should still be the priority for most spammers. You may find a more impeccable pretreatment for captchas to reduce the number of images downloaded. Those owning professional techniques, nuclear power plants and tons of powerful GPUs can try **scene text recongnition** to achive ultimate accuracy and download one captcha image.  
+I'm still waiting for ISML to take **effective** anti-spamming measures. Effective measures have to be carried out for the survival of ISML. If a 'Moore's Law' can be kept by spammers, then in Oct. 2020, it will be likely that people scan billions of free proxies from the Internet with `masscan` or `zmap`, and a bandwith of no less than 10Gbps.  
+  
 Oct. 21st, 2019: `libuv`最高！  
   
 Oct. 12th, 2019: *Ignaleo.py* will be **renamed** as ***IgnaleoA.py***. **The name *Ignaleo* now refers to the whole series of programs.**  
