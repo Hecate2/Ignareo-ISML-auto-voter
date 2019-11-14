@@ -1,5 +1,5 @@
 ﻿# ISML_auto_voter
-Python 3.6 √  Python 3.7 ✘  
+Python 3.6 √  Python 3.7 √  
 https://github.com/Hecate2/ISML_auto_voter  
   
 驱逐舰伊格那雷奥，用于世萌高速自动投票  
@@ -7,6 +7,8 @@ Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/
   
 **无论世萌，B萌，部落萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
+  
+Nov 14th: 1th anniversary for the asynchronous prototype.   
   
 Nov 1st: SukaMoka 08 is really enjoyable! But as far as I know, not every reader wants Chtholly to come to life again.  
   
