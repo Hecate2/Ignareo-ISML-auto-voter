@@ -10,10 +10,10 @@ Destroyer Ignaleo(IGN): Vote automatically at ISML, www.internationalsaimoe.com/
 **无论世萌，B萌，部落萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
 Nov. 18th, 2019: Time for academic punk!  
-Quite a few have requested the CNN training codes. I'm too exhausted to write instructions, so help yourself! The main training dataset is currently not available.  
+Quite a few have requested the CNN training codes. I'm too exhausted to write instructions, so help yourself! The main training dataset is currently not available. The structure of the neural network: https://github.com/Hecate2/ISML_auto_voter/blob/master/CNN_training/Classifier.png  
 Minimum recommendation of GPU: one GTX1080ti  
 Minimum recommendation of traning set: 3,000 to 10,000 effective samples.  
-Many thanks to all who sacrificed for Chtholly and something named "justice".  
+Many thanks to all who sacrificed for Chtholly and something named "justice". Give Tiat Siba Ignaleo a star or fork if you really love her codes!  
   
 Nov 14th: 1th anniversary for the asynchronous prototype.   
   
