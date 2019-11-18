@@ -15,29 +15,16 @@ Minimum recommendation of GPU: one GTX1080ti
 Minimum recommendation of traning set: 3,000 to 10,000 effective samples.  
 Many thanks to all who sacrificed for Chtholly and something named "justice". Give Tiat Siba Ignaleo a star or fork if you really love her codes!  
   
-Nov 14th: 1th anniversary for the asynchronous prototype.   
+Nov 14th: 1st anniversary for the asynchronous prototype.   
 Nov 9th: IgnaleoG updated. Nobody had paid any price for using IgnaleoG before it was published.  
   
 Nov 1st: SukaMoka 08 is really enjoyable! But as far as I know, not every reader wants Chtholly to come to life again.  
   
-Oct. 23rd, 2019: To those who sell or rent out my captcha servers carelessly: **PLEASE READ THE LICENSE!**  
-A supporting group of a mighty character(not Chtholly) has improved the accuracy of the captcha system, at a heavy cost of CPU time(0.2 to 0.4 seconds per image, using only 1 CPU core) and 1 month of intensive brain work. This might be academically a nice job, but not always the best for actual battles. In my opinion, reducing the cost of I/O should still be the priority for most spammers. You may find a more impeccable pretreatment for captchas to reduce the number of images downloaded. Those owning professional techniques, nuclear power plants and tons of powerful GPUs can try **scene text recongnition** to achive ultimate accuracy and download one captcha image.  
-I'm still waiting for ISML to take **effective** anti-spamming measures. Effective measures have to be carried out for the survival of ISML. If a 'Moore's Law' can be kept by spammers, then in Oct. 2020, it will be likely that people scan billions of free proxies from the Internet with `masscan` or `zmap`, and a bandwith of no less than 10Gbps.  
-  
-Oct. 21st, 2019: `libuv`最高！  
-  
 Oct. 12th, 2019: *Ignaleo.py* will be **renamed** as ***IgnaleoA.py***. **The name *Ignaleo* now refers to the whole series of programs.**  
   
-Sep. 25th, 2019: ISML, ありがとう。  
-**Contact me to apply for IgnaleoG.py. It can bypass Cloudflare IUAM fireawall, and utilize your proxies at a much higher efficiency.** Certainly I am not to offer it for free to the evil opponents of Chtholly.  
-Civil uses of IgnaleoG are welcomed! Just don't attack Chtholly in all kinds of saimoe events.  
-
-Sep. 19th, 2019: Please do not start thousands of selenium browsers in a few seconds. They exhaust the output bandwidth of ISML.  
-Today I spammed no more than 130 votes after Misaka Mikoto asked me for a manual vote but I encountered 3 session expires in a row.  
-Please switch to latest technologies to save the hardware resources of ISML, which does good to everyone. I believe IGN causes no expired session even at 200 votes per minute. 
-  
 Sep. 13th, 2019: >asyncio.ensure_future(self._post('httpc://chtholly.68',data=r'祝妖精仓库中秋快乐！'.encode('月饼')))  
-July 19th, 2019: Welcome to the novel (under GPL-3.0 license) at /DestroyerIGN/CINT the Space Fleet Hecate2  
+  
+July 19th, 2019: **[Strongly Recommended]** Welcome to the novel (under GPL-3.0 license) at /DestroyerIGN/CINT the Space Fleet Hecate2  
 欢迎阅读DestroyerIGN附赠的小说！(按GPL-3.0开源协议发布)  
 https://github.com/Hecate2/ISML_auto_voter/raw/master/DestroyerIGN/CINT%20the%20Space%20Fleet%20Hecate2%20(%E6%9C%AA%E9%85%8D%E4%B9%90).docx  
 **For more information: log.md**
