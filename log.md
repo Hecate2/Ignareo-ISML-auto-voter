@@ -1,3 +1,17 @@
+Oct. 23rd, 2019: To those who sell or rent out my captcha servers carelessly: **PLEASE READ THE LICENSE!**  
+A supporting group of a mighty character(not Chtholly) has improved the accuracy of the captcha system, at a heavy cost of CPU time(0.2 to 0.4 seconds per image, using only 1 CPU core) and 1 month of intensive brain work. This might be academically a nice job, but not always the best for actual battles. In my opinion, reducing the cost of I/O should still be the priority for most spammers. You may find a more impeccable pretreatment for captchas to reduce the number of images downloaded. Those owning professional techniques, nuclear power plants and tons of powerful GPUs can try **scene text recongnition** to achive ultimate accuracy and download one captcha image.  
+I'm still waiting for ISML to take **effective** anti-spamming measures. Effective measures have to be carried out for the survival of ISML. If a 'Moore's Law' can be kept by spammers, then in Oct. 2020, it will be likely that people scan billions of free proxies from the Internet with `masscan` or `zmap`, and a bandwith of no less than 10Gbps.  
+  
+Oct. 21st, 2019: `libuv`最高！  
+  
+Sep. 25th, 2019: ISML, ありがとう。  
+**Contact me to apply for IgnaleoG.py. It can bypass Cloudflare IUAM fireawall, and utilize your proxies at a much higher efficiency.** Certainly I am not to offer it for free to the evil opponents of Chtholly.  
+Civil uses of IgnaleoG are welcomed! Just don't attack Chtholly in all kinds of saimoe events.  
+
+Sep. 19th, 2019: Please do not start thousands of selenium browsers in a few seconds. They exhaust the output bandwidth of ISML.  
+Today I spammed no more than 130 votes after Misaka Mikoto asked me for a manual vote but I encountered 3 session expires in a row.  
+Please switch to latest technologies to save the hardware resources of ISML, which does good to everyone. I believe IGN causes no expired session even at 200 votes per minute. 
+  
 Sep. 12th, 2019: I didn't vote any! 麻烦刷紫水晶项链和蓝宝石阶段萌皇赛的人手下留情，别又搞成DoS了  
   
 Sep. 3rd, 2019: 曾经我打萌战是为了活着，但萌战使我更加虚无。
