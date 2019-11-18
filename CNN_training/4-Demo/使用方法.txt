@@ -1,0 +1,2 @@
+ÃüÁîÐÐÊäÈë 
+python main.py --filename=1qwkjbtn.jpg
