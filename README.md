@@ -16,6 +16,7 @@ Minimum recommendation of traning set: 3,000 to 10,000 effective samples.
 Many thanks to all who sacrificed for Chtholly and something named "justice". Give Tiat Siba Ignaleo a star or fork if you really love her codes!  
   
 Nov 14th: 1th anniversary for the asynchronous prototype.   
+Nov 9th: IgnaleoG updated. Nobody had paid any price for using IgnaleoG before it was published.  
   
 Nov 1st: SukaMoka 08 is really enjoyable! But as far as I know, not every reader wants Chtholly to come to life again.  
   
