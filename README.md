@@ -31,7 +31,7 @@ July 19th, 2019: **[Strongly Recommended]** Welcome to the novel (under GPL-3.0 
 https://github.com/Hecate2/ISML_auto_voter/raw/master/DestroyerIGN/CINT%20the%20Space%20Fleet%20Hecate2%20(%E6%9C%AA%E9%85%8D%E4%B9%90).docx  
 **For more information: log.md**
   
-## Brief introduction:  
+## Brief introduction for ISML voters:  
 Screaming high concurrency! Light weight Convolutional Neural Network! Against captcha within 0.06 seconds per image on CPU! 
 Easy for distributed deployment!  
   
