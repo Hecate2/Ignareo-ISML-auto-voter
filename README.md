@@ -35,7 +35,7 @@ https://github.com/Hecate2/ISML_auto_voter/raw/master/DestroyerIGN/CINT%20the%20
 Screaming high concurrency! Light weight Convolutional Neural Network! Against captcha within 0.06 seconds per image on CPU! 
 Easy for distributed deployment!  
   
-The structure of IGN can be applied for any saimoe voting and even more in principle (I'm using IGN to monitor IoT devices). Using IGN for other purposes is also welcomed. **Feel free to raise** ***Issues*** **including "我永远喜欢珂朵莉", "I love Chtholly forever", "私はいつまでもクトリが好きです", and even more!** （请扭曲的珂学家不要一夜之间刷两千条……）  
+The structure of IGN can be applied for any saimoe voting and even more in principle (I'm using IgnaleoA to monitor IoT devices). Using IGN for other purposes is also welcomed. **Feel free to raise** ***Issues*** **including "我永远喜欢珂朵莉", "I love Chtholly forever", "私はいつまでもクトリが好きです", and even more!** （请扭曲的珂学家不要一夜之间刷两千条……）  
 However, **BE CAREFUL in case your operations may result in a CC attack!** (I've killed an SQL service imprudently with IGN...)  
   
 ## Why Ignaleo instead of Scrapy?  
@@ -46,9 +46,9 @@ Secondly, Scrapy probably do not maintain keep-alive with the server. It starts 
 Lastly, the codes of a Scrapy spider can be chaotic.  
 It's very difficult to predict or control the behavior of Scrapy, because it is such a great framework, making most decisions for you, hiding most of its source codes. This is good in many cases, but when you execute your personalized demands and decisions, you have to fight the framework.  
   
-Destroyer Ignaleo, as a reinvented wheel, is re-designed for the future. With only hundreds of lines of codes in the core, she allows you to define your own work flow, and understand everything about her.  
+Destroyer Ignaleo, as a reinvented wheel, is re-designed for the future. With only hundreds of lines of codes in the core, she allows you to define your own work flow, and understand everything about her. Now you can focus more on data parsing and dependency.  
   
-IgnaleoG has been fully tested in real combats. Trust her as your reliable partner!   
+**Ignaleo has been fully tested in real combats.** Trust her as your reliable partner!   
   
 ## How to use:  
 In DestroyerIGN, start **captchaServer.py**, and then **IgnaleoG.py**. 
@@ -67,7 +67,11 @@ The captcha server receives POST from the main IO, and recognizes the letters an
 To control the network IO process of voting, or use IGN for other purposes, write your own codes in **Voter.py**.  
 To deploy multiple processes of servers, change **portList** in Ammunition.py, IgnaleoA.py and captchaServer.py.  
 To change which characters to vote for, modify **charaSelector.py**.  
-To tackle Cloudflare IUAM firewall (Checking your browser before…) with IgnaleoA, try to extract the JavaScript carefully, using **aiocfscrape.py**. The original version offered by https://github.com/pavlodvornikov/aiocfscrape have been disabled since Cloudflare changes the firewall very often. You may refer to all the resources from Github to bypass the firewall.   
+To tackle Cloudflare IUAM firewall (Checking your browser before…) with IgnaleoA, try to extract the JavaScript carefully, using **aiocfscrape.py**. The original version offered by https://github.com/pavlodvornikov/aiocfscrape have been disabled since Cloudflare changes the firewall very often. You may refer to all the resources from Github to bypass the firewall.  
+  
+## The I/O engines:  
+IgnaleoG uses `gevent` making your `socket` asynchronous. It means you can feed gevent with multi-thread web spider codes (typically `requests`) and enjoy asynchronous performance. In principle you can even connect to databases asynchronously. The event loop of gevent on different platforms is documented at http://www.gevent.org/loop_impls.html . According to the page, Windows users now have libuv!  
+IgnaleoA uses the classical Python library `asyncio`. The codes in IgnaleoA have to be literally asynchronous with `async def`, `ensure_future`, `await` and  `add_callback`.  
   
 ## Accessories: 
 **ISMLnextGen**, which contains some prototypes and basic code blocks, is the lab for the development of IGN.  
