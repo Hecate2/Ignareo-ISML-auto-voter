@@ -1,11 +1,12 @@
 # coding: utf-8
-portList=(55568,55569)#本服务器监听端口
+portList=tuple([i for i in range(55568,55574)])#本服务器监听端口
 # 如果aiohttp连接超时，则会raise，但只是raise，不带错误信息
 
 import gc#内存垃圾清理控制
 #gc.disable()#关闭自动清理
 
-from Voter import Voter
+#from Voter import Voter
+from Voter import Voter,printer,doNothing,CaptchaServers #VoterCN为中文模式!
 from AsyncIteratorWrapper import AsyncIteratorWrapper
 import functools,re
 
@@ -32,20 +33,27 @@ headers={
 
 ##def printer(future):
 ##    print(future.result())
-from Voter import printer,doNothing,CaptchaServers
 
-request_timeout=30 #单次http请求的默认超时。
+request_timeout=50 #单次http请求的默认超时。
 #你可以随时暂时覆盖这一设置
 captcha_timeout=60 #单次取验证码的默认超时
 timeoutConfig=aiohttp.ClientTimeout(total=request_timeout)
 captchaTimeoutConfig=aiohttp.ClientTimeout(total=captcha_timeout)
 
 localsession = CloudflareScraper(headers=headers,loop=worker_loop,timeout=timeoutConfig)
-async def localsession_get(url="https://2019.internationalsaimoe.com"):
-    async with localsession.get(url,ssl=False) as res:
+#async def localsession_get(url='https://coinone.co.kr/'):#珂以测试防火墙
+async def localsession_get(url="https://www.internationalsaimoe.com"):
+    async with localsession.get(url) as res:
         text = await res.text()
         return('Ignaleo:本地session请求%s，状态码为%d'%(url,res.status))
+        #print('Ignaleo:本地session请求%s，状态码为%d'%(url,res.status))
         #return res.status
+##    await asyncio.sleep(80)
+##    async with localsession.post(url,data=b'test',ssl=False) as res:
+##        text = await res.text()
+##        #return('Ignaleo:本地session请求%s，状态码为%d'%(url,res.status))
+##        return('Ignaleo:本地session POST %s，状态码为%d'%(url,res.status))
+##        #return res.status
 
 #f=open('./tmp.txt','a',encoding='utf-8')
 

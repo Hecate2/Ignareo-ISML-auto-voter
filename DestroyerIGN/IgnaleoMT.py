@@ -1,7 +1,8 @@
 #coding:utf-8
 import functools,os,time,gc,random,re
+repattern=re.compile('voting_token" value="(.*?)"')
 
-portList=(55568,55569)#本服务器监听端口
+portList=tuple([i for i in range(55568,55579)])#本服务器监听端口
 
 #验证码服务器
 captchaServers=[
@@ -11,9 +12,24 @@ captchaServers=[
 random.shuffle(captchaServers)
 class CaptchaServers:
     captchaServers=captchaServers
+captchaServers=tuple(captchaServers)#随机切换服务器的排列顺序，
+#避免多个Voter经常向同一服务器post
+
+def captcha_server_generator():#每调用一次next(csGen)，产生一个captchaServers中的url
+    length=len(captchaServers)
+    i=0
+    while 1:
+        yield captchaServers[i]
+        i+=1
+        if(i>=length):
+            i=0
+            
+csGen=captcha_server_generator()
+
+from charaSelector import selector
 
 #超时设置
-request_timeout=30
+request_timeout=50
 captcha_timeout=60
 
 #异步服务，且客户端不需要返回值
@@ -56,8 +72,10 @@ def genHeaders():#aiohttp会自动生成大部分header
         'Upgrade-Insecure-Requests':'1',
     }
     return headers
-localsession=cfscrape.CloudflareScraper(headers=genHeaders())
+localsession=cfscrape.create_scraper(headers=genHeaders())
 
+from io import BytesIO
+from PIL import Image
 import numpy as np
 from skimage.filters import gaussian
 from skimage.exposure import equalize_hist
@@ -106,26 +124,29 @@ RequestExceptions=(
 
 from retryapi import retry,RetryExhausted
 
-#这个函数在class MainHandler里也有一份，可在线程池允许
+#这个函数在class MainHandler里也有一份，可在线程池运行
+
+#def localsession_get(url='https://coinone.co.kr/'):#珂以测试防火墙
 def localsession_get(url="https://www.internationalsaimoe.com"):
-    with localsession.get(url,verify=False,timeout=request_timeout) as res:
+    with localsession.get(url,timeout=request_timeout,verify=False) as res:
         print('IgnaleoMT:本地session请求%s，状态码为%d'%(url,res.status_code))
+        #print(res.text)
 
 worker_loop=tornado.ioloop.IOLoop.instance()
 class MainHandler(tornado.web.RequestHandler):
     id=1
-    executor = ThreadPoolExecutor(1000)
+    executor = ThreadPoolExecutor(30)
 
     class VoterMT:
         def __init__(self,proxy,loop,localsession,executor,id=0):
             self.proxy=proxy
             self.loop=loop
-            self.session=cfscrape.CloudflareScraper(headers=genHeaders())
+            self.session=cfscrape.create_scraper(headers=genHeaders())
             self.localsession=localsession
             self.executor=executor
             self.id=id #用于标记这次投票是第几次
             #if proxy:
-            self.fingerprint=md5((proxy+'Hecate2'+str(time.time())).encode()).hexdigest()
+            self.fingerprint=md5((proxy+'ChNeWi').encode()).hexdigest()
             #else:#仅用于测试！
             #    self.fingerprint=md5(('Hecate2'+str(time.time())).encode()).hexdigest()
             #    self.voting_token=sha256(('Hecate2'+str(time.time())).encode()).hexdigest()
@@ -133,7 +154,7 @@ class MainHandler(tornado.web.RequestHandler):
 
         @retry(exceptions=RequestExceptions,tries=5,logger=None)
         def _get(self,url,timeout=request_timeout):
-            with self.session.get(url,timeout=timeout,verify=False) as response:
+            with self.session.get(url,timeout=timeout,proxies={"http":self.proxy,"https":self.proxy}) as response:
                 if (response.status_code<400):
                     if 'text' in response.headers['content-type']:
                         #f=open('./tmp.txt','a',encoding='utf-8')
@@ -157,7 +178,7 @@ class MainHandler(tornado.web.RequestHandler):
         #因为同一个本地session会发起几百几千个get，吃到不同的墙
         @retry(exceptions=RequestExceptions,tries=5,logger=None)
         def _localget(self,url,timeout=request_timeout):
-            with self.session.get(url,timeout=timeout,verify=False) as response:
+            with self.session.get(url,timeout=timeout) as response:
                 if (response.status_code<400):
                     if 'text' in response.headers['content-type']:
                         #f=open('./tmp.txt','a',encoding='utf-8')
@@ -178,7 +199,7 @@ class MainHandler(tornado.web.RequestHandler):
                 
         @retry(exceptions=RequestExceptions,tries=5,logger=None)
         def _post(self,url,data,timeout=request_timeout):
-            with self.session.post(url,data=data,timeout=timeout,verify=False) as response:
+            with self.session.post(url,data=data,timeout=timeout,proxies={"http":self.proxy,"https":self.proxy}) as response:
                 if (response.status_code<400):
                     return response.text
                 else:
@@ -186,7 +207,7 @@ class MainHandler(tornado.web.RequestHandler):
         
         @retry(exceptions=RequestExceptions,tries=5,logger=None)
         def _localpost(self,url,data,timeout=request_timeout):
-            with self.localsession.post(url,data=data,timeout=timeout,verify=False) as response:
+            with self.localsession.post(url,data=data,timeout=timeout) as response:
                 if (response.status_code<400):
                     return response.text
                 else:
@@ -194,19 +215,20 @@ class MainHandler(tornado.web.RequestHandler):
 
         def EnterISML(self):
             text=self._get('https://www.internationalsaimoe.com/voting')
-            voting_token = re.findall('voting_token" value="(.*?)"', text)
+            voting_token = re.search(repattern, text)
             if voting_token:
                 self.html=text
-                self.voting_token=voting_token[0]
+                self.voting_token=voting_token.group(1)
                 self.startTime=time.time()
+                print(self.id,self.proxy,'进入ISML成功')
             else:
                 print(self.id,self.proxy,'找不到voting_token')
                 raise NoVotingToken
 
-        #发指纹和打码可以并发执行
-        @tornado.concurrent.run_on_executor
+        #发指纹
         def PostFingerprint(self):#确保self.fingerprint在class初始化时已经生成！
-            self._post("https://www.internationalsaimoe.com/security",data={'secure':self.fingerprint})
+            self._post("https://www.internationalsaimoe.com/security",data={"secure":self.fingerprint})
+            print(self.id,self.proxy,'发指纹成功')
             return('%d %s 发指纹成功'%(self.id,self.proxy))
 
         def AIDeCaptcha(self):
@@ -215,15 +237,15 @@ class MainHandler(tornado.web.RequestHandler):
             while 1:#while tries<重试上限:
             #目前验证码重试次数不设上限！
                 tries+=1
-                img=self._get(
+                raw_img=self._localget(
                     'https://www.internationalsaimoe.com/captcha/%s/%s' % (self.voting_token, int(time.time() * 1000)),
-                    timeout=captchaTimeoutConfig)
+                    timeout=captcha_timeout)
                 img=Image.open(BytesIO(raw_img))
                 img = 255-np.array(img.convert('L') ) #转化为灰度图
                 if(judge(img)):
                     del img
                     print(self.id,self.proxy,'第%d次获取验证码，能够识别'%(tries))
-                    captcha=self._post(next(csGen),raw_img)
+                    captcha=self._localpost(next(csGen),raw_img)
                     self.captcha=captcha
                     return captcha
         def DeCaptcha(self):
@@ -235,10 +257,12 @@ class MainHandler(tornado.web.RequestHandler):
 
         def Submit(self):#提交投票
             postdata=selector(self.html,self.voting_token,self.captcha)
-            sleepTime=90-(time.time()-self.startTime)#消耗的时间减去90秒
+            sleepTime=190-(time.time()-self.startTime)#消耗的时间减去90秒
             if(sleepTime>0):#还没到90秒
+                print(self.id,self.proxy,"开始等待%d秒"%(sleepTime))
                 time.sleep(sleepTime)#坐等到90秒
             result=self._post("https://www.internationalsaimoe.com/voting/submit",data=postdata)
+            return result
 
         def SaveHTML(self):#存票根
             text=self._get('https://www.internationalsaimoe.com/voting')
@@ -255,40 +279,45 @@ class MainHandler(tornado.web.RequestHandler):
             try:
                 self.EnterISML()
             except NoVotingToken:
+                self.session.close()
                 return('%d %s %s'%(self.id,self.proxy,'找不到voting_token'))
+                #self.voting_token=sha256(('Hecate2'+str(time.time())).encode()).hexdigest()
             except RetryExhausted:
+                self.session.close()
                 return('%d %s %s'%(self.id,self.proxy,'连续重试次数超限'))
             try:
-                #下面开始发指纹并且暂时不管它。识别验证码与发指纹并发执行
-                worker_loop.add_callback(functools.partial(self.PostFingerprint))
+                #下面开始发指纹
+                self.PostFingerprint()
                 #下面开始识别验证码任务。
                 self.AIDeCaptcha()
                 #下面坐等到90秒然后submit
                 result=self.Submit()
+                print('%d %s %s'%(self.id,self.proxy,result))
                 #下面应对验证码错误
-                while('Invalid' in result):#验证码错误
+                if('Invalid' in result):#验证码错误
                     self.AIDeCaptcha()
-                    self.Submit()
+                    result=self.Submit()
+                    print('%d %s %s'%(self.id,self.proxy,result))
                 #下面存票根
                 if('successful' in result):
-                    task=self.SaveHTML()
-                    future=asyncio.ensure_future(task,loop=self.loop)
-                    future.add_done_callback(functools.partial(printer))
-                    task=self.PostFingerprint()
-                    future=asyncio.ensure_future(task,loop=self.loop)
-                    future.add_done_callback(functools.partial(printer))
-                    return('%d %s %s'%(self.id,self.proxy,result))
-                if('expired' in result): #session expired
-                    print('%d %s %s'%(self.id,self.proxy,result))
-                    self.Vote() #再来一次！
+                    result=self.SaveHTML()
+                    self.PostFingerprint()
+                    self.session.close()
+                    return result
+                #if('refresh' in result): #session expired
+                #    print('%d %s %s'%(self.id,self.proxy,result))
+                    #if(random.random()<0.6):
+                    #    self.Vote() #再来一次！
                 #if('An entry' in result): #这个ip被抢先投票
+                self.session.close()
                 return('%d %s %s'%(self.id,self.proxy,result)) #结束投票
             except RetryExhausted:
+                self.session.close()
                 return('%d %s %s'%(self.id,self.proxy,'连续重试次数超限'))
 
     @tornado.concurrent.run_on_executor
     def localsession_get(self,url="https://www.internationalsaimoe.com"):
-        with localsession.get(url,verify=False,timeout=request_timeout) as res:
+        with localsession.get(url,timeout=request_timeout) as res:
             self.write('IgnaleoMT:本地session请求%s，状态码为%d'%(url,res.status_code))
             print('IgnaleoMT:本地session请求%s，状态码为%d'%(url,res.status_code))
 
@@ -301,12 +330,14 @@ class MainHandler(tornado.web.RequestHandler):
 
     @tornado.concurrent.run_on_executor
     def post(self):
+        #gc.collect()
         proxies=self.request.body.decode(encoding='utf-8').split('\r\n')
         self.write('收到POST')
+        print('Ignaleo: 收到POST')
         #print('收到POST\n',proxies)
         for proxy in proxies:
             self.id+=1
-            voter=self.VoterMT(proxy,worker_loop,localsession,self.executor,id=self.id)
+            voter=self.VoterMT('http://'+proxy,worker_loop,localsession,self.executor,id=self.id)
             #voter=VoterMT(None,worker_loop,localsession,id=self.id)
             #不使用代理，仅用于测试！
             worker_loop.add_callback(functools.partial(voter.Vote))
