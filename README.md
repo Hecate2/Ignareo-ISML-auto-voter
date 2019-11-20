@@ -42,13 +42,13 @@ However, **BE CAREFUL in case your operations may result in a CC attack!** (I've
 I have already developed an auto voter in the year 2018, using Scrapy. Scrapy is truly a great framework.  
   
 The first reason why I aborted Scrapy is that it can cause critical trouble when you need a non-blocking pause between two requests. It seems you have to set the pause before receiving the response of the first request (https://stackoverflow.com/questions/36984696/scrapy-non-blocking-pause). Consequently it becomes difficult to control the interval of requests.  
-Secondly, Scrapy probably do not maintain keep-alive with the server. It starts another TCP connection with new SYN for every new request. This characteristic not only leads to redundant SYN flow, but, more importantly, provides convenience for the website to detect the spider. For example your spider may start a new TCP connection sending a POST request. Real browsers never do so!  
-Lastly, the codes of a Scrapy spider can be chaotic.  
-It's very difficult to predict or control the behavior of Scrapy, because it is such a great framework, making most decisions for you, hiding most of its source codes. This is good in many cases, but when you execute your personalized demands and decisions, you have to fight the framework.  
+Secondly, Scrapy probably does not maintain keep-alive with the server. It starts another TCP connection with new SYN for every new request. This characteristic not only leads to redundant SYN flow, but, more importantly, provides convenience for the website to detect the spider. For example, Scrapy may start a new TCP connection sending a POST request. Real browsers never do so!  
+Lastly, the codes for a Scrapy spider crammed in a single class and run in a single process can be chaotic, frustrating to read and maintain.  
+It's very difficult to predict or control the detailed behavior of Scrapy, because it is such a great framework, making most decisions for you, hiding most of its source codes. This is good in many cases, but when you execute your personalized demands and decisions, you have to fight the framework.  
   
 Destroyer Ignaleo, as a reinvented wheel, is re-designed for the future. With only hundreds of lines of codes in the core, she allows you to define your own work flow, and understand everything about her. Now you can focus more on data parsing and dependency.  
   
-**Ignaleo has been fully tested in real combats.** Trust her as your reliable partner!   
+**Ignaleo has been fully tested in real combats.** Just trust her as your reliable partner!   
   
 ## How to use:  
 In DestroyerIGN, start **captchaServer.py**, and then **IgnaleoG.py**. 
@@ -56,22 +56,27 @@ Finally, provide Destroyer Ignaleo with ammunition (proxy ips) by starting **Amm
 **IGN does not open fire until you run Ammunition.py at last!**  
 **IgnaleoA is not fully reliable** when thousands of concurrent connections have to be handled in a single process, especially on Windows. But IgnaleoA saves a little bit of memory and CPU than IgnaleoG.  
   
+## The I/O engines:  
+IgnaleoG uses `gevent` making your `socket` asynchronous. It means you can feed gevent with multi-thread web spider codes (typically `requests`) and enjoy asynchronous performance. In principle you can even connect to databases asynchronously. The event loop of gevent on different platforms is documented at http://www.gevent.org/loop_impls.html. According to the page, Windows users now have libuv!  
+  
+IgnaleoA uses the classical Python library `asyncio`. The codes in IgnaleoA have to be literally asynchronous with `async def`, `ensure_future`, `await` and  `add_callback`.  
+  
 ## The structure:  
-IGN is fabricated with 3 cascades:  
-data producer -> main network IO -> servers for computation intensive tasks  
+IGN for ISML is fabricated with 3 cascades:  
+data producer -> main network I/O -> servers for computation intensive tasks  
 Every later cascade is an http server for the previous one.  
   
-When running IGN, the main IO receives POST from the proxy provider, and directly contact ISML with http requests.  
-The captcha server receives POST from the main IO, and recognizes the letters and digits in the captcha image.  
+The data producer collects, neatens and gives the necessary information to start new I/O tasks. 
+The captcha server receives POST from the main I/O, and recognizes the letters and digits in the captcha image. In other words they undertake all the computation-intensive jobs.  
+This paradigm provides an example involving all kinds of I/O and computation. All the processes can be easily distrubuted on different machines.  
+**Hopefully Ignaleo serves just as a concept** of high performance I/O engine, rather than a heavy framework. **I tried to make no decision for you**, except for performance and convenience of transplanting your other web spiders.  
   
-To control the network IO process of voting, or use IGN for other purposes, write your own codes in **Voter.py**.  
+Note that you can write all kinds of blocking codes in IgnaleoG. `gevent` even turns `time.sleep()` into non-blocking pause. That means you can boast high performance automatically. But non-socket time-consuming codes (computation or long-playing HDD I/O) should be transfered to other processes.  
+  
+To control the network I/O process, write your own codes in **Voter.py**.  
 To deploy multiple processes of servers, change **portList** in Ammunition.py, IgnaleoA.py and captchaServer.py.  
 To change which characters to vote for, modify **charaSelector.py**.  
 To tackle Cloudflare IUAM firewall (Checking your browser before…) with IgnaleoA, try to extract the JavaScript carefully, using **aiocfscrape.py**. The original version offered by https://github.com/pavlodvornikov/aiocfscrape have been disabled since Cloudflare changes the firewall very often. You may refer to all the resources from Github to bypass the firewall.  
-  
-## The I/O engines:  
-IgnaleoG uses `gevent` making your `socket` asynchronous. It means you can feed gevent with multi-thread web spider codes (typically `requests`) and enjoy asynchronous performance. In principle you can even connect to databases asynchronously. The event loop of gevent on different platforms is documented at http://www.gevent.org/loop_impls.html . According to the page, Windows users now have libuv!  
-IgnaleoA uses the classical Python library `asyncio`. The codes in IgnaleoA have to be literally asynchronous with `async def`, `ensure_future`, `await` and  `add_callback`.  
   
 ## Accessories: 
 **ISMLnextGen**, which contains some prototypes and basic code blocks, is the lab for the development of IGN.  
