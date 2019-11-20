@@ -41,7 +41,7 @@ However, **BE CAREFUL in case your operations may result in a CC attack!** (I've
 ## Why Ignaleo instead of Scrapy?  
 I have already developed an auto voter in the year 2018, using Scrapy. Scrapy is truly a great framework.  
   
-The first reason why I aborted Scrapy is that it can cause critical trouble when you need a non-blocking pause between two requests. It seems you have to set the pause before receiving the response of the first request (https://stackoverflow.com/questions/36984696/scrapy-non-blocking-pause). Consequently it becomes difficult to control the interval of requests to proxy suppliers.  
+The first reason why I aborted Scrapy is that it can cause critical trouble when you need a non-blocking pause between two requests. It seems you have to set the pause before receiving the response of the first request (https://stackoverflow.com/questions/36984696/scrapy-non-blocking-pause). Consequently it becomes difficult to control the interval of requests.  
 Secondly, Scrapy probably do not maintain keep-alive with the server. It starts another TCP connection with new SYN for every new request. This characteristic not only leads to redundant SYN flow, but, more importantly, provides convenience for the website to detect the spider. For example your spider may start a new TCP connection sending a POST request. Real browsers never do so!  
 Lastly, the codes of a Scrapy spider can be chaotic.  
 It's very difficult to predict or control the behavior of Scrapy, because it is such a great framework, making most decisions for you, hiding most of its source codes. This is good in many cases, but when you execute your personalized demands and decisions, you have to fight the framework.  
