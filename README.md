@@ -104,7 +104,7 @@ Thanks to some of my opponents in saimoe, who developed brilliant programs to in
   
 Thanks to all the ***Chthollists*** who love Chtholly and SukaSuka.  
   
-## How did I make such a framework?  
+## How did I build Ignaleo?  
 By reading documents of many (possibly) useful libraries!  
   
 ## Tips! What if ISML responds very slowly?  
