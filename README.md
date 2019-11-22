@@ -119,6 +119,7 @@ When the billions of requests launched by voting programs are not responded, the
   
 ## Tips! Important for the most wealthy voters!
 **Before you challenge a rich supporting group, you should always consider such a probable fact: though IGN can support 2500 to 5000 voters on your computer, your opponent has hundreds of machines, each can run 25 to 50 selenium browsers. Meanwhile, you can't afford the cost for proxies.**   
+  
 0. Spamming **TOO MANY** votes is usually meaningless, except for burning your own $dollars, making difficulties for ISML operaters, and delaying the following matches.  
 1. Think before you cast billions of votes in a few minutes. If you really would like to spam, spread your votes to the whole 24 hours. Quick spamming are sure to be recognized by ISML operators.  
 2. Think twice if you want to challenge any character. You should disguise yourself very well, and you know you may get revenged.  
