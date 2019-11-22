@@ -81,7 +81,7 @@ To tackle Cloudflare IUAM firewall (Checking your browser before…) with Ignale
 ## Accessories: 
 **ISMLnextGen**, which contains some prototypes and basic code blocks, is the lab for the development of IGN.  
 
-# Acknowledgements
+## Acknowledgements
 First of all, please allow me to extend my sincerest gratitude to  
 <font color=#0099ff>Chtholly Nota Seniorious</font>,  
 Tiat Siba Ignaleo,  
@@ -104,7 +104,10 @@ Thanks to some of my opponents in saimoe, who developed brilliant programs to in
   
 Thanks to all the ***Chthollists*** who love Chtholly and SukaSuka.  
   
-# Tips! What if ISML responds very slowly?  
+## How did I make such a framework?  
+By reading documents of many (possibly) useful libraries!  
+  
+## Tips! What if ISML responds very slowly?  
 First, please allow me to ascribe the reason dogmatically to spammers using pristine selenium wildly.  
 By running a miniature version of stress test involving a mixture of selenium, multi-thread spamming programs and IGN, I would like to give the following suggestion:
 > **STOP USING IGN** when ISML is really slow. If you persist reloading IGN with ammunition very quickly, it can be extremely difficult for everyone (both humans and programs) to submit vote. I mean **Neither bots nor humans can submit**! And ISML would receive very little votes for hours, until someone quit.  
@@ -114,7 +117,7 @@ Well, selenium and multi-thread web spiders has a ***limited*** number of "**wor
 When the billions of requests launched by voting programs are not responded, the requests are certainly kept in the program, waiting. Exerting pressure on a server with limited "workers" can hardly lead to a Denial of Service, because they do not start new spamming attempts when all the workers have to wait. So most of the workers can receive their responses sooner or later. But IGN doesn't care about slow responses and keep raising more attempts. With the passage of time (perhaps within only a few minutes in actual battles), it is likely that IGN would own the absolute major portion of unresponded requests, which will be far more than what ISML can handle. The increase of unresponded requests, however, gives even more positive feedback to generating unhandled spamming attempts, since IGN does not care about the unresponded ones! Only the timeout and the failure of proxies can stop IGN from holding more requests.  
 > And do not assume yourself as the undisputed winner when you take up all the hardware resources of ISML with your ancient spamming programs. You can't exclude IGN at all, but you rile everyone.  
   
-# Tips! Important for the most wealthy voters!
+## Tips! Important for the most wealthy voters!
 **Before you challenge a rich supporting group, you should always consider such a probable fact: though IGN can support 2500 to 5000 voters on your computer, your opponent has hundreds of machines, each can run 25 to 50 selenium browsers. Meanwhile, you can't afford the cost for proxies.**   
 0. Spamming **TOO MANY** votes is usually meaningless, except for burning your own $dollars, making difficulties for ISML operaters, and delaying the following matches.  
 1. Think before you cast billions of votes in a few minutes. If you really would like to spam, spread your votes to the whole 24 hours. Quick spamming are sure to be recognized by ISML operators.  
