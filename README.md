@@ -10,7 +10,7 @@ https://github.com/Hecate2/ISML_auto_voter
 **Voters of all lands, UNITE!**  
   
 Nov. 29th, 2019: 欢迎光临淘宝店《某珂学的妖精仓库》！  
-【某珂学的妖精仓库】https://m.tb.cn/h.eEo47Wk?sm=87163f 點ゞ撃°鏈ㄣ接，再选择瀏覽嘂..咑№亓；或復zんíゞ整句话￥cLRaYxQCxXA￥后咑閞👉綯℡寳👈  
+https://m.tb.cn/h.eEo47Wk?sm=87163f  
   
 Nov. 18th, 2019: **Time for academic punk!**  
 Quite a few have requested the **CNN training codes**. I'm too exhausted to write instructions, so help yourself! The main training dataset is currently not available. The structure of the neural network: https://github.com/Hecate2/ISML_auto_voter/blob/master/CNN_training/Classifier.png  
