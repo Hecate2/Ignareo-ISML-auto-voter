@@ -125,6 +125,7 @@ When the billions of requests launched by voting programs are not responded, the
 > And do not assume yourself as the undisputed winner when you take up all the hardware resources of ISML with your ancient spamming programs. You can't exclude IGN at all, but you rile everyone.  
   
 ## Tips! Important for the most wealthy voters!
+As the saying goes: *Victorque has hundreds of thousands of bilibili accounts*.  
 **Before you challenge a rich supporting group, you should always consider such a probable fact: though IGN can support 2500 to 5000 voters on your computer, your opponent has hundreds of machines, each can run 25 to 50 selenium browsers. Meanwhile, you can't afford the cost for proxies.**   
   
 0. Spamming **TOO MANY** votes is usually meaningless, except for burning your own $dollars, making difficulties for ISML operaters, and delaying the following matches.  
