@@ -10,8 +10,12 @@ https://github.com/Hecate2/ISML_auto_voter
 **Every saimoe tournament require auto voting!**
 **Voters of all lands, UNITE!**  
   
-Nov. 29th, 2019: 欢迎光临淘宝店《某珂学的妖精仓库》！
-Welcome to the shop *Some chthollyologic leprechaun warehouse* on taobao!
+Dec. 7th, 2019: 兰朵露可-chrome主题.crx: Chrome theme of Rhantolk Ytri Historia, packed by **urusai** (, who is not related to this repository).  
+  
+Dec. 1st, 2019: The rays of stars will bring me to you.  
+  
+Nov. 29th, 2019: 欢迎光临淘宝店《某珂学的妖精仓库》！  
+Welcome to the shop *Some Chthollic leprechaun warehouse* (Not an official translation) on taobao!  
 https://m.tb.cn/h.eEo47Wk?sm=87163f  
   
 Nov. 18th, 2019: **Time for academic punk!**  
@@ -126,6 +130,7 @@ usually kept in the program, waiting. Exerting pressure on a server with limited
 > And do not assume yourself as the undisputed winner when you take up all the hardware resources of ISML with your ancient spamming programs. You can't exclude IGN at all, but you rile everyone.  
   
 ## Tips! Important for the most wealthy voters!
+As the saying goes: *Victorque has hundreds of thousands of bilibili accounts*.  
 **Before you challenge a rich supporting group, you should always consider such a probable fact: though IGN can support 2500 to 5000 voters on your computer, your opponent has hundreds of machines, each can run 25 to 50 selenium browsers. Meanwhile, you can't afford the cost for proxies.**   
   
 0. Spamming **TOO MANY** votes is usually meaningless, except for burning your own $dollars, making difficulties for ISML operaters, and delaying the following matches.  
@@ -135,7 +140,7 @@ usually kept in the program, waiting. Exerting pressure on a server with limited
 4. Think four times if you want to challenge some super-rich supporting groups. The cost for employing programmers is just a piece of cake for them, since they have hundreds of thousands of budget for all kinds of saimoe platforms! Well, that is not at all a large sum of money if everyone burns cash with IGN, but you should always assume that they have infinite wealth.
 5. Think five times before you launch IGN, because IGN drains everyone's life and wealth. You are a human, not a leprechaun! 
 6. IGN is designed to create a nuclear balance and deprive the monopoly of some evil supporting groups. I don't mind your bombing them with IGN, but please **VOTE BY HAND**, and **DON'T spam irresponsibly with IGN** if you really intend to support me! Nobody gains real happiness through a nuclear war! If you really have to spam against the evil, think about all the factors carefully.  
-7. Vote **(by hand!)** for Chtholly Nota Seniorious if you really love her!  
+7. ~~Vote **(by hand!)**~~ **Invest your billions of ¥, ￥, $, €, ￡,… in a 2nd season of anime** for Chtholly Nota Seniorious if you really love her!  
 8. 有钱请捐给世萌，不要捐给代理ip供应商或者大厨。Donate your billions of dollars to ISML instead of proxy suppliers! Never buy a spamming service from rich supporting groups!  
   
 Remember that: Nobody is with almighty justice. Nobody sees the end of war until death.  
