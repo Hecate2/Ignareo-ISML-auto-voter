@@ -1,5 +1,9 @@
 # Missile Destroyer Insania (Prototype in Sept. 2018)
 导弹驱逐舰印萨尼亚，2018年9月原型舰状态。
+Recollection of the initial days.
+  
+《大蛇圣剑Python战前演习.docx》：2018年9月29日，说明文档  
+《关于验证码的一些想法.docx》：2018年9月20日，内容如题  
 
 https://www.internationalsaimoe.com/voting
 
