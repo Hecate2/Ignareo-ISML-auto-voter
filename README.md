@@ -1,4 +1,4 @@
-# Missle Destroyer Insania (Prototype in Sept. 2018)
+# Missile Destroyer Insania (Prototype in Sept. 2018)
 导弹驱逐舰印萨尼亚，2018年9月原型舰状态。
 
 https://www.internationalsaimoe.com/voting
