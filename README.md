@@ -5,6 +5,18 @@ High-performance HTTP I/O originated for Chtholly Nota Seniorious, and for ISML,
   
 Python 3.6 √  Python 3.7 √  
 https://github.com/Hecate2/ISML_auto_voter  
+  
+对于Windows Python3.8用户
+```
+import platform  
+  
+if platform.system() == "Windows":  
+    import asyncio  
+  
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())  
+```  
+您可能需要增加这些代码解决NotImplementedError。  
+  
     
 **无论世萌，B萌，部落萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Every saimoe tournament require auto voting!**
