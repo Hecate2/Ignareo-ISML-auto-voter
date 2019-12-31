@@ -17,10 +17,10 @@ if platform.system() == "Windows":
 ```  
 您可能需要增加这些代码解决NotImplementedError。  
   
-    
 **无论世萌，B萌，部落萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
-**Every saimoe tournament require auto voting!**
 **Voters of all lands, UNITE!**  
+  
+Dec. 31st, 2019: Happy new year to leprechauns!  
   
 Dec. 7th, 2019: 兰朵露可-chrome主题.crx: Chrome theme of Rhantolk Ytri Historia, packed by **urusai** (, who is not related to this repository).  
   
