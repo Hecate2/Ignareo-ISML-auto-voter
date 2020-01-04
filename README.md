@@ -20,6 +20,15 @@ if platform.system() == "Windows":
 **无论世萌，B萌，部落萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
   
+Jan. 5th, 2020:  
+It's relatively wise of ISML operators giving the honors randomly or according to their appetite, with few alternatives available, before they can design a system preventing vote-spamming effectively.  
+The reason of all the problems is the lack of chance. However much efforts paid, only the few can acquire acknowledgement. So saimoes have to be involutional(内卷的) competitions, and become overly fierce sooner or later. Involution not only impedes evolution but also devastates existing rules after all, because in fact people are overly suffering without being paid off.  
+As involution develops, surely there would be someone who breaks all the rules. I'm just a progressive one, launching the space warships a bit earlier than the call of Historia. Involution is not sustainable. More opportunities and evolution have to be created. If you (whether voter or operator) persist on involution, please firstly overtake me with technical force.  
+We have spent too much in deciding the winning character. However, as far as I know, few participants have mastered the necessary programming skills. People have not become more able and productive till now. Neither did they love their waifus much more because of fierce saimoe matches. Bad codes of clients and servers are made again and again.  
+Saimoes are, in the final analysis, just websites with no more than javascript and html. Voters and operators are both responsible for the evolution instead of involution. Let's consider something more interesting, or at least take effective measures to stop involution. Please make better programs and events. Please evolve our happiness and productivity.  
+  
+By the way, I think current bilibili voting programs are too slow to qualify. I have seen only 70 votes per second. These codes will become jokes when they face 60,000 requests per second handled by one ordinary machine.    
+  
 Dec. 31st, 2019: Happy new year to leprechauns!  
   
 Dec. 7th, 2019: 兰朵露可-chrome主题.crx: Chrome theme of Rhantolk Ytri Historia, packed by **urusai** (, who is not related to this repository).  
