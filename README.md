@@ -97,7 +97,7 @@ IgnaleoA uses the classical Python library `asyncio`. The codes in IgnaleoA have
 ## Structure:  
 IGN for ISML is fabricated with 3 cascades:  
 data producer -> main network I/O -> servers for computation intensive tasks  
-Every later cascade is an http server for the previous one.  
+Every later cascade is an http server for the previous one. Enjoy elastic web spiders deployed in microservices!  
   
 The data producer collects, neatens and gives the necessary information to start new I/O tasks. 
 The captcha server receives POST from the main I/O, and recognizes the letters and digits in the captcha image. In other words they undertake all the computation-intensive jobs.  
