@@ -89,6 +89,12 @@ Finally, provide Destroyer Ignaleo with ammunition (proxy ips) by starting **Amm
 **IGN does not open fire until you run Ammunition.py at last!**  
 **IgnaleoA is not fully reliable** when thousands of concurrent connections have to be handled in a single process, especially on Windows. But IgnaleoA saves a little bit of memory and CPU than IgnaleoG.  
   
+## Tutorial for civil users  
+```gevent.spawn(a_function_with_socket_operations, param, param, parameters…)```  
+```gevent.joinall(greenlets_spawned_by_gevent)```  
+~~and that's all you need!~~
+Reconstructing Ignaleo requires an understanding of its structure. I'm sorry but you may have to read the source code of IgnaleoG. Feel free to copy any code to shape your components.  
+  
 ##  I/O engines:  
 IgnaleoG uses `gevent` making your `socket` asynchronous. It means you can feed gevent with multi-thread web spider codes (typically `requests`) and enjoy asynchronous performance. In principle you can even connect to databases asynchronously. The event loop of gevent on different platforms is documented at http://www.gevent.org/loop_impls.html. According to the page, Windows users now have libuv!  
   
