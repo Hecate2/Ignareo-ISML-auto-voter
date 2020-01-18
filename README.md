@@ -5,10 +5,31 @@ High-performance HTTP I/O originated for Chtholly Nota Seniorious, and for ISML,
   
 Python 3.6 √  Python 3.7 √  
 https://github.com/Hecate2/ISML_auto_voter  
-    
+  
+对于Windows Python3.8用户
+```
+import platform  
+  
+if platform.system() == "Windows":  
+    import asyncio  
+  
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())  
+```  
+您可能需要增加这些代码解决NotImplementedError。  
+  
 **无论世萌，B萌，部落萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
-**Every saimoe tournament require auto voting!**
 **Voters of all lands, UNITE!**  
+  
+Jan. 5th, 2020:  
+It's relatively wise of ISML operators giving the honors randomly or according to their appetite, with few alternatives available, before they can design a system preventing vote-spamming effectively.  
+The reason of all the problems is the lack of chance. However much efforts paid, only the few can acquire acknowledgement. So saimoes have to be involutional(内卷的) competitions, and become overly fierce sooner or later. Involution not only impedes evolution but also devastates existing rules after all, because in fact people are overly suffering without being paid off.  
+As involution develops, surely there would be someone who breaks all the rules. I'm just a progressive one, launching the space warships a bit earlier than the call of Historia. Involution is not sustainable. More opportunities and evolution have to be created. If you (whether voter or operator) persist on involution, please firstly overtake me with technical force.  
+We have spent too much in deciding the winning character. However, as far as I know, few participants have mastered the necessary programming skills. People have not become more able and productive till now. Neither did they love their waifus much more because of fierce saimoe matches. Bad codes of clients and servers are made again and again.  
+Saimoes are, in the final analysis, just websites with no more than javascript and html. Voters and operators are both responsible for the evolution instead of involution. Let's consider something more interesting, or at least take effective measures to stop involution. Please make better programs and events. Please evolve our happiness and productivity.  
+  
+By the way, I think current bilibili voting programs are too slow to qualify. I have seen only 70 votes per second. These codes will become jokes when they face 60,000 requests per second handled by one ordinary machine.    
+  
+Dec. 31st, 2019: Happy new year to leprechauns!  
   
 Dec. 7th, 2019: 兰朵露可-chrome主题.crx: Chrome theme of Rhantolk Ytri Historia, packed by **urusai** (, who is not related to this repository).  
   
@@ -68,15 +89,25 @@ Finally, provide Destroyer Ignaleo with ammunition (proxy ips) by starting **Amm
 **IGN does not open fire until you run Ammunition.py at last!**  
 **IgnaleoA is not fully reliable** when thousands of concurrent connections have to be handled in a single process, especially on Windows. But IgnaleoA saves a little bit of memory and CPU than IgnaleoG.  
   
+## Tutorial for civil users  
+```gevent.spawn(a_function_with_socket_operations, param, param, parameters…)```  
+```gevent.joinall(greenlets_spawned_by_gevent)```  
+~~and that's all you need!~~  
+Reconstructing Ignaleo requires an understanding of its structure. I'm sorry but you may have to read the source code of IgnaleoG. Feel free to copy any code to shape your components.  
+  
+I have been looking for methods of further integration, but integration sacrifices transparency and simplicity. I need ideas to make Ignaleo easier to use.  
+  
 ##  I/O engines:  
 IgnaleoG uses `gevent` making your `socket` asynchronous. It means you can feed gevent with multi-thread web spider codes (typically `requests`) and enjoy asynchronous performance. In principle you can even connect to databases asynchronously. The event loop of gevent on different platforms is documented at http://www.gevent.org/loop_impls.html. According to the page, Windows users now have libuv!  
   
 IgnaleoA uses the classical Python library `asyncio`. The codes in IgnaleoA have to be literally asynchronous with `async def`, `ensure_future`, `await` and  `add_callback`.  
   
+You may also have a try with ```trio``` or ```httpx```. Help yourself and happy coding!  
+  
 ## Structure:  
 IGN for ISML is fabricated with 3 cascades:  
 data producer -> main network I/O -> servers for computation intensive tasks  
-Every later cascade is an http server for the previous one.  
+Every later cascade is an http server for the previous one. Enjoy elastic web spiders deployed in microservices!  
   
 The data producer collects, neatens and gives the necessary information to start new I/O tasks. 
 The captcha server receives POST from the main I/O, and recognizes the letters and digits in the captcha image. In other words they undertake all the computation-intensive jobs.  
