@@ -7,6 +7,7 @@ Python 3.6 √  Python 3.7 √
 https://github.com/Hecate2/ISML_auto_voter  
   
 对于Windows Python3.8用户
+For users using Python 3.8 on Windows
 ```
 import platform  
   
@@ -15,7 +16,8 @@ if platform.system() == "Windows":
   
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())  
 ```  
-您可能需要增加这些代码解决NotImplementedError。  
+您可能需要增加这些代码解决NotImplementedError。 
+You probably need to include these code to solve the `NotImplementedError`
   
 **无论世萌，B萌，部落萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
@@ -44,7 +46,8 @@ Quite a few have requested the **CNN training codes**. I'm too exhausted to writ
 Minimum requirement of GPU: one GTX1080ti  
 Minimum requirement of training set: 3,000 to 10,000 effective samples. One *sample* refers to one full captcha image with 8 letters or digits.  
 Many thanks to all who sacrificed for Chtholly and something named "justice".  
-验证码系统为了便于训练、部署、计算，降低硬件门槛，而牺牲了极限性能。谨代表珂朵莉和威廉练剑所发挥的最低水平！  
+验证码系统为了便于训练、部署、计算，降低硬件门槛，而牺牲了极限性能。谨代表珂朵莉和威廉练剑所发挥的最低水平！ 
+The CAPTCHA system sacrifices its peek efficiency in order to lower the difficulty of training and deploying, as well as the minimum required hardware. This is just to represent the lowest achievement of Chtholly's practice with Willem!
 It is possible to improve the anti-captcha system with scene text recognition, but at a heavy price of time and hardware.  
   
 Nov 14th: 1st anniversary for the Scrapy asynchronous prototype.   
