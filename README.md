@@ -9,16 +9,22 @@ https://github.com/Hecate2/ISML_auto_voter
 对于Windows Python3.8用户
 ```
 import platform  
-  
 if platform.system() == "Windows":  
     import asyncio  
-  
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())  
 ```  
 您可能需要增加这些代码解决NotImplementedError。  
   
 **无论世萌，B萌，部落萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
+  
+Jan. 30th, 2020:  
+https://chtholly.tech/  
+https://中国珂学院.top/  
+https://珂朵莉.top/  
+Welcome to the second generation of Chthollic Academy! (Not an acknowledged English translation)  
+第二版中国珂学院！不止宣传。内含干货。  
+(The first generation: https://www.chtholly.ac.cn/ )
   
 Jan. 5th, 2020:  
 It's relatively wise of ISML operators giving the honors randomly or according to their appetite, with few alternatives available, before they can design a system preventing vote-spamming effectively.  
@@ -37,7 +43,6 @@ Dec. 1st, 2019: The rays of stars will bring me to you.
   
 Nov. 29th, 2019: 欢迎光临淘宝店《某珂学的妖精仓库》！  
 Welcome to the shop *Some Chthollic leprechaun warehouse* (Not an official translation) on taobao!  
-https://m.tb.cn/h.eEo47Wk?sm=87163f  
   
 Nov. 18th, 2019: **Time for academic punk!**  
 Quite a few have requested the **CNN training codes**. I'm too exhausted to write instructions, so help yourself! The main training dataset is currently not available. The structure of the neural network can be found [here](https://github.com/Hecate2/ISML_auto_voter/blob/master/CNN_training/Classifier.png)  
