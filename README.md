@@ -1,4 +1,4 @@
-﻿# Destroyer Ignaleo (IGN)  
+﻿# Destroyer Ignareo (IGN)  
 *To love another person is to see the face of God.*  
   
 High-performance HTTP I/O originated for Chtholly Nota Seniorious, and for ISML, www.internationalsaimoe.com/voting.  
@@ -51,11 +51,11 @@ The CAPTCHA system sacrifices its peek efficiency in order to lower the difficul
 It is possible to improve the anti-captcha system with scene text recognition, but at a heavy price of time and hardware.  
   
 Nov 14th: 1st anniversary for the Scrapy asynchronous prototype.   
-Nov 9th: IgnaleoG updated. Nobody had paid any price for using IgnaleoG before it was published.  
+Nov 9th: IgnareoG updated. Nobody had paid any price for using IgnareoG before it was published.  
   
 Nov 1st: SukaMoka 08 is really enjoyable! But as far as I know, not every reader wants Chtholly to come to life again.  
   
-Oct. 12th, 2019: *Ignaleo.py* will be **renamed** as ***IgnaleoA.py***. **The name *Ignaleo* now refers to the whole series of programs (the whole project)**  
+Oct. 12th, 2019: *Ignareo.py* will be **renamed** as ***IgnareoA.py***. **The name *Ignareo* now refers to the whole series of programs (the whole project)**  
   
 Sep. 13th, 2019: >asyncio.ensure_future(self._post('httpc://chtholly.68',data=r'祝妖精仓库中秋快乐！'.encode('月饼')))  
   
@@ -68,10 +68,10 @@ https://github.com/Hecate2/ISML_auto_voter/raw/master/DestroyerIGN/CINT%20the%20
 Screaming high concurrency! Light weight Convolutional Neural Network! Against captcha within 0.06 seconds per image on CPU! 
 Easy for distributed deployment!  
   
-The structure of IGN can be applied for any saimoe voting and even more in principle (I'm using IgnaleoA to monitor IoT devices). Using IGN for other purposes is also welcomed. **Feel free to raise** ***Issues*** **including "我永远喜欢珂朵莉", "I love Chtholly forever", "私はいつまでもクトリが好きです", and even more!** （请扭曲的珂学家不要一夜之间刷两千条……）  
+The structure of IGN can be applied for any saimoe voting and even more in principle (I'm using IgnareoA to monitor IoT devices). Using IGN for other purposes is also welcomed. **Feel free to raise** ***Issues*** **including "我永远喜欢珂朵莉", "I love Chtholly forever", "私はいつまでもクトリが好きです", and even more!** （请扭曲的珂学家不要一夜之间刷两千条……）  
 However, **BE CAREFUL in case your operations may result in a CC attack!** (I've killed an SQL service imprudently with IGN...)  
   
-## Why Ignaleo instead of Scrapy?  
+## Why Ignareo instead of Scrapy?  
 I have already developed an auto voter in 2018, using Scrapy. Scrapy is truly a great framework.  
   
 The first reason why I aborted Scrapy is that it can cause critical trouble when you need a non-blocking pause between two requests. It seems you have to set the pause before receiving the response of the first request (https://stackoverflow.com/questions/36984696/scrapy-non-blocking-pause). Consequently it becomes difficult to control the interval of requests.  
@@ -82,28 +82,28 @@ Last but not least, the codes for a Scrapy spide, crammed in a single class and 
 
 It's very difficult to predict or control the detailed behavior of Scrapy, because it is such a great framework, making most decisions for you, hiding most of its source codes. This is good in many cases, but when you execute your personalized demands and decisions, you have to fight the framework.  
   
-Destroyer Ignaleo, as a reinvented wheel, is re-designed for the future. With only hundreds of lines of codes in the core, she allows you to define your own work flow, and understand everything about her. Now you can focus more on data parsing and dependency.  
+Destroyer Ignareo, as a reinvented wheel, is re-designed for the future. With only hundreds of lines of codes in the core, she allows you to define your own work flow, and understand everything about her. Now you can focus more on data parsing and dependency.  
   
-**Ignaleo has been fully tested in real combats.** Just trust her as your reliable partner!   
+**Ignareo has been fully tested in real combats.** Just trust her as your reliable partner!   
   
 ## How to use:  
-In DestroyerIGN, start **captchaServer.py**, and then **IgnaleoG.py**. 
-Finally, provide Destroyer Ignaleo with ammunition (proxy ips) by starting **Ammunition.py**.  
+In DestroyerIGN, start **captchaServer.py**, and then **IgnareoG.py**. 
+Finally, provide Destroyer Ignareo with ammunition (proxy ips) by starting **Ammunition.py**.  
 **IGN does not open fire until you run Ammunition.py at last!**  
-**IgnaleoA is not fully reliable** when thousands of concurrent connections have to be handled in a single process, especially on Windows. But IgnaleoA saves a little bit of memory and CPU than IgnaleoG.  
+**IgnareoA is not fully reliable** when thousands of concurrent connections have to be handled in a single process, especially on Windows. But IgnareoA saves a little bit of memory and CPU than IgnareoG.  
   
 ## Tutorial for civil users  
 ```gevent.spawn(a_function_with_socket_operations, param, param, parameters…)```  
 ```gevent.joinall(greenlets_spawned_by_gevent)```  
 ~~and that's all you need!~~  
-Reconstructing Ignaleo requires an understanding of its structure. I'm sorry but you may have to read the source code of IgnaleoG. Feel free to copy any code to shape your components.  
+Reconstructing Ignareo requires an understanding of its structure. I'm sorry but you may have to read the source code of IgnareoG. Feel free to copy any code to shape your components.  
   
-I have been looking for methods of further integration, but integration sacrifices transparency and simplicity. I need ideas to make Ignaleo easier to use.  
+I have been looking for methods of further integration, but integration sacrifices transparency and simplicity. I need ideas to make Ignareo easier to use.  
   
 ##  I/O engines:  
-IgnaleoG uses `gevent` making your `socket` asynchronous. It means you can feed gevent with multi-thread web spider codes (typically `requests`) and enjoy asynchronous performance. In principle you can even connect to databases asynchronously. The event loop of gevent on different platforms is documented at http://www.gevent.org/loop_impls.html. According to the page, Windows users now have libuv!  
+IgnareoG uses `gevent` making your `socket` asynchronous. It means you can feed gevent with multi-thread web spider codes (typically `requests`) and enjoy asynchronous performance. In principle you can even connect to databases asynchronously. The event loop of gevent on different platforms is documented at http://www.gevent.org/loop_impls.html. According to the page, Windows users now have libuv!  
   
-IgnaleoA uses the classical Python library `asyncio`. The codes in IgnaleoA have to be literally asynchronous with `async def`, `ensure_future`, `await` and  `add_callback`.  
+IgnareoA uses the classical Python library `asyncio`. The codes in IgnareoA have to be literally asynchronous with `async def`, `ensure_future`, `await` and  `add_callback`.  
   
 You may also have a try with ```trio``` or ```httpx```. Help yourself and happy coding!  
   
@@ -115,14 +115,14 @@ Every later cascade is an http server for the previous one. Enjoy elastic web sp
 The data producer collects, neatens and gives the necessary information to start new I/O tasks. 
 The captcha server receives POST from the main I/O, and recognizes the letters and digits in the captcha image. In other words they undertake all the computation-intensive jobs.  
 This paradigm provides an example involving all kinds of I/O and computation. All the processes can be easily distrubuted on different machines.  
-**Hopefully Ignaleo serves just as a concept** of high performance I/O engine, rather than a heavy framework. **I tried to make no decision for you**, except for performance and convenience of transplanting your other web spiders.  
+**Hopefully Ignareo serves just as a concept** of high performance I/O engine, rather than a heavy framework. **I tried to make no decision for you**, except for performance and convenience of transplanting your other web spiders.  
   
-Note that you can write all kinds of blocking codes in IgnaleoG. `gevent` even turns `time.sleep()` into non-blocking pause. That means you can boast high performance automatically. But non-socket time-consuming codes (computation or long-playing HDD I/O) should be transfered to other processes.  
+Note that you can write all kinds of blocking codes in IgnareoG. `gevent` even turns `time.sleep()` into non-blocking pause. That means you can boast high performance automatically. But non-socket time-consuming codes (computation or long-playing HDD I/O) should be transfered to other processes.  
   
 To control the network I/O process, write your own codes in **Voter.py**.  
-To deploy multiple processes of servers, change **portList** in Ammunition.py, IgnaleoA.py and captchaServer.py.  
+To deploy multiple processes of servers, change **portList** in Ammunition.py, IgnareoA.py and captchaServer.py.  
 To change which characters to vote for, modify **charaSelector.py**.  
-To tackle Cloudflare IUAM firewall (Checking your browser before…) with IgnaleoA, try to extract the JavaScript carefully, using **aiocfscrape.py**. The original version offered by https://github.com/pavlodvornikov/aiocfscrape have been disabled since Cloudflare changes the firewall very often. You may refer to all the resources from Github to bypass the firewall.  
+To tackle Cloudflare IUAM firewall (Checking your browser before…) with IgnareoA, try to extract the JavaScript carefully, using **aiocfscrape.py**. The original version offered by https://github.com/pavlodvornikov/aiocfscrape have been disabled since Cloudflare changes the firewall very often. You may refer to all the resources from Github to bypass the firewall.  
   
 ## Accessories: 
 **ISMLnextGen**, which contains some prototypes and basic code blocks, is the lab for the development of IGN.  
@@ -130,14 +130,14 @@ To tackle Cloudflare IUAM firewall (Checking your browser before…) with Ignale
 ## Acknowledgements
 First of all, please allow me to extend my sincerest gratitude to  
 <font color=#0099ff>Chtholly Nota Seniorious</font>,  
-Tiat Siba Ignaleo,  
+Tiat Siba Ignareo,  
 Ithea Myse Valgulious,  
 Nephren Ruq Insania,  
 and  
 <font color=DodgerBlue>Shino Asada</font>,  
 who always charge my will to conquer all the difficulties.  
   
-Thanks to all that support Ignaleo, including but not limited to the contributers of all the magnificent open codes utilized by Ignaleo. 
+Thanks to all that support Ignareo, including but not limited to the contributers of all the magnificent open codes utilized by Ignareo. 
   
 Thanks to my supporting group, which invested huge funds to give birth to the previous generations of auto voter programs.
 Thanks for their trust and cultivation on me.  
@@ -150,7 +150,7 @@ Thanks to some of my opponents in saimoe, who developed brilliant programs to in
   
 Thanks to all the ***Chthollists*** who love Chtholly and SukaSuka.  
   
-## How do I build Ignaleo?  
+## How do I build Ignareo?  
 By reading documents of many (possibly) useful libraries!  
   
 ## Tips! What if ISML responds very slowly?  
