@@ -20,6 +20,15 @@ You probably need to include these code to solve the `NotImplementedError`
 **无论世萌，B萌，部落萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
   
+Mar. 21st, 2020:  
+An image library of Sukasuka/Sukamoka:  
+https://lib.chtholly.moe  
+Using:  
+https://github.com/rr-/szurubooru  
+  
+And wiki:  
+https://wiki.chtholly.moe/  
+  
 Jan. 30th, 2020:  
 https://chtholly.tech/  
 https://中国珂学院.top/  
