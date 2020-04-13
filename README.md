@@ -20,6 +20,10 @@ You probably need to include these code to solve the `NotImplementedError`
 **无论世萌，B萌，部落萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
   
+Apr. 13th, 2020: Long time no see!  
+To developers who want to integrate more services (e.g. selenium browser cluster) with Ignareo:  
+Ignareo can be "Cloud Native". Docker-compose and Kubernetes may help you manage millions of machines running billions of services.  
+  
 Mar. 21st, 2020:  
 An image library of Sukasuka/Sukamoka:  
 https://lib.chtholly.moe  
