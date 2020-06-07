@@ -20,6 +20,8 @@ You probably need to include these code to solve the `NotImplementedError`
 **无论世萌，B萌，部落萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
   
+June 7, 2020: No warranty for ISML 2020. No possibility for darkest horses to win.    
+  
 May 20th, 2020: Is it possible to reconstruct Ignareo in Node.js?  
   
 Apr. 13th, 2020: Long time no see!  
