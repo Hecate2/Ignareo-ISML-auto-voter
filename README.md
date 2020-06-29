@@ -2,6 +2,7 @@
 *To love another person is to see the face of God.*  
   
 High-performance HTTP I/O originated for Chtholly Nota Seniorious, and for ISML, www.internationalsaimoe.com/voting.  
+Launches **100k（十万）HTTP requests in 0.7 seconds** on a single 4GHz core.  
   
 Python 3.6 √  Python 3.7 √  
 https://github.com/Hecate2/ISML_auto_voter  
