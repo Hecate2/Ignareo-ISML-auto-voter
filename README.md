@@ -31,12 +31,12 @@ Ignareo can be "Cloud Native". Docker-compose and Kubernetes may help you manage
   
 Mar. 21st, 2020:  
 An image library of Sukasuka/Sukamoka:  
-https://lib.chtholly.moe  
+https://lib.sukasuka.cn/  
 Using:  
 https://github.com/rr-/szurubooru  
   
 And wiki:  
-https://wiki.chtholly.moe/  
+https://wiki.sukasuka.cn/  
   
 Jan. 30th, 2020:  
 https://chtholly.tech/  
