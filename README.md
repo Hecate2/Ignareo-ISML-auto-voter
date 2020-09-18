@@ -31,7 +31,7 @@ Ignareo can be "Cloud Native". Docker-compose and Kubernetes may help you manage
   
 Mar. 21st, 2020:  
 An image library of Sukasuka/Sukamoka:  
-https://lib.sukasuka.cn/  
+https://img.sukasuka.cn/  
 Using:  
 https://github.com/rr-/szurubooru  
   
@@ -39,6 +39,7 @@ And wiki:
 https://wiki.sukasuka.cn/  
   
 Jan. 30th, 2020:  
+[The folloing domains have been deprecsted]  
 https://chtholly.tech/  
 https://中国珂学院.top/  
 https://珂朵莉.top/  
