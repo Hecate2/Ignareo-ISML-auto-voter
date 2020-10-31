@@ -1,7 +1,3 @@
-**Thanks to the increasing stars, I have decided to rewrite this README to be civil-programmer-oriented.**
-
-**Feel free to raise** ***Issues*** **including "我永远喜欢珂朵莉", "I love Chtholly forever", "私はいつまでもクトリが好きです".**
-
 ﻿# Destroyer Ignareo (IGN)  
 
 *To love another person is to see the face of God.*  
@@ -28,6 +24,10 @@ You probably need to include these code to solve the `NotImplementedError`
 
 **无论世萌，B萌，部落萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
+
+**Thanks to the increasing stars, I have decided to rewrite this README to be civil-programmer-oriented.**
+
+<u>**Feel free to raise** ***Issues*** **including "我永远喜欢珂朵莉", "I love Chtholly forever", "私はいつまでもクトリが好きです".**</u>
 
 Codes in this repository were initially written for voting in ISML. Consequently, everything was rapidly edited with simple tools including IDLE and notepads, designated for intensive fire power instantly launched by **anyone (even non-programmers)** only with a double click on Windows. Therefore, the codes might be not well formatted, not quite programmer-flavored and redundant. I apologize for that.
 
