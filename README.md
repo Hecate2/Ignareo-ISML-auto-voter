@@ -8,7 +8,9 @@ Ultimate High-performance HTTP I/O originated for Chtholly Nota Seniorious, and 
 
 Launches **100k（十万）HTTP requests in < 0.7 seconds** on a single 4GHz Ryzen 3600 core with 3200MHz memory. 
 
-Python 3.6 √  Python 3.7 √  
+Python 3.6 √ 
+
+Python 3.7 √  (recommended, for better SSL experience)
 
 对于Windows Python3.8用户
 For users using Python 3.8 on Windows
@@ -19,7 +21,7 @@ if platform.system() == "Windows":
     import asyncio  
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())  
 ```
-您可能需要增加这些代码解决NotImplementedError。 
+您可能需要增加这些代码解决`NotImplementedError`。 
 You probably need to include these code to solve the `NotImplementedError`
 
 **无论世萌，B萌，部落萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
@@ -40,7 +42,7 @@ Ignareo is still a bare core for now, but it is essentially different from and c
 
 Generally speaking, I'm sorry but **you may have to read the source code** of `DestroyerIGN/IgnareoG.py`, because **reconstructing Ignareo for your own use requires an understanding of its structure**. Feel free to copy any code to shape your components.  
 
-The good news is that **I'll guide you through the source code in the following example**.
+#### The good news is that **I'll guide you through the source code in the following example**.
 
 ##  How to vote in ISML with Ignareo:  
 
@@ -49,7 +51,9 @@ This is the original "military" purpose for which I built Ignareo. Civil users d
 ### How can I just start to vote?
 
 In `./DestroyerIGN`, start **captchaServer.py**, and then **IgnareoG.py**. 
-Finally, provide Destroyer Ignareo with ammunition (proxy IPs) by starting **Ammunition.py**.  
+Finally, provide Destroyer Ignareo with ammunition (proxy IPs) by starting **Ammunition.py**.   
+
+**For new hands:** Note that you should tell `Ammunition.py` where to get the proxies at what frequency. You may find tens of thousands of free proxies or purchase millions from the Internet. Search for `55556` in `Ammunition.py` and you would find tuples like `('http://localhost:55556/',1),`. Substitute the default tuples for your own URLs and time intervals (in seconds) to get proxies. `Ammunition.py` visits your URL and extracts `XXX.XXX.XXX.XXX:XXXXX` from the webpage, and send the proxies in the format `XXX.XXX.XXX.XXX:XXXXX\r\nXXX.XXX.XXX.XXX:XXXXX\r\n...`. 
 
 **IGN does not open fire until you run Ammunition.py at last!**  
 
