@@ -114,10 +114,11 @@ def selector(html,voting_token,vcode):
         
         #elif (count == 18):  # 18人选任意人数(2019 Aquamarine Necklace Wildcard)
         #elif (count == 16):  # 16人选任意人数(2019 Topaz Necklace Wildcard)
-        elif (count == 14):  # 14人选任意人数(2019 Amethyst Necklace Wildcard)
+        # elif (count == 14):  # 14人选任意人数(2019 Amethyst Necklace Wildcard)
+        elif count == 20:  # 20人选任意人数(2020 Sapphire Necklace Wildcard)
             data['min[%s]'%(arenaToken)] = '1'
             data['arena_num[%s]'%(arenaToken)] = arenaToken
-            data['max[%s]'%(arenaToken)] = '18'
+            data['max[%s]'%(arenaToken)] = '20'
             data['arena_token[%s]'%(arenaToken)] = arenaToken
 
             j=0
@@ -369,7 +370,8 @@ if __name__ == '__main__':
     #html=open(r"ISML 2018 Ruby Necklace.htm",'r',encoding="utf-8").read()
     #html=open(r"ISML季后赛2.htm",'r',encoding="utf-8").read()
     #html = open(r"ISML 2018 Diamond Necklace.htm", 'r', encoding="utf-8").read()
-    html = open(r"ISML 2019 Aquamarine Necklace.htm", 'r', encoding="utf-8").read()
+    # html = open(r"ISML 2019 Aquamarine Necklace.htm", 'r', encoding="utf-8").read()
+    html = open(r"ISML 2020 Sapphire Necklace.htm", 'r', encoding='utf-8').read()
     data=selector(html,'testVotingToken','testCaptcha')
     #print('Willem: '+data['contestant_vote[10][3]'])
     #print('Astolfo: '+data['contestant_vote[10][1]'])
@@ -378,6 +380,6 @@ if __name__ == '__main__':
     #print('Makise: '+data['contestant_vote[3][4]'])
     #print('Rinne: '+data['contestant_vote[13][1]'])
     #print('Chtholly：'+data['contestant_vote[20][1]'])
-    print('Willem：' + data['contestant_vote[2][6]'])
-    print('Conan:',data['contestant_vote[0][0]'])
-    #print(data)
+    # print('Willem：' + data['contestant_vote[2][6]'])
+    # print('Conan:',data['contestant_vote[0][0]'])
+    print(data)

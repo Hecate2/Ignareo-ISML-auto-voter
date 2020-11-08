@@ -6,6 +6,7 @@ monkey.patch_all()
 
 import functools,os,time,gc,random,re
 repattern=re.compile('voting_token" value="(.*?)"')
+waiting_time_pattern = re.compile('''<input id="voting_form_submit" type="submit" value="(.*?)" disabled="">''')
 
 portList=tuple([i for i in range(55568,55578)])#本服务器监听端口
 
@@ -70,7 +71,7 @@ def genHeaders():#aiohttp会自动生成大部分header
         'User-Agent': uaGen.random,
         'Accept': "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
         'Referer': "https://www.internationalsaimoe.com/voting/",
-        'Accept-Encoding': "gzip, deflate, br",
+        'Accept-Encoding': "gzip, deflate",
         'Accept-Language': acceptLanguage[random.randint(0, indexLanguage)],
         #'cache-control': "no-cache",
         'Connection':'keep-alive',
@@ -284,8 +285,9 @@ class MainHandler(tornado.web.RequestHandler):
                 f.write(text)
                 f.close()
                 return('%d %s 存票根成功'%(self.id,self.proxy))
-            except Exception:
-                return('%d %s 由于硬盘原因，存票根失败，可能硬盘过载!!!!!'%(self.id,self.proxy))
+            except Exception as e:
+                print(e)
+                return('%d %s 存票根失败!'%(self.id,self.proxy))
 
         #@tornado.concurrent.run_on_executor
         def Vote(self):#跑完整个投票流程！由gevent.spawn()启动
