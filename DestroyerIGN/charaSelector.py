@@ -169,8 +169,9 @@ def selector(html,voting_token,vcode):
 ##                        data['contestant_vote[%s][%s]' % (arenaToken,j)] = '0'
 ##                j+=1
 
-        #elif (count == 12):  # 单个角色给0到10分的赛制(2018 Diamond Necklace Wildcard)
-        elif (count == 8 and "voting_slider_contestant" in arena[i].innerHTML):#2019 Topaz Necklace Divine Circlet
+        # elif (count == 12):  # 单个角色给0到10分的赛制(2018 Diamond Necklace Wildcard)
+        # elif (count == 8 and "voting_slider_contestant" in arena[i].innerHTML):#2019 Topaz Necklace Divine Circlet
+        elif (count == 12 and "voting_slider_contestant" in arena[i].innerHTML): #2020 Sapphire Necklace Exhibition
             data['min[%s]'%(arenaToken)] = '1'
             data['arena_num[%s]'%(arenaToken)] = arenaToken
             data['max[%s]'%(arenaToken)] = '8'#'12'
@@ -210,7 +211,7 @@ def selector(html,voting_token,vcode):
                     data['contestant[' + arenaToken + '][' + str(j) + ']'] = '0'
                     data['contestant_vote[' + arenaToken + '][' + str(j) + ']'] = str(value)
                 j += 1
-        else:#给数字arena
+        else: # 选择数字1到8 arena
             data['min[%s]'%(arenaToken)]=str(count)
             data['arena_num[%s]'%(arenaToken)]=arenaToken
             data['max[%s]'%(arenaToken)]=str(count)
