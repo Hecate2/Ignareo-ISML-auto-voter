@@ -113,7 +113,11 @@ During the process stated above, your browser sends HTTP requests to the ISML se
 
 - Submitting your vote
 
-  Now we are to POST your selected characters, along with the voting_token and the captcha recognition result. Here I am not going to introduce how to generate the data to be posted. It was just some simple but tedious work implemented with `charaSelector.py` that defines which character at what probability to vote for.
+  Now we are to POST your selected characters, along with the voting_token and the captcha recognition result. 
+
+  Here I am **not** going to introduce how to generate the data to be posted. It was just some simple but tedious work implemented with `charaSelector.py` that defines which character at what probability to vote for. Civil users may ignore the details in `charaSelector.py`. 
+
+  Military voters can debug `charaSelector.py` using the sample webpage (`.htm` file). Make sure you do understand the structure of the webpage and my codes. <u>**You should always edit your `charaSelector.py` and check it very carefully for each match.**</u> Note that **<u>you are never guaranteed to win even if you cast billions of correct votes, because ISML operators select the winner mostly according to their own preference</u>**.
 
   ``````python
   requests.post("https://www.internationalsaimoe.com/voting/submit",data=the_data_generated_by_you)
@@ -151,7 +155,9 @@ The whole process stated above can be run by `def Vote(self):` in IgnareoG. **Yo
 
 ## Architecture of Ignareo
 
-Ignareo is **an asynchronous HTTP server** which listens to POST from `ammunition.py`. These POSTs carry IP addresses which are used as proxies in voting. **The event loop in the Ignareo server is also used for sending asynchronous HTTP requests** to ISML.
+The whole voting system is of a **broker architecture**. 3 aspects (obtaining IP addresses, voting and captcha recognition) are distributed in 3 types of nodes (`Ammunition.py`, `IgnareoG.py`, `captchaServer.py`). The broker architecture has been proved to be somewhat a simple but effective, and thus popular pattern. You may refer to a well-known open standard called **Common Object Request Broker Architecture (CORBA)**, which has provided many guides for creating a standardized application. ~~Well, I did not read those guides at all when I built Ignareo.~~
+
+IgnareoA/G is **an asynchronous HTTP server** which listens to POST from `ammunition.py`. These POSTs carry IP addresses which are used as proxies in voting. **The event loop in the Ignareo server is also used for sending asynchronous HTTP requests** to ISML.
 
 **You can certainly run multiple processes of Ignareo** by changing `portList` in Ammunition.py, IgnareoA/G.py and captchaServer.py. You may **recognize Ignareo and its captcha servers as an elastic microservices instead of a single heavy spider application**. Control your task flow with `ammunition.py`.
 
