@@ -2,7 +2,7 @@
 
 *To love another person is to see the face of God.*  
 
-https://github.com/Hecate2/ISML_auto_voter  
+https://github.com/Hecate2/ISML_auto_voter  or https://github.com/Hecate2/Ignareo
 
 Ultimate High-performance HTTP I/O originated for Chtholly Nota Seniorious, and for ISML, www.internationalsaimoe.com/voting.  
 
