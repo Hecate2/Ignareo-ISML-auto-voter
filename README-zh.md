@@ -27,8 +27,12 @@ Ignareo 目前仍是一个骨架，但它和其他库（例如`scrapy`）是本�
 
 ## 如何在世萌中用 Ignareo 进行投票
 
-这是 Ignareo 项目的本意，若您不需要这一功能，也不妨一读。
+这是 Ignareo 项目的本意，即使您不需要这一功能，也不妨一读。
 
 ### 如何开始投票？
+
+在 `./DestroyerIGN` 中，首先运行 `captchaServer.py`，接着运行 `IgnareoG.py`，最后运行 `Ammunition.py` 来给 Ignareo 提供弹药（代理）。
+
+
 
 
