@@ -141,7 +141,9 @@ The whole process stated above can be run by `def Vote(self):` in IgnareoG. **Yo
 
 ## Extended features:
 
-- "Retrying" middleware implemented as decorators
+- Ignareo does lack convenient features, but can make use of most ready-made wheels safely.
+
+- Retrying middleware implemented as decorators:
 
   `./DestroyerIGN/retryapi.py` serves as an example depicting how to implement middlewares with decoreators. Use a decorator like this:
 
@@ -149,7 +151,7 @@ The whole process stated above can be run by `def Vote(self):` in IgnareoG. **Yo
   @retry(exceptions=RequestExceptions,tries=2,logger=None)
   ``````
 
-- **Client-side** load balancing
+- **Client-side** load balancing:
 
   Search for `csGen` in `IgnareoG.py`. To avoid any captcha server to get overwhelmed, Ignareo posts the captcha image to a different captcha server each time. Usually load balancing is implemented at the server side, but in my codes, this is achieved **only at the client side**. 
 
@@ -175,13 +177,13 @@ To tackle Cloudflare IUAM firewall (Checking your browser before…) with Ignare
 
 ##  I/O engines:  
 
-IgnareoG uses `gevent` making your `socket` asynchronous. It means you can feed gevent with multi-thread web spider codes (typically `requests`) and enjoy asynchronous performance. In principle you can even connect to databases asynchronously. The event loop of gevent on different platforms is documented at http://www.gevent.org/loop_impls.html. According to the page, **Windows users have libuv, which is likely to outperform Linux...**
+IgnareoG uses `gevent` making your `socket` asynchronous. It means you can feed gevent with multi-thread web spider codes (typically `requests`) and enjoy asynchronous performance. In principle you can even connect to databases asynchronously. The event loop of gevent on different platforms is documented at http://www.gevent.org/loop_impls.html. According to the page, **Windows users have libuv, which is likely to outperform Linux thanks to IOCP.**
 
 IgnareoA uses the classical Python library `asyncio`. The codes in IgnareoA have to be literally asynchronous with `async def`, `ensure_future`, `await` and  `add_callback`.  
 
 To summarize, **you can just use Ignareo with low-level APIs provided by asyncio or gevent**. The event loop is running forever in the server.
 
-You may also have a try with ```trio``` or ```httpx```. Help yourself and happy coding!  
+You may also have a try with ```trio``` or ```httpx```. I have not implemented such a version, so help yourself and happy coding!  
 
 ## A generic code structure for civil users
 
@@ -231,6 +233,10 @@ Easy for distributed deployment!
 The structure of IGN can be applied for any saimoe voting and even more in principle (I'm using IgnareoA to monitor IoT devices). Using IGN for other purposes is also welcomed. **Feel free to raise** ***Issues*** **including "我永远喜欢珂朵莉", "I love Chtholly forever", "私はいつまでもクトリが好きです", and even more!** （请扭曲的珂学家不要一夜之间刷两千条……）  
 However, **BE CAREFUL in case your operations may result in a CC attack!** (I've killed an SQL service imprudently with IGN...)  
 
+## How do I build Ignareo?  
+
+By reading documents of many (possibly) useful libraries!  
+
 ## Miscellaneous logs
 
 June 7, 2020: No warranty for ISML 2020. No possibility for darkest horses to win.    
@@ -256,9 +262,6 @@ July 19th, 2019: **[Strongly Recommended]** Welcome to the novel (under GPL-3.0 
 欢迎阅读DestroyerIGN附赠的小说！(按GPL-3.0开源协议发布)  
 https://github.com/Hecate2/ISML_auto_voter/raw/master/DestroyerIGN/CINT%20the%20Space%20Fleet%20Hecate2%20(%E6%9C%AA%E9%85%8D%E4%B9%90).docx  
 **For more information: log.md**
-
-## How do I build Ignareo?  
-By reading documents of many (possibly) useful libraries!  
 
 ## Tips! What if ISML responds very slowly?  
 First, please allow me to ascribe the reason dogmatically to spammers using pristine selenium wildly.  
