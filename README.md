@@ -4,9 +4,11 @@
 
 https://github.com/Hecate2/ISML_auto_voter  or https://github.com/Hecate2/Ignareo
 
+中文[超光速入门](超光速入门.md)
+
 Ultimate High-performance HTTP I/O originated for Chtholly Nota Seniorious, and for ISML, www.internationalsaimoe.com/voting.  
 
-Launches **100k（十万）HTTP requests in < 0.7 seconds** on a single 4GHz Ryzen 3600 core with 3200MHz memory. 
+Launches **100k（十万）HTTP requests in < 0.7 seconds** on a single 4GHz Ryzen 3600 core with 2×8G 3200MHz memory. 
 
 Python 3.6 √ 
 
