@@ -1,0 +1,19 @@
+例如国籍选中国，则在config.py文件的 customer_info -> 'nationality' 的内容里填"same_as_life_locale"或者"china"
+
+<select class="form-control" name="order[required_nationality]" id="order_required_nationality">
+<option value="same_as_life_locale">現在のお住まいと同じ</option>
+<option value="japanese_national">日本</option>
+<option value="south_korea">韓国</option>
+<option value="china">中国</option>
+<option value="thailand">タイ</option>
+<option value="india">インド</option>
+<option value="indonesia">インドネシア</option>
+<option value="singapore">シンガポール</option>
+<option value="malaysia">マレーシア</option>
+<option value="philippines">フィリピン</option>
+<option value="oceania">オセアニア</option>
+<option value="us">アメリカ</option>
+<option value="canada">カナダ</option>
+<option value="europe">ヨーロッパ</option>
+<option value="other">その他</option>
+</select>

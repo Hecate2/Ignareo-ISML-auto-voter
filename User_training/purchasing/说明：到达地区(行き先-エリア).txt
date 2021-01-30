@@ -1,0 +1,12 @@
+<select class="form-control" name="order[destination_region_id]" id="order_destination_region_id">
+<option value="" selected="selected">選択してください</option>
+<option value="1">アメリカ・カナダ</option>
+<option value="2">アジア</option>
+<option value="3">東南アジア</option>
+<option value="4">中国</option>
+<option value="5">ヨーロッパ</option>
+<option value="6">サイパン・グアム</option>
+<option value="7">ハワイ</option>
+<option value="8">オセアニア</option>
+<option value="9">その他</option>
+</select>

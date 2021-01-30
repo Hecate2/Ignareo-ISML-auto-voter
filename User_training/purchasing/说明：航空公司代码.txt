@@ -1,0 +1,128 @@
+例如选四川航空，则在config.py文件的 customer_info -> airline' 的内容里填"87"。按Ctrl+F可以搜索。
+特别注意：航空公司id的对应表可能被网站修改。抢购前建议去填写地址的页面检查id。
+
+第1ターミナル
+<select name="order[airline_ids][]" id="order_airline_ids_" class="required form-control address_form_airline_select">
+<option value="" selected="selected">選択してください</option>
+<option value="87">3U　四川航空</option>
+<option value="39">9W　ジェットエアウェイズ</option>
+<option value="19">AB　エアベルリン</option>
+<option value="14">AC　エア・カナダ</option>
+<option value="26">AF　エールフランス航空</option>
+<option value="3">AM　アエロメヒコ航空</option>
+<option value="8">AZ　アリタリア－イタリア航空</option>
+<option value="111">BC　スカイマーク</option>
+<option value="107">BI　ロイヤルブルネイ航空</option>
+<option value="24">BR　エバー航空</option>
+<option value="18">BX　エアプサン</option>
+<option value="58">CA　中国国際航空</option>
+<option value="60">CZ　中国南方航空</option>
+<option value="61">DL　デルタ航空</option>
+<option value="22">ET　エチオピア航空</option>
+<option value="23">EY　エティハド航空</option>
+<option value="30">GA　ガルーダ・インドネシア航空</option>
+<option value="102">HX　香港航空</option>
+<option value="11">HY　ウズベキスタン国営航空</option>
+<option value="28">HZ　オーロラ航空</option>
+<option value="52">KE　大韓航空</option>
+<option value="33">KL　KLMオランダ航空</option>
+<option value="34">KQ　ケニア航空</option>
+<option value="83">LH　ルフトハンザドイツ航空</option>
+<option value="91">LJ　ジンエアー</option>
+<option value="86">LO　ポーランド航空</option>
+<option value="42">LX　スイスインターナショナルエアラインズ</option>
+<option value="113">LY　エルアルイスラエル航空</option>
+<option value="84">MF　厦門航空</option>
+<option value="116">MM　ピーチアビエーション</option>
+<option value="20">MS　エジプト航空</option>
+<option value="48">NH　全日本空輸</option>
+<option value="16">NQ　エアージャパン</option>
+<option value="66">NZ　ニュージーランド航空</option>
+<option value="55">OK　チェコ航空</option>
+<option value="78">OM　MIATモンゴル航空</option>
+<option value="27">OS　オーストリア航空</option>
+<option value="4">OZ　アシアナ航空</option>
+<option value="93">R3　ヤクティ・エア（ヤクーツク航空）</option>
+<option value="98">RS　エアソウル</option>
+<option value="79">SA　南アフリカ航空</option>
+<option value="15">SB　エア･カレドニア･インターナショナル</option>
+<option value="35">SC　山東航空</option>
+<option value="43">SK　スカンジナビア航空</option>
+<option value="104">SL　タイ ライオンエア</option>
+<option value="36">SQ　シンガポール航空</option>
+<option value="2">SU　アエロフロート・ロシア航空</option>
+<option value="53">TG　タイ国際航空</option>
+<option value="49">TK　ターキッシュ エアラインズ</option>
+<option value="80">UA　ユナイテッド航空</option>
+<option value="10">VA　ヴァージン・オーストラリア</option>
+<option value="74">VN　ベトナム航空</option>
+<option value="114">ZG　ジップエアー</option>
+<option value="37">ZH　深セン航空</option>
+</select>
+
+第2ターミナル
+<select name="order[airline_ids][]" id="order_airline_ids_" class="required form-control address_form_airline_select">
+<option value="" selected="selected">選択してください</option>
+<option value="47">5J　セブパシフィック航空</option>
+<option value="7">AA　アメリカン航空</option>
+<option value="100">AE　マンダリン航空</option>
+<option value="13">AI　エア インディア</option>
+<option value="72">AY　フィンランド航空</option>
+<option value="73">BA　ブリティッシュ・エアウェイズ</option>
+<option value="57">CI　チャイナエアライン</option>
+<option value="32">CX　キャセイパシフィック航空</option>
+<option value="12">D7　エアアジアX</option>
+<option value="6">DM　アジアンエア</option>
+<option value="110">DV　SCAT航空</option>
+<option value="25">EK　エミレーツ航空</option>
+<option value="101">FJ　フィジーエアウェイズ</option>
+<option value="96">FY　ファイアフライ航空</option>
+<option value="62">GE　トランスアジア航空</option>
+<option value="99">HA　ハワイアン航空</option>
+<option value="5">HB　アジア アトランティック エアラインズ</option>
+<option value="109">HO　吉祥航空</option>
+<option value="85">HU　海南航空</option>
+<option value="95">IB　イベリア航空</option>
+<option value="51">IT　タイガーエア台湾</option>
+<option value="38">JF　ジェットアジア・エアウェイズ</option>
+<option value="54">JJ　TAM航空</option>
+<option value="64">JL　日本航空</option>
+<option value="117">JX　スターラックス航空</option>
+<option value="82">LA　ラン航空</option>
+<option value="90">LV　メガ・モルディブ航空</option>
+<option value="77">MH　マレーシア航空</option>
+<option value="59">MU　中国東方航空</option>
+<option value="76">NX　マカオ航空</option>
+<option value="103">OD　マリンドエア</option>
+<option value="68">PG　バンコク・エアウェイズ</option>
+<option value="69">PK　パキスタン国際航空</option>
+<option value="71">PR　フィリピン航空</option>
+<option value="65">PX　ニューギニア航空</option>
+<option value="31">QF　カンタス航空</option>
+<option value="115">QH　バンブー・エアウェイズ</option>
+<option value="29">QR　カタール航空</option>
+<option value="112">RA　ネパール航空</option>
+<option value="21">S7　S７航空</option>
+<option value="17">TN　エア タヒチ ヌイ</option>
+<option value="44">TR　スクート</option>
+<option value="89">TW　ティーウェイ航空</option>
+<option value="46">UL　スリランカ航空</option>
+<option value="75">UO　香港エクスプレス</option>
+<option value="81">US　USエアウェイズ</option>
+<option value="105">VJ　ベトジェットエア</option>
+<option value="50">XJ　タイ・エアアジアX</option>
+<option value="97">XT　インドネシア・エアアジアX航空</option>
+<option value="106">XW　ノックスクート</option>
+<option value="9">ZE　イースター航空</option>
+</select>
+
+第3ターミナル
+<select name="order[airline_ids][]" id="order_airline_ids_" class="required form-control address_form_airline_select">
+<option value="" selected="selected">選択してください</option>
+<option value="56">7C　チェジュ航空</option>
+<option value="88">9C　春秋航空</option>
+<option value="41">GK　ジェットスター・ジャパン</option>
+<option value="40">JQ　ジェットスター航空</option>
+<option value="67">JW　バニラエア</option></select>
+
+※ 成田空港からご出発されるエアラインを選択してください。

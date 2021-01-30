@@ -1,0 +1,20 @@
+例如现在住中国，则在config.py文件的 customer_info -> 'life_locale' 的内容里填"china_locale"
+
+<select class="form-control" name="order[life_locale]" id="order_life_locale">
+<option selected="selected" value="japan">日本</option>
+<option value="south_korea_locale">韓国</option>
+<option value="china_locale">中国</option>
+<option value="taiwan_locale">台湾</option>
+<option value="hong_kong_locale">香港</option>
+<option value="thailand_locale">タイ</option>
+<option value="india_locale">インド</option>
+<option value="indonesia_locale">インドネシア</option>
+<option value="singapore_locale">シンガポール</option>
+<option value="malaysia_locale">マレーシア</option>
+<option value="philippines_locale">フィリピン</option>
+<option value="oceania_locale">オセアニア</option>
+<option value="us_locale">アメリカ</option>
+<option value="canada_locale">カナダ</option>
+<option value="europe_locale">ヨーロッパ</option>
+<option value="other_locales">その他</option>
+</select>
