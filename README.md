@@ -35,6 +35,10 @@ You probably need to include these code to solve the `NotImplementedError`
 
 Codes in this repository were initially written for voting in ISML. Consequently, everything was rapidly edited with simple tools including IDLE and notepads, designated for intensive fire power instantly launched by **anyone (even non-programmers)** only with a double click on Windows. Therefore, the codes might be not well formatted, not quite programmer-flavored and redundant. I apologize for that.
 
+The structure of original Ignareo is shown below, referring to the codes in `./DestroyerIGN`. Feel free to copy or rewrite any code to shape your own components.  
+
+![Structure of Ignareo](structure.png)
+
 ## Tutorial for civil users  
 
 ```gevent.spawn(a_function_with_socket_operations, param, param, parameters…)```  
@@ -42,7 +46,7 @@ Codes in this repository were initially written for voting in ISML. Consequently
 
 Ignareo is still a bare core for now, but it is essentially different from and can never be replaced with other libraries like `scrapy` and `grequests`. I have been looking for methods of further integration, but integration sacrifices transparency and simplicity. Therefore I will **not** pack Ignareo as a series of APIs or as a scrapy-like engine. 
 
-Generally speaking, I'm sorry but **you may have to read the source code** of `DestroyerIGN/IgnareoG.py`, because **reconstructing Ignareo for your own use requires an understanding of its structure**. Feel free to copy any code to shape your components.  
+Generally speaking, I'm sorry but **you may have to read the source code** of `DestroyerIGN/IgnareoG.py`, because **reconstructing Ignareo for your own use requires an understanding of its structure**. 
 
 #### The good news is that **I'll guide you through the source code in the following example**.
 
