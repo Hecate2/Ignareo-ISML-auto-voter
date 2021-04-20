@@ -1,0 +1,3 @@
+让Tornado同时带tcp，websocket和http的例子。三种通信方式可对同一任务池布置任务或取消任务。
+
+index.html是简单测试用前端，每次点击都会开一个新的websocket连接。生产环境中请不要这样。
