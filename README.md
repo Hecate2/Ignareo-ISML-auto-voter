@@ -307,7 +307,7 @@ First of all, please allow me to extend my sincerest gratitude to
 
 <font color=#0099ff>Chtholly Nota Seniorious</font>,  
 
-Tiat Siba Ignareo,  
+Tiat Sheba Ignareo,  
 
 Ithea Myse Valgulious,  
 
