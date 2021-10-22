@@ -165,7 +165,7 @@ The whole process stated above can be run by `def Vote(self):` in IgnareoG. **Yo
 
 The whole voting system is of a **broker architecture**. 3 **aspects (切面)** (obtaining IP addresses, voting and captcha recognition) (You may have heard of aspect oriented programming, AOP) are **distributed in 3 types of nodes** (`Ammunition.py`, `IgnareoG.py`, `captchaServer.py`). The broker architecture has been proved to be somewhat a simple but effective, and thus popular pattern. You may refer to a well-known open standard called **Common Object Request Broker Architecture (CORBA)**, which has provided many guides for creating a standardized application. ~~Well, I did not read those guides at all when I built Ignareo.~~
 
-IgnareoA/G is **an asynchronous HTTP server** which listens to POST from `ammunition.py`. These POSTs carry IP addresses which are used as proxies in voting. **The event loop in the Ignareo server is also used for sending asynchronous HTTP requests** to ISML.
+IgnareoA/G is **an asynchronous HTTP server** which listens to POST from `ammunition.py`. These POST requests carry IP addresses which are used as proxies in voting. **The event loop in the Ignareo server is also used for sending asynchronous HTTP requests** to ISML.
 
 **You can certainly run multiple processes of Ignareo** by changing `portList` in Ammunition.py, IgnareoA/G.py and captchaServer.py. You may **recognize Ignareo and its captcha servers as an elastic microservices instead of a single heavy spider application**. Control your task flow with `ammunition.py`.
 
