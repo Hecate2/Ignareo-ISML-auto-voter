@@ -264,9 +264,9 @@ Oct. 12th, 2019: *Ignareo.py* will be **renamed** as ***IgnareoA.py***. **The na
 
 Sep. 13th, 2019: >asyncio.ensure_future(self._post('httpc://chtholly.68',data=r'祝妖精仓库中秋快乐！'.encode('月饼')))  
 
-July 19th, 2019: **[Strongly Recommended]** Welcome to the novel (under GPL-3.0 license) at /DestroyerIGN/CINT the Space Fleet Hecate2  
+July 19th, 2019: **[Strongly Recommended]** Welcome to the novel (under GPL-3.0 license) at *CINT the Space Fleet Hecate2*  
 欢迎阅读DestroyerIGN附赠的小说！(按GPL-3.0开源协议发布)  
-https://github.com/Hecate2/ISML_auto_voter/raw/master/DestroyerIGN/CINT%20the%20Space%20Fleet%20Hecate2%20(%E6%9C%AA%E9%85%8D%E4%B9%90).docx  
+https://github.com/Hecate2/Ignareo-ISML-auto-voter/blob/master/CINT%20the%20Space%20Fleet%20Hecate2%20(%E6%9C%AA%E9%85%8D%E4%B9%90).docx 
 **For more information: log.md**
 
 ## Tips! What if ISML responds very slowly?  
