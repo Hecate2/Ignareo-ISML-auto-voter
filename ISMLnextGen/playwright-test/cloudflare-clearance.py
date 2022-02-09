@@ -42,8 +42,8 @@ async def get_client_with_clearance(proxy: str = None):
         if type(proxy) is str:
             proxy = {'server': proxy}
         async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=False, proxy=proxy)
-            page = await browser.new_page()
+            browser = await p.chromium.launch(headless=False, proxy=proxy, args=["--window-position=1000,800", "--disable-web-security", "--disable-webgl"])
+            page = await browser.new_page(viewport={"width": 0, "height": 0})
             await stealth_async(page)
 
             await page.route(lambda s: 'www.internationalsaimoe.com/security' in s, lambda route: route.abort())
