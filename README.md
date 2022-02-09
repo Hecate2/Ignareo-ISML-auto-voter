@@ -177,7 +177,7 @@ To control the network I/O process of IgnareoA, write your own codes in **Voter.
 
 To change which characters to vote for, modify **charaSelector.py**.  
 
-To tackle Cloudflare IUAM firewall (Checking your browser before…) with IgnareoA, try to extract the JavaScript carefully, using **aiocfscrape.py**. The original version offered by https://github.com/pavlodvornikov/aiocfscrape is disabled since Cloudflare changes the firewall very often. You may refer to all the resources from Github to bypass the firewall. Breaking the firewall with browsers (without exhausting reverse engineering) at high performance is also a potential research orientation.
+About Cloudflare IUAM firewall (`Checking your browser before…`): Thanks to many open-source contributors, I have implemented experiments in [cloudflare-clearance.py](ISMLnextGen/playwright-test/cloudflare-clearance.py) Potentially it is also possible to solve hcaptchas. I am not responsible for continual efforts on reverse engineering of the firewall. Only a (temporary) playwright solution is offered. 
 
 **The trendy architecture of Ignareo has been fully tested in real combats. Just trust her as your reliable partner!**   
 
