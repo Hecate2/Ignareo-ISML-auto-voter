@@ -19,7 +19,7 @@ async def async_cf_retry(page: Page, tries=10) -> bool:
             tries -= 1
             await asyncio.sleep(1)
         else:
-            print(title)
+            # print(title)
             if title == 'Please Wait... | Cloudflare':
                 await page.close()
                 raise NotImplementedError('Encountered recaptcha. Check whether your proxy is an elite proxy.')
@@ -95,6 +95,7 @@ async def get_client_with_clearance(proxy: str = None):
 
 print(asyncio.get_event_loop().run_until_complete(get_client_with_clearance(
     # proxy='http://localhost:8888'
+    # use proxifier on windows as an elite proxy
 )))
 # asyncio.gather(*([get_client_with_clearance()] * 10))
 # Do not gather clients in actual combat. Let available clients start the voting tasks immediately.
