@@ -3,7 +3,7 @@ import asyncio
 from playwright.async_api import async_playwright, Error, Page
 from cf_clearance import stealth_async
 import httpx
-# local_client = httpx.AsyncClient()
+# local_client = httpx.AsyncClient(verify=False)
 # url = 'https://www.internationalsaimoe.com/'
 url = 'https://nowsecure.nl/'
 
@@ -19,7 +19,11 @@ async def async_cf_retry(page: Page, tries=10) -> bool:
             tries -= 1
             await asyncio.sleep(1)
         else:
-            if "Just a moment" in title:
+            print(title)
+            if title == 'Please Wait... | Cloudflare':
+                await page.close()
+                raise NotImplementedError('Encountered recaptcha. Check whether your proxy is an elite proxy.')
+            elif title == 'Just a moment...':
                 tries -= 1
                 await asyncio.sleep(5)
             elif "www." in title:
@@ -32,9 +36,11 @@ async def async_cf_retry(page: Page, tries=10) -> bool:
     return success
 
 
-async def get_client_with_clearance(proxy=None):
+async def get_client_with_clearance(proxy: str = None):
     async def get_one_clearance(proxy=proxy, logs=False):
         # proxy = {"server": "socks5://localhost:7890"}
+        if type(proxy) is str:
+            proxy = {'server': proxy}
         async with async_playwright() as p:
             browser = await p.chromium.launch(headless=False, proxy=proxy)
             page = await browser.new_page()
@@ -60,14 +66,17 @@ async def get_client_with_clearance(proxy=None):
                 ua = await page.evaluate('() => {return navigator.userAgent}')
                 # print(ua)
             else:
+                await page.close()
                 raise InterruptedError("cf challenge fail")
             await page.close()
             return ua, cookies_for_httpx
     
     async def build_client_with_clearance(
             ua, cookies_for_httpx, client: httpx.AsyncClient = None, proxies=proxy, test=False):
-        # proxies = {"all": "socks5://localhost:7890"}
-        client = client or httpx.AsyncClient(proxies=proxies)
+        # proxies = {"all://": "socks5://localhost:7890"}
+        if type(proxy) is str:
+            proxies = {'all://': proxies}
+        client = client or httpx.AsyncClient(proxies=proxies, verify=False)
         # use cf_clearance, must be same IP and UA
         client.headers.update({"user-agent": ua})
         client.cookies.update(cookies_for_httpx)
@@ -84,6 +93,8 @@ async def get_client_with_clearance(proxy=None):
     client = await build_client_with_clearance(ua, cookies_for_httpx, test=True)
     return client
 
-print(asyncio.get_event_loop().run_until_complete(get_client_with_clearance()))
+print(asyncio.get_event_loop().run_until_complete(get_client_with_clearance(
+    # proxy='http://localhost:8888'
+)))
 # asyncio.gather(*([get_client_with_clearance()] * 10))
 # Do not gather clients in actual combat. Let available clients start the voting tasks immediately.
