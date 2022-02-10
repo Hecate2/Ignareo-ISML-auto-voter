@@ -10,25 +10,21 @@ Ultimate High-performance HTTP I/O originated for Chtholly Nota Seniorious, and 
 
 Launches **100k（十万）HTTP requests in < 0.7 seconds** on a single 4GHz Ryzen 3600 core with 2×8G 3200MHz memory. 
 
-Python 3.6 √ 
+Python 3.6 √ (not recommended, for worse SSL) 
 
-Python 3.7 √  (recommended, for better SSL experience)
+Python 3.7 √ 
 
-对于Windows Python3.8用户
-For users using Python 3.8 on Windows
+Python 3.8 √
+
+Tensorflow-related requirements applicable for combat with Python 3.8 (not for model training):
 
 ```
-import platform  
-if platform.system() == "Windows":  
-    import asyncio  
-    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())  
+tensorflow==2.8.0 keras==2.8.0
 ```
-您可能需要增加这些代码解决`NotImplementedError`。 
-You probably need to include these code to solve the `NotImplementedError`.
 
 **识别验证码的神经网络是2018年底使用`tensorflow==1.11`附近的版本训练的，因此不支持Python 3.8。**
 
-**`captchaServer.py` was trained in 2018 with `tensorflow==1.11`, and does not support Python 3.8.**
+**The model for `captchaServer.py` was trained in late 2018 with `tensorflow==1.11`, and does not support Python 3.8.**
 
 ----
 
