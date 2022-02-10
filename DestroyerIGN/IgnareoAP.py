@@ -1,7 +1,7 @@
 # `AP` for `async playwright`
 # IGN AP is for getting Cloudflare clearance before voting with httpx
 # Alternatively it may just obtain the clearance and return the ua & clearance to other processes
-from DestroyerIGN.get_cf_clearance import get_one_clearance, build_client_with_clearance
+from get_cf_clearance import get_one_clearance, build_client_with_clearance
 from abc import ABC
 import traceback
 import re
