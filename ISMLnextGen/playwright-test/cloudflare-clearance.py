@@ -1,3 +1,4 @@
+import logging
 import re
 import asyncio
 from playwright.async_api import async_playwright, Error, Page
@@ -19,7 +20,7 @@ async def async_cf_retry(page: Page, tries=10) -> bool:
             tries -= 1
             await asyncio.sleep(1)
         else:
-            # print(title)
+            logging.debug(f'title: {title}')
             if title == 'Please Wait... | Cloudflare':
                 await page.close()
                 raise NotImplementedError('Encountered recaptcha. Check whether your proxy is an elite proxy.')
@@ -55,7 +56,7 @@ async def get_client_with_clearance(proxy: str = None):
 
             if logs:
                 def log_response(intercepted_response):
-                    print("a response was received:", intercepted_response.url)
+                    logging.debug(f"{proxy} response: {intercepted_response.url}")
                 page.on("response", log_response)
 
             await page.goto(url)
@@ -93,6 +94,7 @@ async def get_client_with_clearance(proxy: str = None):
     client = await build_client_with_clearance(ua, cookies_for_httpx, test=True)
     return client
 
+logging.basicConfig(datefmt='%H:%M:%S', format='%(asctime)s[%(levelname)s] %(message)s', level=logging.DEBUG)
 print(asyncio.get_event_loop().run_until_complete(get_client_with_clearance(
     # proxy='http://localhost:8888'
     # use proxifier on windows as an elite proxy
