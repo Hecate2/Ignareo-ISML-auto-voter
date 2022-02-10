@@ -24,7 +24,13 @@ if platform.system() == "Windows":
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())  
 ```
 您可能需要增加这些代码解决`NotImplementedError`。 
-You probably need to include these code to solve the `NotImplementedError`
+You probably need to include these code to solve the `NotImplementedError`.
+
+**识别验证码的神经网络是2018年底使用`tensorflow==1.11`附近的版本训练的，因此不支持Python 3.8。**
+
+**`captchaServer.py` was trained in 2018 with `tensorflow==1.11`, and does not support Python 3.8.**
+
+----
 
 **无论世萌，B萌，部落萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
 **Voters of all lands, UNITE!**  
