@@ -22,6 +22,10 @@ Tensorflow-related requirements applicable for combat with Python 3.8 (not for m
 tensorflow==2.8.0 keras==2.8.0
 ```
 
+```
+CUDA==11.5.2 cuDNN==8.3.2
+```
+
 **识别验证码的神经网络是2018年底使用`tensorflow==1.11`附近的版本训练的，因此不支持Python 3.8。**
 
 **The model for `captchaServer.py` was trained in late 2018 with `tensorflow==1.11`, and does not support Python 3.8.**
