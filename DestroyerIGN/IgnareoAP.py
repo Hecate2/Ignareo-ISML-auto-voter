@@ -39,7 +39,6 @@ total_memory_GB = int(total_memory / 1024 ** 3)
 num_cpu = multiprocessing.cpu_count()
 browser_pool_size = int((total_memory_GB - 3) / (multiprocessing.cpu_count() * 0.25))
 browser_pool = asyncio.Semaphore(browser_pool_size)
-asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
 
 local_client = httpx.AsyncClient()
 worker_loop = asyncio.get_event_loop()
