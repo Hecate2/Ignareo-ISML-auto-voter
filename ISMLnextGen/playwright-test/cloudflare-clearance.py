@@ -117,5 +117,6 @@ print(client)
 new_client = loop.run_until_complete(build_client_with_clearance(ua, cookies, test=False))
 response = loop.run_until_complete(new_client.post(url))
 print(response, response.status_code)
+loop.run_until_complete(new_client.aclose())
 # asyncio.gather(*([get_client_with_clearance()] * 10))
 # Do not gather clients in actual combat. Let available clients start the voting tasks immediately.
