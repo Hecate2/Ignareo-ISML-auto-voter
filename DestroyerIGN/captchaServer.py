@@ -1,5 +1,5 @@
 ﻿#coding:utf-8
-portList=(8888,8889)#本服务器监听端口
+portList=(8889,)#本服务器监听端口
 
 import tornado.ioloop
 import tornado.web

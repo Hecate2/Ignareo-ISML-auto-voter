@@ -12,7 +12,6 @@ portList=tuple([i for i in range(55568,55578)])#本服务器监听端口
 
 #验证码服务器
 captchaServers=[
-    'http://localhost:8888',
     'http://localhost:8889',
     ]
 random.shuffle(captchaServers)

@@ -6,7 +6,6 @@ from charaSelector import selector
 import random
 #打码服务器列表:
 captchaServers=[
-    'http://localhost:8888',
     'http://localhost:8889',
     ]
 random.shuffle(captchaServers)
