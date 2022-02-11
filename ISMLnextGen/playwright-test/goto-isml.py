@@ -6,7 +6,7 @@ from hashlib import md5
 from urllib.parse import urlencode
 from get_cf_clearance import (get_one_clearance, build_client_with_clearance,
     async_playwright, async_cf_retry, Error, Page, stealth_async)
-from playwright.async_api import Route, Playwright
+from playwright.async_api import Route, Playwright, Response
 import asyncio
 worker_loop = asyncio.get_event_loop()
 asyncio.set_event_loop(worker_loop)
@@ -35,6 +35,13 @@ class VoterPlaywright:
         def modify_fingerprint(route: Route):
             asyncio.create_task(route.continue_(post_data=urlencode({"secure": self.fingerprint})))
         
+        async def handle_captcha_response(response: Response):
+            if 'https://www.internationalsaimoe.com/captcha/' in response.url \
+                    or 'https://www.internationalsaimoe.com/js/' in response.url:
+                print(response.status, response.url, await response.body())
+        
+        page.on("response", handle_captcha_response)
+
         await page.route(lambda s: 'www.internationalsaimoe.com/security' in s, modify_fingerprint)
         await page.route(lambda s: 'www.internationalsaimoe.com/fonts' in s, lambda route: route.abort())
         await page.route(lambda s: 'cdnjs.cloudflare.com/ajax/libs/owl-carousel' in s, lambda route: route.abort())
@@ -52,14 +59,17 @@ class VoterPlaywright:
             self.context = context
             self.page = page
             logging.info(f'{self.proxy} entered ISML')
-            await asyncio.sleep(100)
             return
         else:
             await browser.close()
             raise InterruptedError(f"{self.proxy} cf challenge fail")
     
+    async def AI_decaptcha(self):
+        ...
+
     async def vote(self):
         await self.enter_ISML()
+        await self.AI_decaptcha()
 
 logging.basicConfig(datefmt='%H:%M:%S', format='%(asctime)s[%(levelname)s] %(message)s', level=logging.INFO)
 worker_loop.run_until_complete(VoterPlaywright(None).vote())

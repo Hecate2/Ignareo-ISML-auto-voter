@@ -2,7 +2,7 @@
 # IGN AP is for getting Cloudflare clearance before voting with httpx
 # Alternatively it may just obtain the clearance and return the ua & clearance to other processes
 from get_cf_clearance import (get_one_clearance, build_client_with_clearance,
-    async_playwright, async_cf_retry, Error, Page, stealth_async)
+    async_playwright, async_cf_retry, stealth_async)
 from playwright.async_api import Route, Playwright
 
 from charaSelector import selector
@@ -229,18 +229,37 @@ class VoterHttpx:
 
 
 class VoterPlaywright:
-    def __init__(self, proxy: Union[str, Dict[str, str]],
+    def __init__(self, proxy: str,
                  browser_args=None, page_args: Optional[Dict] = None):
         self.browser_args = browser_args or ["--disable-web-security", "--disable-webgl"]
         self.page_args = page_args or {'viewport': {"width": 0, "height": 0}}
-        self.proxy = {'server': proxy} if type(proxy) is str else proxy
+        self.proxy = proxy
         self.fingerprint = md5(('TiLakPanColNoRhChNeIt' + str(proxy)).encode()).hexdigest()
-    
+
+    def retry(self, *exceptions, retries=2, cooldown=0):
+        def wrap(func):
+            @wraps(func)
+            async def inner(*args, **kwargs):
+                nonlocal retries
+                while retries != 0:
+                    try:
+                        result = await func(*args, **kwargs)
+                    except exceptions as err:
+                        retries -= 1
+                        logging.debug(f'{self.proxy} retrying: {retries} times left; {err}')
+                        if cooldown > 0:
+                            await asyncio.sleep(cooldown)
+                    else:
+                        return result
+                raise RetryExhausted(err)
+            return inner
+        return wrap
+
     async def enter_ISML(self):
-        await browser_pool.__aenter__()
         if self.proxy:
+            proxy = {'server': self.proxy}
             browser = await playwright.chromium.launch(
-                headless=False, proxy=self.proxy, args=self.browser_args)
+                headless=False, proxy=proxy, args=self.browser_args)
         else:
             browser = await playwright.chromium.launch(
                 headless=False, args=self.browser_args)
@@ -268,6 +287,10 @@ class VoterPlaywright:
                 self.browser = browser
                 self.context = context
                 self.page = page
+                cookies = await page.context.cookies()
+                cookies = {cookie['name']: cookie['value'] for cookie in cookies}
+                ua = await page.evaluate('() => {return navigator.userAgent}')
+                self.client = await build_client_with_clearance(ua, cookies, proxies={'all://': self.proxy}, test=False)
                 logging.info(f'{self.proxy} entered ISML')
             else:
                 raise NoVotingToken(f'{self.proxy}')
@@ -276,11 +299,30 @@ class VoterPlaywright:
             await browser.close()
             raise InterruptedError(f"{self.proxy} cf challenge fail")
 
+    @retry(HttpxExceptions)
+    async def _local_post(self, url, data, timeout=REQUEST_TIMEOUT):
+        async with local_client.post(url, data=data, timeout=timeout) as response:
+            if response.status_code < 400:
+                return response.text
+            else:
+                return response.raise_for_status()
+
+    @retry(HttpxExceptions)
+    async def _get(self, url, timeout=REQUEST_TIMEOUT):
+        async with self.client.get(url, timeout=timeout) as response:
+            if response.status_code < 400:
+                if 'text' in response.headers['content-type']:
+                    return response.text
+                else:
+                    return response.content
+            else:
+                return response.raise_for_status()
+
     async def AI_decaptcha(self):
         tries = 0
         while 1:
             tries += 1
-            raw_img = await self.context._get(
+            raw_img = await self._get(
                 f"https://www.internationalsaimoe.com/captcha/{self.voting_token}/{int(time.time() * 1000)}",
                 timeout=CAPTCHA_TIMEOUT)
             img = Image.open(BytesIO(raw_img))
@@ -292,15 +334,24 @@ class VoterPlaywright:
                 self.captcha = captcha
                 return captcha
 
+    async def submit(self):
+        # TODO: select characters
+        # TODO: fill captcha input
+        # TODO: wait for the submit button and click
+        # TODO: wait for and handle the response
+        raise NotImplementedError
+    
     async def vote(self):
+        await browser_pool.__aenter__()
         try:
             await self.enter_ISML()
+            await self.AI_decaptcha()
+            await self.submit()
         except:
             pass
         finally:
-            await browser_pool.__aexit__()
+            await browser_pool.__aexit__(None, None, None)
         
-
 
 class CfHandler(tornado.web.RequestHandler, ABC):
     
