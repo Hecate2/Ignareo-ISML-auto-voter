@@ -87,7 +87,7 @@ async def build_client_with_clearance(
         proxies = {'all://': proxies}
     client = client or httpx.AsyncClient(proxies=proxies, verify=False)
     # use cf_clearance, must be same IP and UA
-    client.headers.update({"user-agent": ua})
+    client.headers.update({"user-agent": ua, 'keep-alive': 'timeout=600, max=10000'})
     client.cookies.update(cookies_for_httpx)
     if test:  # not necessary in actual combat
         res = await client.get(url)
