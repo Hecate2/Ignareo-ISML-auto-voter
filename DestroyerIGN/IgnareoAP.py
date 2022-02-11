@@ -1,7 +1,10 @@
 # `AP` for `async playwright`
 # IGN AP is for getting Cloudflare clearance before voting with httpx
 # Alternatively it may just obtain the clearance and return the ua & clearance to other processes
-from get_cf_clearance import get_one_clearance, build_client_with_clearance
+from get_cf_clearance import (get_one_clearance, build_client_with_clearance,
+    async_playwright, async_cf_retry, Error, Page, stealth_async)
+from playwright.async_api import Route, Playwright
+
 from charaSelector import selector
 from judge_img import judge
 import numpy as np
@@ -20,6 +23,7 @@ import re
 import logging
 import asyncio
 from hashlib import md5
+from urllib.parse import urlencode
 import multiprocessing
 
 import psutil
@@ -43,6 +47,8 @@ browser_pool = asyncio.Semaphore(browser_pool_size)
 local_client = httpx.AsyncClient()
 worker_loop = asyncio.get_event_loop()
 asyncio.set_event_loop(worker_loop)
+
+playwright: Playwright = worker_loop.run_until_complete(async_playwright().start())
 
 HttpxExceptions = (httpx.HTTPError, httpx.StreamError)
 REQUEST_TIMEOUT, CAPTCHA_TIMEOUT = 80, 80
@@ -77,13 +83,13 @@ class VoterHttpx:
             self.proxy = next(iter(proxy.values()))
         self.local_client = local_client
         self.loop = loop
-        self.fingerprint = md5(('TiLakPanColNoRhChNeIt' + proxy).encode()).hexdigest()
+        self.fingerprint = md5(('TiLakPanColNoRhChNeIt' + self.proxy).encode()).hexdigest()
     
     @classmethod
     def from_client(cls, client: httpx.AsyncClient):
         return cls(client=client)
     
-    def retry(self, *exceptions, retries=2, cooldown=0):  # , verbose=True):
+    def retry(self, *exceptions, retries=2, cooldown=0):
         def wrap(func):
             @wraps(func)
             async def inner(*args, **kwargs):
@@ -222,6 +228,80 @@ class VoterHttpx:
             await self.client.aclose()
 
 
+class VoterPlaywright:
+    def __init__(self, proxy: Union[str, Dict[str, str]],
+                 browser_args=None, page_args: Optional[Dict] = None):
+        self.browser_args = browser_args or ["--disable-web-security", "--disable-webgl"]
+        self.page_args = page_args or {'viewport': {"width": 0, "height": 0}}
+        self.proxy = {'server': proxy} if type(proxy) is str else proxy
+        self.fingerprint = md5(('TiLakPanColNoRhChNeIt' + str(proxy)).encode()).hexdigest()
+    
+    async def enter_ISML(self):
+        await browser_pool.__aenter__()
+        if self.proxy:
+            browser = await playwright.chromium.launch(
+                headless=False, proxy=self.proxy, args=self.browser_args)
+        else:
+            browser = await playwright.chromium.launch(
+                headless=False, args=self.browser_args)
+        context = await browser.new_context(**self.page_args)
+        page = await context.new_page()
+        await stealth_async(page)
+
+        def modify_fingerprint(route: Route):
+            asyncio.create_task(route.continue_(post_data=urlencode({"secure": self.fingerprint})))
+
+        await page.route(lambda s: 'www.internationalsaimoe.com/security' in s, modify_fingerprint)
+        await page.route(lambda s: 'www.internationalsaimoe.com/fonts' in s, lambda route: route.abort())
+        await page.route(lambda s: 'cdnjs.cloudflare.com/ajax/libs/owl-carousel' in s, lambda route: route.abort())
+        await page.route(re.compile(r"(https://www\.internationalsaimoe\.com/.*\.gif(\?.*|$))|(.*\.png(\?.*|$))|(.*\.jpg(\?.*|$))|(.*\.jpeg(\?.*|$))|(.*\.css(\?.*|$))"),
+                         lambda route: route.abort())
+        await page.goto('http://www.internationalsaimoe.com/voting')
+        res = await async_cf_retry(page)
+        if res:
+            content = await page.content()
+            voting_token = re.search(voting_token_pattern, content)
+            if voting_token:
+                self.html = content
+                self.voting_token = voting_token.group(1)
+                self.start_time = time.time()
+                self.browser = browser
+                self.context = context
+                self.page = page
+                logging.info(f'{self.proxy} entered ISML')
+            else:
+                raise NoVotingToken(f'{self.proxy}')
+            return
+        else:
+            await browser.close()
+            raise InterruptedError(f"{self.proxy} cf challenge fail")
+
+    async def AI_decaptcha(self):
+        tries = 0
+        while 1:
+            tries += 1
+            raw_img = await self.context._get(
+                f"https://www.internationalsaimoe.com/captcha/{self.voting_token}/{int(time.time() * 1000)}",
+                timeout=CAPTCHA_TIMEOUT)
+            img = Image.open(BytesIO(raw_img))
+            img = 255 - np.array(img.convert('L'))  # 转化为灰度图
+            if judge(img):
+                del img
+                logging.info(f'{self.proxy} can recognize the {tries}-th captcha')
+                captcha = await self._local_post(next(cs_gen), raw_img)
+                self.captcha = captcha
+                return captcha
+
+    async def vote(self):
+        try:
+            await self.enter_ISML()
+        except:
+            pass
+        finally:
+            await browser_pool.__aexit__()
+        
+
+
 class CfHandler(tornado.web.RequestHandler, ABC):
     
     def write_error(self, status_code: int, **kwargs):
@@ -233,7 +313,7 @@ class CfHandler(tornado.web.RequestHandler, ABC):
         if not re.findall(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}", proxy):
             proxy = None
         async with browser_pool:
-            ua, cookies = await get_one_clearance(proxy)
+            ua, cookies = await get_one_clearance(proxy, playwright=playwright)
         self.write({'ua': ua, 'cookies': cookies})
         return ua, cookies
     
