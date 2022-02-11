@@ -27,7 +27,7 @@ browser_pool = asyncio.Semaphore(browser_pool_size)
 asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
 
 local_client = httpx.AsyncClient()
-worker_loop = asyncio.ProactorEventLoop()
+worker_loop = asyncio.get_event_loop()
 asyncio.set_event_loop(worker_loop)
 
 
@@ -75,9 +75,17 @@ if __name__ == "__main__":
     logging.info(f'IgnareoAP: {num_cpu} CPUs with total memory {total_memory_GB} GB')
     logging.info(f'IgnareoAP: set browser_pool_size=={browser_pool_size} for each process')
     
+    captcha_servers_OK = True
     for captcha_server in captcha_servers:
-        worker_loop.run_until_complete(local_client.get(captcha_server))
-    logging.info('IgnaleoAP: captcha servers OK')
+        try:
+            worker_loop.run_until_complete(local_client.get(captcha_server))
+        except Exception as e:
+            captcha_servers_OK = False
+            logging.warning(f'Failed to contact captcha server {captcha_server}')
+    if captcha_servers_OK:
+        logging.info('IgnaleoAP: captcha servers OK')
+    else:
+        logging.warning('IgnaleoAP: failed to contact some captcha servers')
     
     from multiprocessing import Process
     
