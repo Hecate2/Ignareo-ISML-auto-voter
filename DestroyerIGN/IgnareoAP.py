@@ -231,7 +231,19 @@ class VoterHttpx:
 class VoterPlaywright:
     def __init__(self, proxy: str,
                  browser_args=None, page_args: Optional[Dict] = None):
-        self.browser_args = browser_args or ["--disable-web-security", "--disable-webgl"]
+        self.browser_args = browser_args or [
+            # "https://peter.sh/experiments/chromium-command-line-switches/"
+            "--enable-low-end-device-mode",
+            "--no-sandbox",
+            "--single-process",
+            "--renderer-process-limit=1",
+            "--disable-smooth-scrolling",
+            "--disable-web-security",
+            "--disable-webgl",
+            "--disable-dev-shm-usage",
+            "--disable-site-isolation-trials",
+            "--disable-features=site-per-process",
+        ]
         self.page_args = page_args or {'viewport': {"width": 0, "height": 0}}
         self.proxy = proxy
         self.fingerprint = md5(('TiLakPanColNoRhChNeIt' + str(proxy)).encode()).hexdigest()

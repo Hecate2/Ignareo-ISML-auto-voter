@@ -49,7 +49,19 @@ async def get_one_clearance(proxy=None, logs=False):
         else:
             browser = await p.chromium.launch(
                 headless=False,
-                args=["--window-position=1000,800", "--disable-web-security", "--disable-webgl"])
+                args=[
+                    # "https://peter.sh/experiments/chromium-command-line-switches/"
+                    "--enable-low-end-device-mode",
+                    "--no-sandbox",
+                    "--single-process",
+                    "--renderer-process-limit=1",
+                    "--disable-smooth-scrolling",
+                    "--disable-web-security",
+                    "--disable-webgl",
+                    "--disable-dev-shm-usage",
+                    "--disable-site-isolation-trials",
+                    "--disable-features=site-per-process",
+                ])
         page = await browser.new_page(viewport={"width": 0, "height": 0})
         await stealth_async(page)
         
