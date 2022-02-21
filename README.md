@@ -14,7 +14,7 @@ Python 3.6 √ (not recommended, for worse SSL)
 
 Python 3.7 √ 
 
-Python 3.8 √
+Python 3.8 √ (recommended, for better asyncio performance on Windows)
 
 Tensorflow-related requirements applicable for combat with Python 3.8 (not for model training):
 
