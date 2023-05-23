@@ -1,5 +1,5 @@
 AdvancedHTMLParser==9.0.1
 fake-useragent==0.1.11
 gevent==20.6.2
-requests==2.24.0
+requests==2.31.0
 tornado==6.0.4
