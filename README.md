@@ -1,4 +1,6 @@
-﻿# Destroyer Ignareo (IGN)  
+# Destroyer Ignareo (IGN) 
+
+**[中文](/README-zh.md)** | **English**
 
 *To love another person is to see the face of God.*  
 
