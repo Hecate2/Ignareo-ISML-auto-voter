@@ -30,6 +30,10 @@ CUDA==11.5.2 cuDNN==8.3.2
 
 **The model for `captchaServer.py` was trained in late 2018 with `tensorflow==1.11`, and does not support Python 3.8.**
 
+**Efficient captcha recognizer:** https://huggingface.co/AIris-Channel/vit-gpt2-verifycode-caption
+
+Captcha dataset: https://huggingface.co/datasets/Hecate2/ISML-captcha
+
 ----
 
 **无论世萌，B萌，部落萌，贴吧萌，一切萌战都是刷票！而只有刷票能对抗刷票。**  
