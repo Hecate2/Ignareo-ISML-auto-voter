@@ -15,7 +15,7 @@ OUT = os.path.join(_HERE, "2.md")
 REPORT = os.path.join(_HERE, "annotation_report.txt")
 
 REG = {
- "ithea":     {"names":["艾瑟雅"], "gender":"f", "color":"E36C0A", "bold":False},
+ "ithea":     {"names":["艾瑟雅"], "gender":"f", "color":"E36C0A", "bold":True},
  "nasania": {"names":["纳萨尼亚"], "gender":"f", "color":None, "bold":False},
  "alberic":   {"names":["爱尔贝"], "gender":"f", "color":None, "bold":False},
  "lillia":    {"names":["莉莉娅","莉莉"], "gender":"f", "color":"FF0000", "bold":False},
@@ -28,7 +28,7 @@ REG = {
  "nopht":     {"names":["诺夫特"], "gender":"f", "color":"FF3300", "bold":True},
  "collon":    {"names":["可蓉"], "gender":"f", "color":"FFC0CB", "bold":False},
  "almita":    {"names":["阿尔弥塔"], "gender":"f", "color":"F5E6C4", "bold":True},
- "eudea":     {"names":["优蒂亚"], "gender":"f", "color":"4E7CA1", "bold":True},
+ "eudea":     {"names":["优蒂亚"], "gender":"f", "color":"4E7CA1", "bold":False},
  "marguerite":{"names":["玛尔歌莉特","玛尔歌"], "gender":"f", "color":"8D6E63", "bold":False},
  "feodor":    {"names":["费奥多尔"], "gender":"m", "color":"455A64", "bold":False},
  "willem":    {"names":["威廉"], "gender":"m", "color":None, "bold":True},
