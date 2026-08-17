@@ -54,7 +54,7 @@ def focal_id(lineno):
     if 1232 <= lineno <= 1343: return "pannibal"     # 潘丽宝 潜入/登陆
     if 1456 <= lineno <= 1577: return "tiat"         # 缇亚忒 战场
     if 724  <= lineno <= 731:  return "almita"       # 游戏间 (与优蒂亚对)
-    if 1090 <= lineno <= 1145: return "yutia"        # 游戏间 (优蒂亚主视角)
+    if 1090 <= lineno <= 1145: return "almita"       # 游戏间 (阿尔弥塔主视角："优蒂亚和我""她转方向，我踩击发")
     if 1368 <= lineno <= 1403: return "almita"       # 游戏间 (与优蒂亚对)
     return "ithea"
 
@@ -197,10 +197,11 @@ def main():
             for nm in ALL_NAMES:
                 if nm in clean: no[NAME2ID[nm]]=no.get(NAME2ID[nm],0)+clean.count(nm)
             if len(no)==1: speaker=list(no)[0]
-        # 摩尔宁 / 机械孩子 encounter: child or sword speaks (not 缇亚忒)
+        # 摩尔宁 / 机械孩子 encounter: only 圣剑摩尔宁（制导核心）本身开口才算 moaning；
+        # 兽孩子的台词（"一起玩吗？"等）与缇亚忒的日志备注（"此处有孩子"）不标注
         if speaker is None and 1484 <= lineno <= 1577:
             neigh=" ".join(lines[max(0,idx-3):idx+4])
-            if any(k in neigh for k in ["孩子","机械孩子","巨剑","摩尔宁","制导核心"]):
+            if ("制导核心" in neigh) or ("报错" in neigh) or ("cuda" in neigh):
                 speaker="moaning"
         # 教官 (training AI) referenced as 小窗口 / 训练体, or explicit 教官说
         if speaker is None:
