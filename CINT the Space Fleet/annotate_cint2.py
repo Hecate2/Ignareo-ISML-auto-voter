@@ -17,7 +17,7 @@ REPORT = os.path.join(_HERE, "annotation_report.txt")
 REG = {
  "ithea":     {"names":["艾瑟雅"], "gender":"f", "color":"E36C0A", "bold":True},
  "nasania": {"names":["纳萨尼亚"], "gender":"f", "color":None, "bold":False},
- "alberic":   {"names":["爱尔贝"], "gender":"f", "color":None, "bold":False},
+ "elba":   {"names":["爱尔贝"], "gender":"f", "color":None, "bold":False},
  "lillia":    {"names":["莉莉娅","莉莉"], "gender":"f", "color":"FF0000", "bold":False},
  "rhantolk":  {"names":["兰朵露可","兰"], "gender":"f", "color":"8DB3E2", "bold":True},
  "chtholly":  {"names":["珂朵莉"], "gender":"f", "color":"548DD4", "bold":True},
@@ -32,7 +32,7 @@ REG = {
  "marguerite":{"names":["玛尔歌莉特","玛尔歌"], "gender":"f", "color":"8D6E63", "bold":False},
  "feodor":    {"names":["费奥多尔"], "gender":"m", "color":"455A64", "bold":False},
  "willem":    {"names":["威廉"], "gender":"m", "color":None, "bold":True},
- "swong":     {"names":["史旺"], "gender":"m", "color":"5D4037", "bold":False},
+ "suowong":   {"names":["史旺"], "gender":"m", "color":"5D4037", "bold":False},
  "limeskin":  {"names":["灰岩皮"], "gender":"m", "color":"76923C", "bold":False},
  "instructor":{"names":["教官"], "gender":"m", "color":"546E7A", "bold":False},
  "moaning":   {"names":["摩尔宁"], "gender":"n", "color":None, "bold":False},

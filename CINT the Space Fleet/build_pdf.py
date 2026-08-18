@@ -26,6 +26,9 @@ build_pdf.py — 把带脚注的 Markdown 渲染成「脚注编号保留原样(4
     python3 build_pdf.py --quality lossless       # 无损（图片不压缩）
     python3 build_pdf.py --quality low            # 更小体积（72 DPI）
     python3 build_pdf.py --quality 120            # 任意 DPI 数值
+    python3 build_pdf.py --bold heavy             # 最强加粗：宋体 Heavy/Black 主字重
+    python3 build_pdf.py --bold 900               # 宋体 Heavy（唯一能命中更重主字重的数值：
+                                                  #   只有 100 的整数倍才被承认，700/800=Bold、900=Heavy）
 """
 
 import argparse
@@ -58,6 +61,22 @@ MAX_CONTENT_WIDTH = "40em"   # 正文最大宽度（控制每行字数，留空�
 
 # —— 字体（CJK 优先；若缺字改成你系统有的中文字体）——
 FONT_FAMILY = '"Songti SC", "STSong", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", serif'
+
+# —— 加粗强度 ——
+# ⚠️ 关键坑：WeasyPrint 只承认 font-weight 为 100 的整数倍（100/200/…/900）或
+#   关键字（normal/bold/heavy…）。像 899、850、901 这类「非整数倍」数值会被
+#   【静默忽略】，加粗元素于是退回浏览器默认 bold(700) = Songti-SC-Bold，
+#   表现为「怎么调字重都没更粗」。这正是之前默认 899 不够粗的根因。
+# 本机 Songti SC 真实只提供四档可见字重：Light(300)/Regular(400)/Bold(700)/Heavy(900)。
+#   - 700 / 800 都映射到 Bold（800 也退 Bold，因为没有更重的中间字重）
+#   - 只有 900 能命中 Songti-SC-Heavy（黑体，同一宋体家族，约 +25% 墨量，肉眼更粗）
+# 结论：要「更粗」就把加粗设成 900（或 "heavy"）。这就是为什么默认就是 900。
+BOLD_STRENGTH = 700   # normal(700) / heavy(900) / 仅限 100 的整数倍，否则被无视
+
+BOLD_WEIGHT_PRESETS = {
+    "normal": 700,   # 宋体 Bold（常规加粗）
+    "heavy":  900,   # 宋体 Heavy/Black（明显更粗，同一宋体家族）
+}
 
 # —— 脚注视觉 ——
 FOOTNOTE_RULE = True         # 脚注区上方是否画一条分隔线
@@ -99,6 +118,35 @@ def resolve_quality(q):
         step("无效画质档位: %r（可选: %s，或直接写 DPI 数字）"
              % (q, "/".join(QUALITY_PRESETS)))
         sys.exit(1)
+
+
+def resolve_bold_weight(v):
+    """把加粗强度档位名 / 数字解析成 CSS font-weight 数值。
+
+    只允许 100 的整数倍（100–900，WeasyPrint 只承认这些）或关键字
+    normal/heavy。非整数倍（如 899/850/901）会被 WeasyPrint 静默忽略、
+    退回默认 bold，所以这里先把它们四舍五入到最近的 100 并给出警告，
+    避免再次掉进「调了字重却没变粗」的坑。
+    """
+    v = str(v).strip().lower()
+    if v in BOLD_WEIGHT_PRESETS:
+        return BOLD_WEIGHT_PRESETS[v]
+    try:
+        w = int(v)
+    except ValueError:
+        step("无效加粗强度: %r（可选: %s，或写 100 的整数倍如 700/800/900）"
+             % (v, "/".join(BOLD_WEIGHT_PRESETS)))
+        sys.exit(1)
+    if w < 100 or w > 900:
+        step("加粗强度超出范围(100–900): %r，已钳制到 900" % w)
+        return 900
+    if w % 100 != 0:
+        rw = (w + 50) // 100 * 100      # 四舍五入到最近的 100
+        rw = max(100, min(900, rw))
+        step("⚠️ 加粗强度 %d 不是 100 的整数倍，WeasyPrint 会无视它；"
+             "已四舍五入为 %d（本机 900=Heavy 最粗，700/800=Bold）" % (w, rw))
+        return rw
+    return w
 
 
 def strip_tags(s):
@@ -192,7 +240,8 @@ def remap_html(html, mapping):
 
 
 def inject_css(html, font_size, footnote_ratio, line_height, max_width,
-               page_size, margin, font_family, rule, p_gap, fn_gap):
+               page_size, margin, font_family, rule, p_gap, fn_gap,
+               bold_weight=700):
     css = """
     body {
         font-family: %(ff)s;
@@ -205,6 +254,11 @@ def inject_css(html, font_size, footnote_ratio, line_height, max_width,
     }
     img { max-width: 100%%; height: auto; }
     h1, h2, h3, h4 { font-weight: bold; line-height: 1.35; }
+
+    /* —— 加粗强度：统一覆盖所有加粗元素（标题/strong/正文彩色加粗 span）—— */
+    strong, b, h1, h2, h3, h4, span[style*="font-weight"] {
+        font-weight: %(bw)s !important;
+    }
     p { margin: %(pg)sem 0; }
     .footnotes p { margin: %(fg)sem 0; }
 
@@ -253,6 +307,7 @@ def inject_css(html, font_size, footnote_ratio, line_height, max_width,
         "fs": font_size,
         "lh": line_height,
         "mw": max_width or "none",
+        "bw": bold_weight,
         "ffs": round(font_size * footnote_ratio, 2),
         "rule": "hr { margin: 1.2em 0; }" if rule else "",
         "ps": page_size,
@@ -288,9 +343,13 @@ def main():
     ap.add_argument("--quality", default=None,
                     help="画质档位: lossless / high(150dpi) / medium(96dpi) / "
                          "low(72dpi)，或 DPI 数字如 110（默认取 CONFIG 的 QUALITY）")
+    ap.add_argument("--bold", default=None,
+                    help="加粗强度: normal(700) / heavy(900)，或 100 的整数倍(700/800/900)；"
+                         "非整数倍会被四舍五入。默认取 CONFIG 的 BOLD_STRENGTH")
     args = ap.parse_args()
 
     font_size = args.font if args.font else BASE_FONT_SIZE_PT
+    bold_weight = resolve_bold_weight(args.bold or BOLD_STRENGTH)
 
     # 画质档位 -> DPI（None = 无损）
     dpi = resolve_quality(args.quality or QUALITY)
@@ -327,11 +386,11 @@ def main():
                                 for k in sorted(mapping)))
     html = remap_html(html, mapping)
 
-    step("注入样式 (字号 %spt) ..." % font_size)
+    step("注入样式 (字号 %spt, 加粗 %s) ..." % (font_size, bold_weight))
     html = inject_css(html, font_size, FOOTNOTE_FONT_RATIO,
                       LINE_HEIGHT, MAX_CONTENT_WIDTH, PAGE_SIZE, PAGE_MARGIN,
                       FONT_FAMILY, FOOTNOTE_RULE,
-                      PARAGRAPH_GAP_EM, FOOTNOTE_GAP_EM)
+                      PARAGRAPH_GAP_EM, FOOTNOTE_GAP_EM, bold_weight)
 
     open(tmp_html, "w", encoding="utf-8").write(html)
 
